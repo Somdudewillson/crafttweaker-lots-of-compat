@@ -259,6 +259,10 @@ LIQUID_SLIME.add(<fluid:tconstruct:ender_slime>);
 <tag:blocks:forge:storage_blocks/pearl>.add(<block:grimoireofgaia:pearl_block>);
 <tag:items:forge:storage_blocks/pearl>.add(<item:grimoireofgaia:pearl_block>);
 #endif
+#onlyif modloaded hammerlib
+<tag:items:forge:gears>.add(<item:hammerlib:gears/wooden>);
+<tag:items:forge:gears>.add(<item:hammerlib:gears/stone>);
+#endif
 
 // Create Upright Items
 #onlyif modloaded create
