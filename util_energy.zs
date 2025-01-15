@@ -1,5 +1,18 @@
 #priority 100
 
+// This is a somewhat complicated utility function for automatically handling conversions between different kinds of "energy"
+// It precalculates ratios between all possible energy types based on the registered conversion ratios
+// It can handle sparsely registered ratios - i.e. if a ratio from mana to source is registered alongside a ratio from source to rf, it can calculate a mana to rf ratio
+// Registered ratios may also be one-way
+// It also tries to handle conflicting ratios in an elegant way, by preferring the conversion ratio with the shortest conversion path (i.e. if mana can be converted directly to source, it will prefer that ratio over, say, a conversion from source to rf to mana)
+//
+// Example usage:
+// new ConvertableEnergy(EnergyType.BOTANIA_MANA, 100).to(EnergyType.ARS_SOURCE).amount
+// This code:
+//      1. Creates a ConvertableEnergy object holding 100 Botania mana
+//      2. Converts said object into Ars Nouveau source
+//      3. Gets the exact amount of converted source (which is an integer)
+
 public enum EnergyType {
     EXPERIENCE_POINTS("experience_points"),
     EXPERIENCE_LEVELS("experience_levels"),
