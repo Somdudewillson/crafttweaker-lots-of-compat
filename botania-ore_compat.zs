@@ -1,5 +1,7 @@
 #modloaded botania
 
+// This script uses ore block tags to register ore blocks to the Botania Orechid and Orechid Ignem
+
 import crafttweaker.api.game.Game;
 import crafttweaker.api.block.Block;
 import crafttweaker.api.tag.manager.ITagManager;
