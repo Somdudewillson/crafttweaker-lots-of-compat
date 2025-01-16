@@ -84,6 +84,9 @@ LIQUID_SLIME.add(<fluid:tconstruct:ender_slime>);
 <tag:fluids:forge:magma>.add(<fluid:burnt:liquid_magma>);
 #endif
 #onlyif modloaded scguns
+<tag:items:forge:tools/knifes>.add(<item:scguns:anthralite_knife>);
+
+
 <tag:items:forge:dusts/niter>.add(<item:scguns:niter_dust>);
 
 <tag:items:forge:ores/anthralite>.add(<item:scguns:anthralite_ore>);
@@ -262,6 +265,61 @@ LIQUID_SLIME.add(<fluid:tconstruct:ender_slime>);
 #onlyif modloaded hammerlib
 <tag:items:forge:gears>.add(<item:hammerlib:gears/wooden>);
 <tag:items:forge:gears>.add(<item:hammerlib:gears/stone>);
+#endif
+#onlyif modloaded ae2
+<tag:items:forge:tools/knifes>.add(<tag:items:ae2:knife>);
+#endif
+#onlyif modloaded ae2 ae2_tools
+<tag:items:forge:tools/knifes>.add(<item:ae2_tools:certus_quartz_knife>);
+<tag:items:forge:tools/knifes>.add(<item:ae2_tools:fluix_knife>);
+#endif
+#onlyif modloaded tools_complement
+<tag:items:forge:tools/knifes>.add(<item:tools_complement:iron_knife>);
+<tag:items:forge:tools/knifes>.add(<item:tools_complement:gold_knife>);
+<tag:items:forge:tools/knifes>.add(<item:tools_complement:diamond_knife>);
+<tag:items:forge:tools/knifes>.add(<item:tools_complement:netherite_knife>);
+<tag:items:forge:tools/knifes>.add(<item:tools_complement:copper_knife>);
+<tag:items:forge:tools/knifes>.add(<item:tools_complement:tin_knife>);
+<tag:items:forge:tools/knifes>.add(<item:tools_complement:lead_knife>);
+<tag:items:forge:tools/knifes>.add(<item:tools_complement:silver_knife>);
+<tag:items:forge:tools/knifes>.add(<item:tools_complement:nickel_knife>);
+<tag:items:forge:tools/knifes>.add(<item:tools_complement:bronze_knife>);
+<tag:items:forge:tools/knifes>.add(<item:tools_complement:electrum_knife>);
+<tag:items:forge:tools/knifes>.add(<item:tools_complement:invar_knife>);
+<tag:items:forge:tools/knifes>.add(<item:tools_complement:constantan_knife>);
+#endif
+
+// Farmers Delight Block Tags
+#onlyif modloaded farmersdelight
+<tag:blocks:farmersdelight:heat_sources>.add(<tag:blocks:forge:storage_blocks/uranium>);
+#onlyif modloaded alexscaves
+<tag:blocks:farmersdelight:heat_sources>.add(<block:alexscaves:primal_magma>);
+<tag:blocks:farmersdelight:heat_sources>.add(<block:alexscaves:volcanic_core>);
+#endif
+#onlyif modloaded burnt
+<tag:blocks:farmersdelight:heat_sources>.add(<block:burnt:liquid_magma>);
+<tag:blocks:farmersdelight:tray_heat_sources>.add(<block:burnt:liquid_magma>);
+#endif
+#onlyif modloaded tconstruct
+<tag:blocks:farmersdelight:heat_sources>.add(<block:tconstruct:magma_fluid>);
+<tag:blocks:farmersdelight:tray_heat_sources>.add(<block:tconstruct:magma_fluid>);
+<tag:blocks:farmersdelight:heat_sources>.add(<block:tconstruct:blazing_blood_fluid>);
+<tag:blocks:farmersdelight:tray_heat_sources>.add(<block:tconstruct:blazing_blood_fluid>);
+#endif
+#onlyif modloaded scguns
+<tag:blocks:farmersdelight:heat_sources>.add(<block:scguns:sulfur_vent>);
+<tag:blocks:farmersdelight:heat_sources>.add(<block:scguns:geothermal_vent>);
+#endif
+#onlyif modloaded twilightforest
+<tag:blocks:farmersdelight:heat_sources>.add(<block:twilightforest:smoker>);
+<tag:blocks:farmersdelight:heat_sources>.add(<block:twilightforest:fire_jet>);
+#endif
+#onlyif modloaded botania
+<tag:blocks:farmersdelight:heat_sources>.add(<block:botania:exoflame>);
+<tag:blocks:farmersdelight:tray_heat_sources>.add(<block:botania:exoflame>);
+<tag:blocks:farmersdelight:heat_sources>.add(<block:botania:floating_exoflame>);
+<tag:blocks:farmersdelight:tray_heat_sources>.add(<block:botania:floating_exoflame>);
+#endif
 #endif
 
 // Create Upright Items
