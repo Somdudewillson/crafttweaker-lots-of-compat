@@ -292,6 +292,9 @@ LIQUID_SLIME.add(<fluid:tconstruct:ender_slime>);
 // Farmers Delight Block Tags
 #onlyif modloaded farmersdelight
 <tag:blocks:farmersdelight:heat_sources>.add(<tag:blocks:forge:storage_blocks/uranium>);
+<tag:blocks:farmersdelight:compost_activators>.add(<tag:blocks:forge:mushrooms>);
+<tag:blocks:farmersdelight:heat_conductors>.add(<tag:blocks:forge:storage_blocks/copper>);
+<tag:blocks:farmersdelight:heat_conductors>.add(<tag:blocks:forge:storage_blocks/gold>);
 #onlyif modloaded alexscaves
 <tag:blocks:farmersdelight:heat_sources>.add(<block:alexscaves:primal_magma>);
 <tag:blocks:farmersdelight:heat_sources>.add(<block:alexscaves:volcanic_core>);
@@ -319,6 +322,9 @@ LIQUID_SLIME.add(<fluid:tconstruct:ender_slime>);
 <tag:blocks:farmersdelight:tray_heat_sources>.add(<block:botania:exoflame>);
 <tag:blocks:farmersdelight:heat_sources>.add(<block:botania:floating_exoflame>);
 <tag:blocks:farmersdelight:tray_heat_sources>.add(<block:botania:floating_exoflame>);
+#endif
+#onlyif modloaded tconstruct
+<tag:items:farmersdelight:straw_harvesters>.add(<item:tconstruct:scythe>);
 #endif
 #endif
 
