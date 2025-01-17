@@ -310,3 +310,65 @@ import crafttweaker.api.ingredient.IIngredient;
     }
   ]
 });
+
+// Thermal Construct Melting
+<recipetype:tconstruct:melting>.addJsonRecipe("melting_create_industrial_iron_block", {
+  "type": "tconstruct:melting",
+  "ingredient": [
+    (<item:create:industrial_iron_block> as IIngredient) as IData
+  ],
+  "result": {
+    "amount": 45,
+    "fluid": "tconstruct:molten_iron"
+  },
+  "temperature": 800,
+  "time": 7.5*4
+});
+<recipetype:tconstruct:melting>.addJsonRecipe("melting_create_brass_scaffolding", {
+  "type": "tconstruct:melting",
+  "ingredient": [
+    (<item:create:brass_scaffolding> as IIngredient) as IData
+  ],
+  "result": {
+    "amount": 45,
+    "fluid": "tconstruct:molten_brass"
+  },
+  "temperature": 605,
+  "time": 7.5*4
+});
+<recipetype:tconstruct:melting>.addJsonRecipe("melting_create_copper_scaffolding", {
+  "type": "tconstruct:melting",
+  "ingredient": [
+    (<item:create:copper_scaffolding> as IIngredient) as IData
+  ],
+  "result": {
+    "amount": 45,
+    "fluid": "tconstruct:molten_copper"
+  },
+  "temperature": 500,
+  "time": 7.5*4
+});
+<recipetype:tconstruct:melting>.addJsonRecipe("melting_create_brass_ladder", {
+  "type": "tconstruct:melting",
+  "ingredient": [
+    (<item:create:brass_ladder> as IIngredient) as IData
+  ],
+  "result": {
+    "amount": 45,
+    "fluid": "tconstruct:molten_brass"
+  },
+  "temperature": 605,
+  "time": 7.5*4
+});
+<recipetype:tconstruct:melting>.addJsonRecipe("melting_create_copper_ladder", {
+  "type": "tconstruct:melting",
+  "ingredient": [
+    (<item:create:copper_ladder> as IIngredient) as IData
+  ],
+  "result": {
+    "amount": 45,
+    "fluid": "tconstruct:molten_copper"
+  },
+  "temperature": 500,
+  "time": 7.5*4
+});
