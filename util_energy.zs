@@ -163,11 +163,15 @@ public class ConvertableEnergy {
                                 if (ratioDiff > 0.0001) {
                                     var warnMessage = "WARN] Inconsistent calculated energy conversion between "+fromType.getKey()+" and "+toType.getKey()+"!";
                                     warnMessage += " ("+calculatedConversionChainInfo[skipConversionKey]+" vs "+chainedVisitor.prettyToString()+")";
-                                    warnMessage += " Keeping shorter chain.";
-                                    if (calculatedConversionChainLengths[skipConversionKey] > chainedVisitor.chainLength) {
-                                        calculatedConversionRatios[skipConversionKey] = chainedVisitor.ratio;
-                                        calculatedConversionChainLengths[skipConversionKey] = chainedVisitor.chainLength;
-                                        calculatedConversionChainInfo[skipConversionKey] = chainedVisitor.prettyToString();
+                                    if (calculatedConversionChainLengths[skipConversionKey] != chainedVisitor.chainLength) {
+                                        warnMessage += " Keeping shorter chain.";
+                                        if (calculatedConversionChainLengths[skipConversionKey] > chainedVisitor.chainLength) {
+                                            calculatedConversionRatios[skipConversionKey] = chainedVisitor.ratio;
+                                            calculatedConversionChainLengths[skipConversionKey] = chainedVisitor.chainLength;
+                                            calculatedConversionChainInfo[skipConversionKey] = chainedVisitor.prettyToString();
+                                        }
+                                    } else {
+                                        warnMessage += " Keeping existing chain.";
                                     }
                                     println(warnMessage);
                                 }
