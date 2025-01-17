@@ -288,6 +288,30 @@ LIQUID_SLIME.add(<fluid:tconstruct:ender_slime>);
 <tag:items:forge:tools/knifes>.add(<item:tools_complement:invar_knife>);
 <tag:items:forge:tools/knifes>.add(<item:tools_complement:constantan_knife>);
 #endif
+#onlyif modloaded alexsmobs
+<tag:items:forge:raw_fishes>.add(<item:alexsmobs:raw_catfish>);
+<tag:items:forge:foods/raw_fishes>.add(<item:alexsmobs:raw_catfish>);
+<tag:items:forge:foods/fish/raw>.add(<item:alexsmobs:raw_catfish>);
+<tag:items:forge:foods/meat>.add(<item:alexsmobs:kangaroo_meat>);
+<tag:items:forge:foods/meat/raw>.add(<item:alexsmobs:kangaroo_meat>);
+<tag:items:forge:foods/meat>.add(<item:alexsmobs:moose_ribs>);
+<tag:items:forge:foods/meat/raw>.add(<item:alexsmobs:moose_ribs>);
+#endif
+
+// Farmers Delight Item Tags
+#onlyif modloaded farmersdelight
+<tag:items:farmersdelight:offhand_equipment>.add(<item:minecraft:torch>);
+#onlyif modloaded alexsmobs
+<tag:items:farmersdelight:cabbage_roll_ingredients>.add(<item:alexsmobs:raw_catfish>);
+#endif
+#onlyif modloaded tconstruct
+<tag:items:farmersdelight:offhand_equipment>.add(<item:tconstruct:travelers_shield>);
+<tag:items:farmersdelight:offhand_equipment>.add(<item:tconstruct:plate_shield>);
+#endif
+#onlyif modloaded storagedrawers
+<tag:items:farmersdelight:offhand_equipment>.add(<item:storagedrawers:drawer_key>);
+#endif
+#endif
 
 // Farmers Delight Block Tags
 #onlyif modloaded farmersdelight
