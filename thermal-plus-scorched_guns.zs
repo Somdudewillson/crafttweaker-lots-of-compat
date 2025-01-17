@@ -240,6 +240,14 @@ craftingTable.addShapeless("convert_scguns_plasma_to_systeams_plasma_ball",
 <tag:items:thermal:crafting/dies>.add(<item:scguns:bullet_mold>);
 <tag:items:thermal:crafting/dies>.add(<item:scguns:gun_parts_mold>);
 <tag:items:thermal:crafting/dies>.add(<item:scguns:disc_mold>);
+var SCGUNS_MOLD_PROCESS_TIME as int[IItemStack] = {
+    (<item:scguns:small_casing_mold> as IItemStack): 15,
+    (<item:scguns:medium_casing_mold> as IItemStack): 15,
+    (<item:scguns:large_casing_mold> as IItemStack): 15,
+    (<item:scguns:bullet_mold> as IItemStack): 15,
+    (<item:scguns:gun_parts_mold> as IItemStack): 100,
+    (<item:scguns:disc_mold> as IItemStack): 200
+};
 var SCGUNS_MOLD_RECIPES = [
     [<item:scguns:small_casing_mold> as IIngredient, <tag:items:forge:ingots/iron> as IIngredient, (<item:scguns:small_iron_casing> as IIngredient) * 12],
     [<item:scguns:small_casing_mold> as IIngredient, <tag:items:forge:ingots/copper> as IIngredient, (<item:scguns:small_copper_casing> as IIngredient) * 12],
@@ -273,6 +281,7 @@ for moldRecipeParts in SCGUNS_MOLD_RECIPES {
         i += 1;
         recipeName = baseRecipeName+"_"+i;
     }
+    var recipeTime = SCGUNS_MOLD_PROCESS_TIME[(moldRecipeParts[0].ingredient.items[0] as IItemStack)];
     <recipetype:thermal:press>.addJsonRecipe(recipeName, {
         "type": "thermal:press",
         "ingredients": [
@@ -282,7 +291,7 @@ for moldRecipeParts in SCGUNS_MOLD_RECIPES {
         "result": [
         moldRecipeParts[2] as IData
         ],
-        "energy": 500
+        "energy": (500*recipeTime) as int
     });
     usedMoldRecipeNames[recipeName] = true;
 }
