@@ -96,7 +96,6 @@ public class ConvertableEnergy {
     private static var conversionsDirty = false;
 
     static {
-        registerConversion(EnergyType.REDSTONE_FLUX, EnergyType.FORGE_ENERGY, 1);
         registerConversion(EnergyType.EXPERIENCE_LEVELS, EnergyType.EXPERIENCE_POINTS, 46.5); // Kinda arbitrary since the number of points/level changes — this is the average points/level at level 30
     }
 
@@ -259,7 +258,7 @@ public class ConvertableEnergy {
 }
 
 #onlyif modloaded botania
-ConvertableEnergy.registerConversion(EnergyType.BOTANIA_MANA, EnergyType.REDSTONE_FLUX, 10, false);
+ConvertableEnergy.registerConversion(EnergyType.BOTANIA_MANA, EnergyType.FORGE_ENERGY, 10, false);
 ConvertableEnergy.registerConversion(EnergyType.EXPERIENCE_POINTS, EnergyType.BOTANIA_MANA, 50, false);
 #endif
 #onlyif modloaded ae2
@@ -269,5 +268,6 @@ ConvertableEnergy.registerConversion(EnergyType.FORGE_ENERGY, EnergyType.APPLIED
 ConvertableEnergy.registerConversion(EnergyType.ARS_SOURCE, EnergyType.BOTANIA_MANA, 6);
 #endif
 #onlyif modloaded thermal thermal_expansion
+ConvertableEnergy.registerConversion(EnergyType.REDSTONE_FLUX, EnergyType.FORGE_ENERGY, 1000);
 ConvertableEnergy.registerConversion(EnergyType.EXPERIENCE_POINTS, EnergyType.REDSTONE_FLUX, 32000/10, false);
 #endif
