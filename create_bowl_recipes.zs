@@ -82,6 +82,7 @@ for craftingRecipe in craftingRecipes {
         ingredientFreq[ingKey] = ingredientFreq[ingKey]+1;
         maxFreq = math.Functions.max(maxFreq, ingredientFreq[ingKey]);
     }
+    // This is not an optimal way to compute GCD, but the maximum number we have to find the GCD of is 8, so it really doesn't matter.
     var greatest_common_divisor = maxFreq+1;
     while (greatest_common_divisor>1) {
         greatest_common_divisor -= 1;
