@@ -7,6 +7,7 @@ recipes.addJsonRecipe("melting_fuel_magma", {
     "amount": 50,
     "fluid": "tconstruct:magma"
   },
+  "rate": 8,
   "temperature": 800
 });
 #onlyif modloaded burnt
@@ -17,6 +18,7 @@ recipes.addJsonRecipe("melting_fuel_burnt_magma", {
     "amount": 50,
     "fluid": "burnt:liquid_magma"
   },
+  "rate": 8,
   "temperature": 800
 });
 #endif
@@ -28,6 +30,7 @@ recipes.addJsonRecipe("melting_fuel_bigreactors_steam", {
     "amount": 50,
     "fluid": "bigreactors:steam"
   },
+  "rate": 1,
   "temperature": 100
 });
 #endif

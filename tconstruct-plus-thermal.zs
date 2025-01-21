@@ -194,6 +194,7 @@ recipes.addJsonRecipe("melting_fuel_systeams_steam", {
     "amount": 50,
     "fluid": "systeams:steam"
   },
+  "rate": 1,
   "temperature": 100
 });
 recipes.addJsonRecipe("melting_fuel_systeams_warm_steam", {
@@ -203,6 +204,7 @@ recipes.addJsonRecipe("melting_fuel_systeams_warm_steam", {
     "amount": 50,
     "fluid": "systeams:steamier"
   },
+  "rate": 5.75,
   "temperature": 575
 });
 recipes.addJsonRecipe("melting_fuel_systeams_hot_steam", {
@@ -212,6 +214,7 @@ recipes.addJsonRecipe("melting_fuel_systeams_hot_steam", {
     "amount": 50,
     "fluid": "systeams:steamiest"
   },
+  "rate": 10.5,
   "temperature": 1050
 });
 recipes.addJsonRecipe("melting_fuel_systeams_superhot_steam", {
@@ -221,6 +224,7 @@ recipes.addJsonRecipe("melting_fuel_systeams_superhot_steam", {
     "amount": 50,
     "fluid": "systeams:steamiester"
   },
+  "rate": 15.25,
   "temperature": 1525
 });
 recipes.addJsonRecipe("melting_fuel_systeams_plasma", {
@@ -230,6 +234,7 @@ recipes.addJsonRecipe("melting_fuel_systeams_plasma", {
     "amount": 50,
     "fluid": "systeams:steamiestest"
   },
+  "rate": 20,
   "temperature": 2000
 });
 #endif
