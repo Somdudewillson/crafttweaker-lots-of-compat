@@ -272,6 +272,6 @@ ConvertableEnergy.registerConversion(EnergyType.FORGE_ENERGY, EnergyType.APPLIED
 ConvertableEnergy.registerConversion(EnergyType.ARS_SOURCE, EnergyType.BOTANIA_MANA, 6);
 #endif
 #onlyif modloaded thermal thermal_expansion
-ConvertableEnergy.registerConversion(EnergyType.REDSTONE_FLUX, EnergyType.FORGE_ENERGY, 1000);
+ConvertableEnergy.registerConversion(EnergyType.REDSTONE_FLUX, EnergyType.FORGE_ENERGY, 1);
 ConvertableEnergy.registerConversion(EnergyType.EXPERIENCE_POINTS, EnergyType.REDSTONE_FLUX, 32000/10, false);
 #endif
