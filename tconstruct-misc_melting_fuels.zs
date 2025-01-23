@@ -22,6 +22,18 @@ recipes.addJsonRecipe("melting_fuel_burnt_magma", {
   "temperature": 800
 });
 #endif
+#onlyif modloaded cyclic
+recipes.addJsonRecipe("melting_fuel_cyclic_magma", {
+  "type": "tconstruct:melting_fuel",
+  "duration": 100,
+  "fluid": {
+    "amount": 50,
+    "fluid": "cyclic:magma"
+  },
+  "rate": 8,
+  "temperature": 800
+});
+#endif
 #onlyif modloaded bigreactors
 recipes.addJsonRecipe("melting_fuel_bigreactors_steam", {
   "type": "tconstruct:melting_fuel",
