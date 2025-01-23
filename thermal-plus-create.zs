@@ -1,5 +1,7 @@
 #modloaded create thermal thermal_expansion
 
+import crafttweaker.api.data.IData;
+
 // Alloy Mixing
 <recipetype:create:mixing>.addJsonRecipe("create_mix_bronze_from_ingots", {
   "type": "create:mixing",
@@ -449,5 +451,19 @@ recipes.addJsonRecipe("thermal_disenchantment_fuel_hyper_experience_bottle", {
     {
       "item": "thermal:syrup_bottle"
     }
+  ]
+});
+
+// Create compacting
+<recipetype:create:compacting>.addJsonRecipe("create_compact_latex_to_rubber", {
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "amount": 1000,
+      "fluid": "thermal:latex"
+    }
+  ],
+  "results": [
+    (<item:thermal:rubber> * 3) as IData
   ]
 });
