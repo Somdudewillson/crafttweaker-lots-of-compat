@@ -5,8 +5,8 @@ import crafttweaker.forge.api.event.interact.EntityInteractEvent;
 import crafttweaker.api.data.IData;
 import crafttweaker.api.capability.Capabilities;
 import crafttweaker.api.capability.IFluidHandlerItem;
-import crafttweaker.api.capability.IFluidHandler;
 import crafttweaker.api.world.InteractionResult;
+import crafttweaker.api.entity.type.player.Player;
 
 events.register<crafttweaker.forge.api.event.interact.EntityInteractEvent>(event => {
     if (event.target.type != <entitytype:minecraft:cow>) { return; }
@@ -15,7 +15,8 @@ events.register<crafttweaker.forge.api.event.interact.EntityInteractEvent>(event
 
     var fluidHandlerStack = event.itemStack.getInternal().getCapability<IFluidHandlerItem>(Capabilities.FLUID_ITEM);
     if (!fluidHandlerStack.isFluidValid(0, <fluid:minecraft:milk>)) { return; }
-    var filledMilk = fluidHandlerStack.fill(<fluid:minecraft:milk> * 1000, event.entity.isCreative ? <constant:forge:fluid_action:simulate> : <constant:forge:fluid_action:execute>);
+    var isCreative = (event.entity is Player) && event.entity.isCreative;
+    var filledMilk = fluidHandlerStack.fill(<fluid:minecraft:milk> * 1000, isCreative ? <constant:forge:fluid_action:simulate> : <constant:forge:fluid_action:execute>);
 
     if (filledMilk > 0) {
         event.setAllow();
