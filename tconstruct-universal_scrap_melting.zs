@@ -206,7 +206,8 @@ public class FractionalFluid {
         return fluid == <fluid:minecraft:empty> || numerator <= 0 || getIntAmount() <= 0;
     }
 }
-var EMPTY_FLUID = new FractionalFluid(<fluid:minecraft:empty>);
+val EMPTY_FLUID = new FractionalFluid(<fluid:minecraft:empty>);
+val INVALID_FLUID = new FractionalFluid(<fluid:minecraft:empty>, -1);
 
 
 var BASE_INGREDIENT_TO_MOLTEN_MAP as FractionalFluid[IIngredient] = {
@@ -495,6 +496,7 @@ while (!recipeNodeQueue.isEmpty) {
     nodeVisitCount += 1;
 
     // Parse recipe and determine if it is burnable/meltable
+    var shouldUpdateLinkedRecipes = false;
     var meltingFluid as FractionalFluid = EMPTY_FLUID;
     var recipeInvalid as bool = false;
 
@@ -515,12 +517,14 @@ while (!recipeNodeQueue.isEmpty) {
                 for ingredientItem in ingredient.items {
                     if (!recipeInvalid) {
                         var meltResult as FractionalFluid = EMPTY_FLUID;
-                        if (ingredientItem.definition in itemToMoltenMap) {
+                        if (ingredientItem.definition in itemToMoltenMap && itemToMoltenMap[ingredientItem.definition]!=INVALID_FLUID) {
                             meltResult = itemToMoltenMap[ingredientItem.definition] * (ingredientItem.amount);
 
                             if ( meltFluid.isEmpty() || meltResult.getIntAmount() < meltFluid.getIntAmount() ) {
                                 if ( (!meltFluid.isEmpty()) && meltResult.getFluid() != meltFluid.getFluid() ) {
                                     meltFluid = EMPTY_FLUID;
+                                    itemToMoltenMap[currentRecipeNode.resultItem.definition] = INVALID_FLUID;
+                                    shouldUpdateLinkedRecipes = true;
                                     recipeInvalid = true;
                                 } else {
                                     meltFluid = meltResult;
@@ -549,7 +553,6 @@ while (!recipeNodeQueue.isEmpty) {
         }
     }
 
-    var shouldUpdateLinkedRecipes = false;
     var result = currentRecipeNode.resultItem;
     if ( (!recipeInvalid) && (!meltingFluid.isEmpty()) && result.amount>0 ) {
         meltingFluid /= result.amount;
@@ -569,7 +572,7 @@ while (!recipeNodeQueue.isEmpty) {
                 shouldUpdateLinkedRecipes = true;
             }
         }
-    } else if ( ALLOW_BURNABLE_AUTO_POPULATE && burnableIngredientNum == nonAirIngredientCount && result.amount>0 && !(result in mergedBurnableIngredient) ) {
+    } else if ( ALLOW_BURNABLE_AUTO_POPULATE && burnableIngredientNum == nonAirIngredientCount && result.amount>0 && !(result.definition in itemToMoltenMap) && !(result in mergedBurnableIngredient) ) {
         mergedBurnableIngredient = mergedBurnableIngredient | result;
         shouldUpdateLinkedRecipes = true;
     }
@@ -588,7 +591,7 @@ println("Finished scanning recipe graph; visited "+(nodeVisitCount as string)+" 
 for itemDefinition, meltingFluid in itemToMoltenMap {
     var recipeName = "lots_of_compat_generic_smeltery_melting_melt_"+itemDefinition.registryName.namespace+"-"+itemDefinition.registryName.path;
 
-    if ( (!meltingFluid.isEmpty()) && !(itemDefinition in baseItemSet) && !(itemDefinition in ALREADY_MELTABLE_ITEMS) && (ALLOW_NON_WHOLE_AMOUNTS || meltingFluid.isWholeAmount()) ) {
+    if ( (!meltingFluid.isEmpty()) && meltingFluid!=INVALID_FLUID && !(itemDefinition in baseItemSet) && !(itemDefinition in ALREADY_MELTABLE_ITEMS) && (ALLOW_NON_WHOLE_AMOUNTS || meltingFluid.isWholeAmount()) ) {
         var fluidAmt = meltingFluid.getIntAmount();
         var meltTime = math.Functions.round( (FLUID_MELTING_TIME_PER_mB[meltingFluid.getFluid()]*fluidAmt) as double ) as int;
         meltTime = math.Functions.max(meltTime, 1);
