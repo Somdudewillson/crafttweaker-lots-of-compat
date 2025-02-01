@@ -67,9 +67,9 @@ if (<tag:fluids:forge:chocolate>.exists() && <tag:fluids:forge:chocolate>.elemen
     "tag": "tconstruct:casts/single_use/gem"
   },
   "cast_consumed": true,
-  "cooling_time": 4*20,
+  "cooling_time": 5*20,
   "fluid": {
-    "amount": 90,
+    "amount": 120,
     "fluid": "tconstruct:molten_uranium"
   },
   "result": "alexscaves:uranium"
@@ -80,9 +80,9 @@ if (<tag:fluids:forge:chocolate>.exists() && <tag:fluids:forge:chocolate>.elemen
     "tag": "tconstruct:casts/multi_use/gem"
   },
   "cast_consumed": false,
-  "cooling_time": 4*20,
+  "cooling_time": 5*20,
   "fluid": {
-    "amount": 90,
+    "amount": 120,
     "fluid": "tconstruct:molten_uranium"
   },
   "result": "alexscaves:uranium"
