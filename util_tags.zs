@@ -104,6 +104,7 @@ LIQUID_SLIME.add(<fluid:tconstruct:ender_slime>);
 
 <tag:items:forge:raw_materials/anthralite>.add(<item:scguns:raw_anthralite>);
 <tag:items:forge:dusts/anthralite>.add(<item:scguns:crushed_raw_anthralite>);
+<tag:items:forge:nuggets>.add(<item:scguns:anthralite_nugget>);
 <tag:items:forge:ingots/anthralite>.add(<item:scguns:anthralite_ingot>);
 <tag:items:forge:ingots>.add(<item:scguns:anthralite_ingot>);
 <tag:items:forge:storage_blocks/anthralite>.add(<item:scguns:anthralite_block>);
