@@ -368,7 +368,10 @@ var BURNABLE_INGREDIENTS as IIngredient[] = [
     <tag:items:forge:fence_gates/wooden> as IIngredient,
     <tag:items:minecraft:wooden_pressure_plates> as IIngredient,
     <tag:items:minecraft:wooden_buttons> as IIngredient,
-    <tag:items:forge:normal_stone> as IIngredient
+    <tag:items:forge:normal_stone> as IIngredient,
+    <tag:items:forge:feathers> as IIngredient,
+    <tag:items:forge:torches> as IIngredient,
+    <tag:items:forge:dusts/redstone> as IIngredient
 ];
 var mergedBurnableIngredient = BURNABLE_INGREDIENTS[0];
 for i in 1 .. BURNABLE_INGREDIENTS.length {
