@@ -101,3 +101,15 @@ if (<tag:items:forge:gems/carminite>.elements.length > 0) {
         "energy": 125000
     });
 }
+
+// Magmatic Fuel
+#onlyif modloaded burnt
+recipes.addJsonRecipe("thermal_magmatic_fuel_burnt_magma", {
+    "type": "thermal:magmatic_fuel",
+    "ingredient": {
+        "fluid": "burnt:liquid_magma",
+        "amount": 1000
+    },
+    "energy": 80000
+});
+#endif
