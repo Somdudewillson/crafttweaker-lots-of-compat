@@ -428,6 +428,14 @@ for recipe in recipeList {
             }
         }
     }
+    if (valid) {// Exclude items that take their output as an input
+        var resultItem = recipe.resultItem.withoutTag();
+        for ingredient in recipe.ingredients {
+            if (resultItem in ingredient) {
+                valid = false;
+            }
+        }
+    }
 
     if (valid) {
         for ingredient in recipe.ingredients {
