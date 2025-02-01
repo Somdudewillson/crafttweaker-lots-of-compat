@@ -31,8 +31,8 @@ var EXCLUDED_ITEM_KEYS = [
 // Also, this class behaves loosely like an immutable value class (simplify() breaks this but...)
 public class FractionalFluid {
     private var fluid as Fluid;
-    private var numerator as int : get;
-    private var denominator as int : get;
+    private var numerator as int : public get;
+    private var denominator as int : public get;
 
     public this() {
         this.fluid = <fluid:minecraft:empty>;
@@ -59,6 +59,25 @@ public class FractionalFluid {
         this.fluid = other.fluid;
         this.numerator = other.numerator;
         this.denominator = other.denominator;
+    }
+    
+    public ==(other as int) as bool {
+        return this.numerator/(this.denominator as double) == other as double;
+    }
+    public ==(other as long) as bool {
+        return this.numerator/(this.denominator as double) == other as double;
+    }
+    public ==(other as float) as bool {
+        return this.numerator/(this.denominator as double) == other as double;
+    }
+    public ==(other as double) as bool {
+        return this.numerator/(this.denominator as double) == other as double;
+    }
+    public ==(other as Fluid) as bool {
+        return this.fluid == other;
+    }
+    public ==(other as FractionalFluid) as bool {
+        return this.fluid == other.fluid && this.numerator == other.numerator && this.denominator == other.denominator;
     }
     
     public +(addend as int) as FractionalFluid {
