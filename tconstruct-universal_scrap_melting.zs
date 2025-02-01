@@ -14,6 +14,7 @@ import crafttweaker.api.recipe.type.Recipe;
 import crafttweaker.api.world.Container;
 import crafttweaker.api.recipe.type.StonecutterRecipe;
 import crafttweaker.api.recipe.type.CraftingRecipe;
+import crafttweaker.api.resource.ResourceLocation;
 
 // Config
 var MAX_ITERATIONS = 5;
@@ -23,6 +24,7 @@ var ALLOW_BURNABLE_AUTO_POPULATE = true;
 var EXCLUDED_ITEM_KEYS = [
     "tconstruct:"
 ];
+
 
 
 // This class assumes it wil never encounter negative-valued fractions
@@ -384,8 +386,11 @@ for recipe in CraftingTableRecipeManager.INSTANCE.allRecipes {
     var castRecipe = (recipe as Recipe<Container>);
     recipeList.add(castRecipe);
 }
-// Filter list of recipes to scan
-var filteredRecipeList = new stdlib.List<Recipe<Container>>();
+
+var ingredientItemToRecipeMap as stdlib.List<Recipe<Container>>[ItemDefinition] = {};
+var recipeNodeQueue = new stdlib.List<Recipe<Container>>();
+var recipeNodeQueueSet = new collections.HashSet<ResourceLocation>();
+// Filter list of recipes to scan, build graph metadata, and initialize working queue
 for recipe in recipeList {
     var valid = true;
 
@@ -403,106 +408,152 @@ for recipe in recipeList {
     }
 
     if (valid) {
-        filteredRecipeList.add(recipe);
+        for ingredient in recipe.ingredients {
+            for ingredientItem in ingredient.items {
+                if ( !(ingredientItem in ingredientItemToRecipeMap) ) {
+                    ingredientItemToRecipeMap[ingredientItem] = new stdlib.List<Recipe<Container>>();
+                }
+                ingredientItemToRecipeMap[ingredientItem].add(recipe);
+
+                if ( !(recipe.id in recipeNodeQueueSet) && (ingredientItem in mergedBurnableIngredient || ingredientItem in itemToMoltenMap) ) {
+                    recipeNodeQueue.add(recipe);
+                    recipeNodeQueueSet.add(recipe.id);
+                }
+            }
+        }
     }
 }
-recipeList = filteredRecipeList;
 
-var iterationNum = 0;
-var registeredRecipe = true;
-while (registeredRecipe && (iterationNum < MAX_ITERATIONS)) {
-    iterationNum += 1;
-    registeredRecipe = false;
+// Sort queued nodes in descending order of child count
+var nodeChildCountCache as int[ResourceLocation] = {};
+function getRecipeNodeChildrenRecursive(recipeNode as Recipe<Container>, ingredientItemToRecipeMap as stdlib.List<Recipe<Container>>[ItemDefinition], nodeChildCountCache as int[ResourceLocation], visitedNodes as collections.HashSet<ResourceLocation>) as int {
+    if (recipeNode.id in nodeChildCountCache) {
+        return nodeChildCountCache[recipeNode.id];
+    }
 
-    for recipe in recipeList {
-        var meltingFluid as FractionalFluid = EMPTY_FLUID;
-        var recipeInvalid as bool = false;
-
-        var burnableIngredientNum = 0 as int;
-        var nonAirIngredientCount = 0 as int;
-        for ingredient in recipe.ingredients {
-            if ( !ingredient.empty ) {
-                nonAirIngredientCount += 1;
+    visitedNodes.add(recipeNode.id);
+    var childCount = 0;
+    var resultItem = recipeNode.resultItem;
+    if (resultItem.definition in ingredientItemToRecipeMap) {
+        for childRecipe in ingredientItemToRecipeMap[resultItem.definition] {
+            if ( !(childRecipe.id in visitedNodes) ) {
+                childCount += 1;
+                childCount += getRecipeNodeChildrenRecursive(childRecipe, ingredientItemToRecipeMap, nodeChildCountCache, visitedNodes);
             }
-            if ( (!ingredient.empty) && (!recipeInvalid) ) {
-                if (ingredient in mergedBurnableIngredient) {
-                    burnableIngredientNum += 1;
-                } else {
+        }
+    }
+    nodeChildCountCache[recipeNode.id] = childCount;
+    return childCount;
+}
+function getRecipeNodeChildren(recipeNode as Recipe<Container>, ingredientItemToRecipeMap as stdlib.List<Recipe<Container>>[ItemDefinition], nodeChildCountCache as int[ResourceLocation]) as int {
+    return getRecipeNodeChildrenRecursive(recipeNode, ingredientItemToRecipeMap, nodeChildCountCache, new collections.HashSet<ResourceLocation>());
+}
 
-                    // Get melt result of ingredient
-                    var meltFluid as FractionalFluid = EMPTY_FLUID;
+for recipeNode in recipeNodeQueue {
+    getRecipeNodeChildren(recipeNode, ingredientItemToRecipeMap, nodeChildCountCache);
+}
+var nodeSortingArray = recipeNodeQueue as Recipe<Container>[];
+nodeSortingArray.sort( (a,b) => {
+    return nodeChildCountCache[b.id]-nodeChildCountCache[a.id];
+} );
+recipeNodeQueue = nodeSortingArray as stdlib.List<Recipe<Container>>;
 
-                    for ingredientItem in ingredient.items {
-                        if (!recipeInvalid) {
-                            var meltResult as FractionalFluid = EMPTY_FLUID;
-                            if (ingredientItem.definition in itemToMoltenMap) {
-                                meltResult = itemToMoltenMap[ingredientItem.definition] * (ingredientItem.amount);
+// Traverse queued nodes in graph to find new meltables/burnables
+var nodeVisitCount = 0;
+while (!recipeNodeQueue.isEmpty) {
+    var currentRecipeNode = recipeNodeQueue.remove(0);
+    nodeVisitCount += 1;
 
-                                if ( meltFluid.isEmpty() || meltResult.getIntAmount() < meltFluid.getIntAmount() ) {
-                                    if ( (!meltFluid.isEmpty()) && meltResult.getFluid() != meltFluid.getFluid() ) {
-                                        meltFluid = EMPTY_FLUID;
-                                        recipeInvalid = true;
-                                    } else {
-                                        meltFluid = meltResult;
-                                    }
+    // Parse recipe and determine if it is burnable/meltable
+    var meltingFluid as FractionalFluid = EMPTY_FLUID;
+    var recipeInvalid as bool = false;
+
+    var burnableIngredientNum = 0 as int;
+    var nonAirIngredientCount = 0 as int;
+    for ingredient in currentRecipeNode.ingredients {
+        if ( !ingredient.empty ) {
+            nonAirIngredientCount += 1;
+        }
+        if ( (!ingredient.empty) && (!recipeInvalid) ) {
+            if (ingredient in mergedBurnableIngredient) {
+                burnableIngredientNum += 1;
+            } else {
+
+                // Get melt result of ingredient
+                var meltFluid as FractionalFluid = EMPTY_FLUID;
+
+                for ingredientItem in ingredient.items {
+                    if (!recipeInvalid) {
+                        var meltResult as FractionalFluid = EMPTY_FLUID;
+                        if (ingredientItem.definition in itemToMoltenMap) {
+                            meltResult = itemToMoltenMap[ingredientItem.definition] * (ingredientItem.amount);
+
+                            if ( meltFluid.isEmpty() || meltResult.getIntAmount() < meltFluid.getIntAmount() ) {
+                                if ( (!meltFluid.isEmpty()) && meltResult.getFluid() != meltFluid.getFluid() ) {
+                                    meltFluid = EMPTY_FLUID;
+                                    recipeInvalid = true;
+                                } else {
+                                    meltFluid = meltResult;
                                 }
-
-                            } else {
-                                recipeInvalid = true;
                             }
+
+                        } else {
+                            recipeInvalid = true;
                         }
                     }
-
-                    // Handle melt result
-                    if (meltFluid.isEmpty()) {
-                        recipeInvalid = true;
-                    } else if (meltingFluid.isEmpty()) {
-                        meltingFluid = meltFluid;
-                    } else if (meltingFluid.getFluid() == meltFluid.getFluid()) {
-                        meltingFluid += meltFluid;
-                    } else {
-                        recipeInvalid = true;
-                    }
-                
                 }
 
-            }
-        }
-
-        var result = recipe.resultItem;
-        if ( (!recipeInvalid) && (!meltingFluid.isEmpty()) && result.amount>0 ) {
-            meltingFluid /= result.amount;
-
-            if ( !(result.definition in itemToMoltenMap) ) {
-                itemToMoltenMap[result.definition] = meltingFluid;
-                registeredRecipe = true;
-            } else if ( !itemToMoltenMap[result.definition].isEmpty() ) {
-                var existingResult = itemToMoltenMap[result.definition];
-                if (meltingFluid.getFluid() == existingResult.getFluid()) {
-                    if (meltingFluid.getIntAmount() < existingResult.getIntAmount()) {
-                        itemToMoltenMap[result.definition] = meltingFluid;
-                        registeredRecipe = true;
-                    }
+                // Handle melt result
+                if (meltFluid.isEmpty()) {
+                    recipeInvalid = true;
+                } else if (meltingFluid.isEmpty()) {
+                    meltingFluid = meltFluid;
+                } else if (meltingFluid.getFluid() == meltFluid.getFluid()) {
+                    meltingFluid += meltFluid;
                 } else {
-                    itemToMoltenMap[result.definition] = EMPTY_FLUID;
-                    registeredRecipe = true;
+                    recipeInvalid = true;
                 }
+            
             }
-        } else if ( ALLOW_BURNABLE_AUTO_POPULATE && burnableIngredientNum == nonAirIngredientCount && result.amount>0 && !(result in mergedBurnableIngredient) ) {
-            mergedBurnableIngredient = mergedBurnableIngredient | result;
-            registeredRecipe = true;
+
         }
     }
+
+    var shouldUpdateLinkedRecipes = false;
+    var result = currentRecipeNode.resultItem;
+    if ( (!recipeInvalid) && (!meltingFluid.isEmpty()) && result.amount>0 ) {
+        meltingFluid /= result.amount;
+
+        if ( !(result.definition in itemToMoltenMap) ) {
+            itemToMoltenMap[result.definition] = meltingFluid;
+            shouldUpdateLinkedRecipes = true;
+        } else if ( !itemToMoltenMap[result.definition].isEmpty() ) {
+            var existingResult = itemToMoltenMap[result.definition];
+            if (meltingFluid.getFluid() == existingResult.getFluid()) {
+                if (meltingFluid.getIntAmount() < existingResult.getIntAmount()) {
+                    itemToMoltenMap[result.definition] = meltingFluid;
+                    shouldUpdateLinkedRecipes = true;
+                }
+            } else {
+                itemToMoltenMap[result.definition] = EMPTY_FLUID;
+                shouldUpdateLinkedRecipes = true;
+            }
+        }
+    } else if ( ALLOW_BURNABLE_AUTO_POPULATE && burnableIngredientNum == nonAirIngredientCount && result.amount>0 && !(result in mergedBurnableIngredient) ) {
+        mergedBurnableIngredient = mergedBurnableIngredient | result;
+        shouldUpdateLinkedRecipes = true;
+    }
+
+    if ( shouldUpdateLinkedRecipes && result.definition in ingredientItemToRecipeMap ) {
+        for linkedRecipe in ingredientItemToRecipeMap[result.definition] {
+            if ( !(linkedRecipe.id in recipeNodeQueueSet) ) {
+                recipeNodeQueue.add(linkedRecipe);
+            }
+        }
+    }
+    recipeNodeQueueSet.remove(currentRecipeNode.id);
 }
-var scanFinishMsg = "Finished scanning recipes for meltables; ";
-scanFinishMsg += (iterationNum as string)+" iterations; ";
-scanFinishMsg += "stopped because ";
-if (!registeredRecipe) {
-    scanFinishMsg += "no recipe update during latest iteration";
-} else {
-    scanFinishMsg += "iteration cap reached";
-}
-println(scanFinishMsg);
+println("Finished scanning recipe graph; visited "+(nodeVisitCount as string)+" nodes.");
 
 for itemDefinition, meltingFluid in itemToMoltenMap {
     var recipeName = "lots_of_compat_generic_smeltery_melting_melt_"+itemDefinition.registryName.namespace+"-"+itemDefinition.registryName.path;
