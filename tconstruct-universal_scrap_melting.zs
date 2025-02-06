@@ -5,6 +5,8 @@
 import crafttweaker.api.recipe.CraftingTableRecipeManager;
 import crafttweaker.api.recipe.StoneCutterManager;
 import crafttweaker.api.data.IData;
+import crafttweaker.api.data.ListData;
+import crafttweaker.api.data.MapData;
 import crafttweaker.api.ingredient.IIngredient;
 import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.item.ItemDefinition;
@@ -17,11 +19,11 @@ import crafttweaker.api.recipe.type.CraftingRecipe;
 import crafttweaker.api.resource.ResourceLocation;
 
 // Config
-var MAX_ITERATIONS = 5;
-var ALLOW_NON_WHOLE_AMOUNTS = true;
-var ALLOW_BURNABLE_AUTO_POPULATE = true;
+val ALLOW_NON_WHOLE_AMOUNTS = true;
+val ALLOW_BURNABLE_AUTO_POPULATE = true;
+val MAX_FLUID_RESULT_COUNT = 4;
 
-var EXCLUDED_ITEM_KEYS = [
+val EXCLUDED_ITEM_KEYS = [
     "tconstruct:"
 ];
 
@@ -199,8 +201,10 @@ public class FractionalFluid {
         return denominator == 1;
     }
     public getIntAmount() as int {
-        simplify();
         return math.Functions.floor(numerator/(denominator as float)) as int;
+    }
+    public getDoubleAmount() as double {
+        return numerator/(denominator as double);
     }
     public isEmpty() as bool {
         return fluid == <fluid:minecraft:empty> || numerator <= 0 || getIntAmount() <= 0;
@@ -316,7 +320,7 @@ var BASE_INGREDIENT_TO_MOLTEN_MAP as FractionalFluid[IIngredient] = {
     <tag:items:forge:gears/netherite_scrap> as IIngredient: new FractionalFluid(<fluid:tconstruct:molten_debris>, 360)
 };
 var baseItemSet as bool[ItemDefinition] = {};
-var itemToMoltenMap as FractionalFluid[ItemDefinition] = {};
+var itemToMoltenMap as FractionalFluid[][ItemDefinition] = {};
 var FLUID_MELTING_TEMPS as int[Fluid] = {
     <fluid:tconstruct:molten_iron> as Fluid: 800,
     <fluid:tconstruct:molten_gold> as Fluid: 700,
@@ -359,6 +363,27 @@ var FLUID_MELTING_TIME_PER_mB as double[Fluid] = {
     <fluid:tconstruct:molten_diamond> as Fluid: 0.19,
     <fluid:tconstruct:molten_debris> as Fluid: 0.1889
 };
+var FLUID_PRIORITIES as int[Fluid] = {
+    <fluid:tconstruct:molten_iron> as Fluid: 2,
+    <fluid:tconstruct:molten_gold> as Fluid: 3,
+    <fluid:tconstruct:molten_copper> as Fluid: 1,
+    <fluid:tconstruct:molten_tin> as Fluid: 1,
+    <fluid:tconstruct:molten_aluminum> as Fluid: 3,
+    <fluid:tconstruct:molten_lead> as Fluid: 3,
+    <fluid:tconstruct:molten_silver> as Fluid: 3,
+    <fluid:tconstruct:molten_nickel> as Fluid: 3,
+    <fluid:tconstruct:molten_zinc> as Fluid: 2,
+    <fluid:tconstruct:molten_uranium> as Fluid: 4,
+    <fluid:tconstruct:molten_bronze> as Fluid: 2,
+    <fluid:tconstruct:molten_brass> as Fluid: 2,
+    <fluid:tconstruct:molten_steel> as Fluid: 3,
+    <fluid:tconstruct:molten_netherite> as Fluid: 6,
+    <fluid:tconstruct:molten_emerald> as Fluid: 4,
+    <fluid:tconstruct:molten_quartz> as Fluid: 1,
+    <fluid:tconstruct:molten_amethyst> as Fluid: 4,
+    <fluid:tconstruct:molten_diamond> as Fluid: 5,
+    <fluid:tconstruct:molten_debris> as Fluid: 5
+};
 var BURNABLE_INGREDIENTS as IIngredient[] = [
     <tag:items:minecraft:logs> as IIngredient,
     <tag:items:minecraft:planks> as IIngredient,
@@ -384,7 +409,7 @@ for meltIngredient, meltResult in BASE_INGREDIENT_TO_MOLTEN_MAP {
     for ingredientItem in meltIngredient.items {
         var ingredientItemDef = ingredientItem.definition as ItemDefinition;
         baseItemSet[ingredientItemDef] = true;
-        itemToMoltenMap[ingredientItemDef] = meltResult;
+        itemToMoltenMap[ingredientItemDef] = [meltResult] as FractionalFluid[];
     }
 }
 
@@ -497,7 +522,7 @@ while (!recipeNodeQueue.isEmpty) {
 
     // Parse recipe and determine if it is burnable/meltable
     var shouldUpdateLinkedRecipes = false;
-    var meltingFluid as FractionalFluid = EMPTY_FLUID;
+    var meltingFluids as FractionalFluid[Fluid] = {};
     var recipeInvalid as bool = false;
 
     var burnableIngredientNum = 0 as int;
@@ -512,22 +537,24 @@ while (!recipeNodeQueue.isEmpty) {
             } else {
 
                 // Get melt result of ingredient
-                var meltFluid as FractionalFluid = EMPTY_FLUID;
+                var meltFluids as FractionalFluid[Fluid] = {};
 
                 for ingredientItem in ingredient.items {
                     if (!recipeInvalid) {
-                        var meltResult as FractionalFluid = EMPTY_FLUID;
-                        if (ingredientItem.definition in itemToMoltenMap && itemToMoltenMap[ingredientItem.definition]!=INVALID_FLUID) {
-                            meltResult = itemToMoltenMap[ingredientItem.definition] * (ingredientItem.amount);
+                        var meltResult as FractionalFluid[] = [];
+                        if (ingredientItem.definition in itemToMoltenMap && itemToMoltenMap[ingredientItem.definition].length>0) {
+                            meltResult = itemToMoltenMap[ingredientItem.definition];
 
-                            if ( meltFluid.isEmpty() || meltResult.getIntAmount() < meltFluid.getIntAmount() ) {
-                                if ( (!meltFluid.isEmpty()) && meltResult.getFluid() != meltFluid.getFluid() ) {
-                                    meltFluid = EMPTY_FLUID;
-                                    itemToMoltenMap[currentRecipeNode.resultItem.definition] = INVALID_FLUID;
-                                    shouldUpdateLinkedRecipes = true;
-                                    recipeInvalid = true;
-                                } else {
-                                    meltFluid = meltResult;
+                            if (meltResult.length == 0 || meltResult[0].isEmpty()) {
+                                recipeInvalid = true;
+                            } else {
+                                for meltResultPart in meltResult {
+                                    var scaledPart = meltResultPart * ingredientItem.amount;
+                                    if ( meltResultPart.getFluid() in meltFluids ) {
+                                        meltFluids[meltResultPart.getFluid()] = meltFluids[meltResultPart.getFluid()].getIntAmount()<scaledPart.getIntAmount() ? meltFluids[meltResultPart.getFluid()] : scaledPart;
+                                    } else {
+                                        meltFluids[meltResultPart.getFluid()] = scaledPart;
+                                    }
                                 }
                             }
 
@@ -538,12 +565,14 @@ while (!recipeNodeQueue.isEmpty) {
                 }
 
                 // Handle melt result
-                if (meltFluid.isEmpty()) {
-                    recipeInvalid = true;
-                } else if (meltingFluid.isEmpty()) {
-                    meltingFluid = meltFluid;
-                } else if (meltingFluid.getFluid() == meltFluid.getFluid()) {
-                    meltingFluid += meltFluid;
+                if (meltFluids.size > 0) {
+                    for fluidKey, fluidFrac in meltFluids {
+                        if (fluidKey in meltingFluids) {
+                            meltingFluids[fluidKey] = meltingFluids[fluidKey] + fluidFrac;
+                        } else {
+                            meltingFluids[fluidKey] = fluidFrac;
+                        }
+                    }
                 } else {
                     recipeInvalid = true;
                 }
@@ -554,23 +583,36 @@ while (!recipeNodeQueue.isEmpty) {
     }
 
     var result = currentRecipeNode.resultItem;
-    if ( (!recipeInvalid) && (!meltingFluid.isEmpty()) && result.amount>0 ) {
-        meltingFluid /= result.amount;
+    if ( (!recipeInvalid) && meltingFluids.size>0 && result.amount>0 ) {
+
+        // Rescale melt results
+        for fluidKey in meltingFluids.keys {
+            meltingFluids[fluidKey] = meltingFluids[fluidKey] / result.amount;
+        }
 
         if ( !(result.definition in itemToMoltenMap) ) {
-            itemToMoltenMap[result.definition] = meltingFluid;
+            itemToMoltenMap[result.definition] = meltingFluids.values as FractionalFluid[];
             shouldUpdateLinkedRecipes = true;
-        } else if ( !itemToMoltenMap[result.definition].isEmpty() ) {
+        } else if ( itemToMoltenMap[result.definition].length > 0 ) {
             var existingResult = itemToMoltenMap[result.definition];
-            if (meltingFluid.getFluid() == existingResult.getFluid()) {
-                if (meltingFluid.getIntAmount() < existingResult.getIntAmount()) {
-                    itemToMoltenMap[result.definition] = meltingFluid;
-                    shouldUpdateLinkedRecipes = true;
+
+            var newResult = new stdlib.List<FractionalFluid>();
+            var changedFrac = false;
+            for fluidFrac in existingResult {
+                if (fluidFrac.getFluid() in meltingFluids) {
+                    var newResultFrac = meltingFluids[fluidFrac.getFluid()];
+                    if (newResultFrac.getDoubleAmount() < fluidFrac.getDoubleAmount()) {
+                        newResult.add(newResultFrac);
+                        changedFrac = true;
+                    } else {
+                        newResult.add(fluidFrac);
+                    }
+                    
                 }
-            } else {
-                itemToMoltenMap[result.definition] = EMPTY_FLUID;
-                shouldUpdateLinkedRecipes = true;
             }
+            
+            shouldUpdateLinkedRecipes = changedFrac || existingResult.length != newResult.length;
+            itemToMoltenMap[result.definition] = newResult as FractionalFluid[];
         }
     } else if ( ALLOW_BURNABLE_AUTO_POPULATE && burnableIngredientNum == nonAirIngredientCount && result.amount>0 && !(result.definition in itemToMoltenMap) && !(result in mergedBurnableIngredient) ) {
         mergedBurnableIngredient = mergedBurnableIngredient | result;
@@ -581,29 +623,85 @@ while (!recipeNodeQueue.isEmpty) {
         for linkedRecipe in ingredientItemToRecipeMap[result.definition] {
             if ( !(linkedRecipe.id in recipeNodeQueueSet) ) {
                 recipeNodeQueue.add(linkedRecipe);
+                recipeNodeQueueSet.add(linkedRecipe.id);
             }
         }
     }
     recipeNodeQueueSet.remove(currentRecipeNode.id);
 }
-println("Finished scanning recipe graph; visited "+(nodeVisitCount as string)+" nodes.");
 
-for itemDefinition, meltingFluid in itemToMoltenMap {
+var meltablesFound = 0;
+for itemDefinition, meltingFluids in itemToMoltenMap {
+    if ( meltingFluids.length>0 && !(itemDefinition in baseItemSet) && !(itemDefinition in ALREADY_MELTABLE_ITEMS) ) {
+        meltablesFound += 1;
+    }
+}
+println("Finished scanning recipe graph; visited "+(nodeVisitCount as string)+" nodes; found "+(meltablesFound as string)+" meltables.");
+
+for itemDefinition, meltingFluids in itemToMoltenMap {
     var recipeName = "lots_of_compat_generic_smeltery_melting_melt_"+itemDefinition.registryName.namespace+"-"+itemDefinition.registryName.path;
 
-    if ( (!meltingFluid.isEmpty()) && meltingFluid!=INVALID_FLUID && !(itemDefinition in baseItemSet) && !(itemDefinition in ALREADY_MELTABLE_ITEMS) && (ALLOW_NON_WHOLE_AMOUNTS || meltingFluid.isWholeAmount()) ) {
-        var fluidAmt = meltingFluid.getIntAmount();
-        var meltTime = math.Functions.round( (FLUID_MELTING_TIME_PER_mB[meltingFluid.getFluid()]*fluidAmt) as double ) as int;
-        meltTime = math.Functions.max(meltTime, 1);
+    var filteredFluidsList = new stdlib.List<FractionalFluid>();
+    for meltingFluid in meltingFluids {
+        if (meltingFluid.getIntAmount() > 0) {
+            filteredFluidsList.add(meltingFluid);
+        }
+    }
+    var filteredMeltingFluids = filteredFluidsList as FractionalFluid[];
 
-        <recipetype:tconstruct:melting>.addJsonRecipe(recipeName, {
-            "type": "tconstruct:melting",
-            "ingredient": [
-                itemDefinition.defaultInstance as IIngredient as IData
-            ],
-            "result": (meltingFluid.getFluid() * fluidAmt) as IData,
-            "temperature": FLUID_MELTING_TEMPS[meltingFluid.getFluid()],
-            "time": meltTime
-        });
+    if ( filteredMeltingFluids.length>0 && !(itemDefinition in baseItemSet) && !(itemDefinition in ALREADY_MELTABLE_ITEMS) ) {
+        filteredMeltingFluids.sort( (a,b) => {
+            var diff as int = ( (a.getFluid() in FLUID_PRIORITIES) ? FLUID_PRIORITIES[a.getFluid()] : 0 ) as int;
+            diff -= ( (b.getFluid() in FLUID_PRIORITIES) ? FLUID_PRIORITIES[b.getFluid()] : 0 ) as int;
+            if (diff == 0) {
+                diff = (a.getFluid().registryName).compareTo(b.getFluid().registryName) as int;
+            }
+            return diff;
+        } );
+
+        var allWhole = true;
+        for meltingFluid in filteredMeltingFluids {
+            allWhole = allWhole || meltingFluid.isWholeAmount();
+        }
+
+        if (allWhole || ALLOW_NON_WHOLE_AMOUNTS) {
+            var meltTemp = 0;
+            var meltTime = 0.0;
+            var byproducts = new IData[](filteredMeltingFluids.length-1, new MapData());
+            for i in 0 .. (math.Functions.min(filteredMeltingFluids.length as long, MAX_FLUID_RESULT_COUNT as long) as int) {
+                var meltingFluid = filteredMeltingFluids[i];
+                var fluidAmt = meltingFluid.getIntAmount();
+
+                meltTemp = math.Functions.max(meltTemp, FLUID_MELTING_TEMPS[meltingFluid.getFluid()]);
+                meltTime += (FLUID_MELTING_TIME_PER_mB[meltingFluid.getFluid()] * fluidAmt) as double;
+
+                if (i>0) {
+                    byproducts[i-1] = (meltingFluid.getFluid() * fluidAmt) as IData;
+                }
+            }
+
+            if (byproducts.length>0) {
+                <recipetype:tconstruct:melting>.addJsonRecipe(recipeName, {
+                    "type": "tconstruct:melting",
+                    "byproducts" : byproducts,
+                    "ingredient": [
+                        itemDefinition.defaultInstance as IIngredient as IData
+                    ],
+                    "result": (filteredMeltingFluids[0].getFluid() * filteredMeltingFluids[0].getIntAmount()) as IData,
+                    "temperature": meltTemp,
+                    "time": math.Functions.max(meltTime, 1 as double) as int
+                });
+            } else {
+                <recipetype:tconstruct:melting>.addJsonRecipe(recipeName, {
+                    "type": "tconstruct:melting",
+                    "ingredient": [
+                        itemDefinition.defaultInstance as IIngredient as IData
+                    ],
+                    "result": (filteredMeltingFluids[0].getFluid() * filteredMeltingFluids[0].getIntAmount()) as IData,
+                    "temperature": meltTemp,
+                    "time": math.Functions.max(meltTime, 1 as double) as int
+                });
+            }
+        }
     }
 }
