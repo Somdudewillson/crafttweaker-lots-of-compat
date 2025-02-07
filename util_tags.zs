@@ -193,8 +193,8 @@ LIQUID_SLIME.add(<fluid:tconstruct:ender_slime>);
 <tag:items:forge:ingots>.add(<item:tfmg:magnetic_ingot>);
 
 <tag:fluids:forge:gasoline>.add(<fluid:tfmg:gasoline>);
-
 <tag:fluids:forge:molten_steel>.add(<fluid:tfmg:molten_steel>);
+<tag:fluids:forge:creosote>.add(<fluid:tfmg:creosote>);
 #endif
 #onlyif modloaded bigreactors
 <tag:items:forge:ingots>.add(<item:bigreactors:insanite_ingot>);
