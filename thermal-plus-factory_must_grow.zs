@@ -94,13 +94,31 @@
       "item": "minecraft:glass_bottle"
     },
     {
-      "fluid": "tfmg:sulfuric_acid",
+      "fluid_tag": "forge:sulfuric_acid",
       "amount": 250
     }
   ],
   "result": [
     {
       "item": "tfmg:bottle_of_battery_acid"
+    }
+  ]
+});
+
+<recipetype:thermal:bottler>.addJsonRecipe("thermal_bottle_hardened_wood", {
+  "type": "thermal:bottler",
+  "ingredients": [
+    {
+      "tag": "minecraft:planks"
+    },
+    {
+      "fluid_tag": "forge:creosote",
+      "amount": 200
+    }
+  ],
+  "result": [
+    {
+      "item": "tfmg:hardened_planks"
     }
   ]
 });
