@@ -1,4 +1,4 @@
-#modloaded bloodmagic
+#modloaded bloodmagic jei
 
 import mods.jeitweaker.Jei;
 
