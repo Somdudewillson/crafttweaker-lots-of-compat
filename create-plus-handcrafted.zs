@@ -207,15 +207,6 @@ craftingTable.addShapeless("combine_to_blue_crockery_combo", <item:handcrafted:b
   ]
 });
 
-// Terracotta Pot =====
-Replacer.create()
-    .filter(ModsFilteringRule.of(["handcrafted"]))
-    .filter(NameFilteringRule.regex(".*pot.*"))
-    .replace<IIngredient>(<recipecomponent:crafttweaker:input/ingredients>, <targetingstrategy:crafttweaker:shallow>, <item:minecraft:gold_block> as IIngredient, ContextualConstants.GOLD_INGOT as IIngredient)
-    .replace<IIngredient>(<recipecomponent:crafttweaker:input/ingredients>, <targetingstrategy:crafttweaker:shallow>, <item:minecraft:white_glazed_terracotta> as IIngredient, <item:minecraft:white_dye> as IIngredient)
-    .replace<IIngredient>(<recipecomponent:crafttweaker:input/ingredients>, <targetingstrategy:crafttweaker:shallow>, <item:minecraft:blue_glazed_terracotta> as IIngredient, <item:minecraft:blue_dye> as IIngredient)
-    .execute();
-
 // Cushion =====
 <recipetype:create:mixing>.addJsonRecipe("create_mix_undye_cushion", {
   "type": "create:mixing",
