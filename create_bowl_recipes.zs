@@ -1,3 +1,4 @@
+#priority -10
 #modloaded create
 
 // This script automatically creates sequenced assembly recipes for standard crafting recipes that amount to "put thing(s) in a bowl"
