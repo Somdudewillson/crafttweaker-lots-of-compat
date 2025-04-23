@@ -323,6 +323,10 @@ RAW_HUMANOID_FLESH.add(<item:foodtxf:player_flesh>);
 // Non-lots_of_compat-specific (FABRIC)
 #onlyif modloader fabric
 
+<tag:items:c:buckets/water>.add(<tag:items:c:water_buckets>);
+<tag:items:c:buckets/lava>.add(<tag:items:c:lava_buckets>);
+<tag:items:c:buckets/milk>.add(<tag:items:c:milk_buckets>);
+
 #onlyif modloaded burnt
 <tag:fluids:c:magma>.add(<fluid:burnt:liquid_magma>);
 #endif

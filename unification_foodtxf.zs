@@ -4,6 +4,7 @@
 import crafttweaker.api.data.IData;
 import crafttweaker.api.ingredient.IIngredient;
 import crafttweaker.api.ingredient.IIngredient;
+import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.recipe.replacement.Replacer;
 import crafttweaker.api.recipe.replacement.type.ModsFilteringRule;
 import crafttweaker.api.recipe.replacement.type.NameFilteringRule;

@@ -53,6 +53,37 @@ import crafttweaker.api.ingredient.IIngredient;
  .addOutput(<item:foodtxf:chocomilk_thermos> * 1, 1)
  .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:cocoa_beans>)) );
 
+<recipetype:create:emptying>.addJsonRecipe("create_empty_foodtxf_water_thermos", {
+  "type": "create:emptying",
+  "ingredients": [
+    (<item:foodtxf:water_thermos> * 1) as IData,
+  ],
+  "results": [
+    (<item:foodtxf:thermos> * 1) as IData,
+    (<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(1000)) as IData
+  ]
+});
+<recipetype:create:emptying>.addJsonRecipe("create_empty_foodtxf_lava_thermos", {
+  "type": "create:emptying",
+  "ingredients": [
+    (<item:foodtxf:lava_thermos> * 1) as IData,
+  ],
+  "results": [
+    (<item:foodtxf:thermos> * 1) as IData,
+    (<fluid:minecraft:lava> * ContextualConstants.fluidAmtFromMb(1000)) as IData
+  ]
+});
+<recipetype:create:emptying>.addJsonRecipe("create_empty_foodtxf_milk_thermos", {
+  "type": "create:emptying",
+  "ingredients": [
+    (<item:foodtxf:milk_thermos> * 1) as IData,
+  ],
+  "results": [
+    (<item:foodtxf:thermos> * 1) as IData,
+    (ContextualConstants.MILK_FLUID * ContextualConstants.fluidAmtFromMb(1000)) as IData
+  ]
+});
+
 // Glass of Fluid =====
 <recipetype:create:filling>.addJsonRecipe("create_fill_foodtxf_glass_of_water", {
   "type": "create:filling",
@@ -187,6 +218,37 @@ import crafttweaker.api.ingredient.IIngredient;
   ]
 });
 
+<recipetype:create:emptying>.addJsonRecipe("create_empty_foodtxf_glass_of_water", {
+  "type": "create:emptying",
+  "ingredients": [
+    (<item:foodtxf:glass_of_water> * 1) as IData,
+  ],
+  "results": [
+    (<item:foodtxf:glass> * 1) as IData,
+    (<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(333)) as IData
+  ]
+});
+<recipetype:create:emptying>.addJsonRecipe("create_empty_foodtxf_glass_of_lava", {
+  "type": "create:emptying",
+  "ingredients": [
+    (<item:foodtxf:glass_of_lava> * 1) as IData,
+  ],
+  "results": [
+    (<item:foodtxf:glass> * 1) as IData,
+    (<fluid:minecraft:lava> * ContextualConstants.fluidAmtFromMb(333)) as IData
+  ]
+});
+<recipetype:create:emptying>.addJsonRecipe("create_empty_foodtxf_glass_of_milk", {
+  "type": "create:emptying",
+  "ingredients": [
+    (<item:foodtxf:glass_of_milk> * 1) as IData,
+  ],
+  "results": [
+    (<item:foodtxf:glass> * 1) as IData,
+    (ContextualConstants.MILK_FLUID * ContextualConstants.fluidAmtFromMb(333)) as IData
+  ]
+});
+
  // Cheese Sandwich =====
 <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_cheese_sandwich")
  .transitionTo(<item:foodtxf:toasted_bread_slice>)
@@ -217,6 +279,27 @@ import crafttweaker.api.ingredient.IIngredient;
     (<item:foodtxf:raw_meat_empanada> * 1) as IData
   ]
 });
+
+// Box =====
+<recipetype:create:mixing>.addJsonRecipe("create_mix_foodtxf_box", {
+  "type": "create:mixing",
+  "ingredients": [
+    (<item:minecraft:paper> * 1) as IData,
+    (<item:minecraft:paper> * 1) as IData,
+    (<item:minecraft:paper> * 1) as IData,
+    (<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(1000)) as IData
+  ],
+  "results": [
+    (<item:foodtxf:box> * 3) as IData
+  ]
+});
+<recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_foodtxf_box")
+ .transitionTo(<item:minecraft:paper>)
+ .require(<item:minecraft:paper>)
+ .loops(2)
+ .addOutput(<item:foodtxf:box> * 3, 1)
+ .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(500)))
+ .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:paper>)) );
 
 // Cereal =====
 <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_box_of_cereal")
