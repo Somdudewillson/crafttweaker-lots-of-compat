@@ -8,7 +8,7 @@ craftingTable.addShaped("craft_guardian_beam_capacitor_vanilla", <item:creategbd
 craftingTable.addShaped("craft_elder_guardian_beam_capacitor_vanilla", <item:creategbd:elder_guardian_beam_capacitor>, [
     [<item:minecraft:sea_lantern>, ContextualConstants.GLOWSTONE_STORAGE_BLOCK, <item:minecraft:sea_lantern>],
     [<item:minecraft:sea_lantern>, <tag:items:forge:storage_blocks/redstone>, <item:minecraft:sea_lantern>],
-    [<item:minecraft:prismarine_shard>, <tag:items:forge:ingots/gold>, <item:minecraft:prismarine_shard>],
+    [<item:minecraft:prismarine_shard>, ContextualConstants.GOLD_INGOT, <item:minecraft:prismarine_shard>],
 ]);
 #onlyif modloaded thermal
 craftingTable.addShaped("craft_guardian_beam_capacitor_thermal", <item:creategbd:guardian_beam_capacitor>, [
@@ -19,7 +19,7 @@ craftingTable.addShaped("craft_guardian_beam_capacitor_thermal", <item:creategbd
 craftingTable.addShaped("craft_elder_guardian_beam_capacitor_thermal", <item:creategbd:elder_guardian_beam_capacitor>, [
     [<item:minecraft:sea_lantern>, ContextualConstants.GLOWSTONE_STORAGE_BLOCK, <item:minecraft:sea_lantern>],
     [<item:minecraft:sea_lantern>, <item:thermal:rf_coil>, <item:minecraft:sea_lantern>],
-    [<item:minecraft:prismarine_shard>, <tag:items:forge:ingots/gold>, <item:minecraft:prismarine_shard>],
+    [<item:minecraft:prismarine_shard>, ContextualConstants.GOLD_INGOT, <item:minecraft:prismarine_shard>],
 ]);
 #endif
 #onlyif modloaded scguns
@@ -31,7 +31,7 @@ craftingTable.addShaped("craft_guardian_beam_capacitor_scguns", <item:creategbd:
 craftingTable.addShaped("craft_elder_guardian_beam_capacitor_scguns", <item:creategbd:elder_guardian_beam_capacitor>, [
     [<item:minecraft:prismarine_crystals>, ContextualConstants.GLOWSTONE_STORAGE_BLOCK, <item:minecraft:prismarine_crystals>],
     [<item:minecraft:sea_lantern>, <item:scguns:plasma_core>, <item:minecraft:sea_lantern>],
-    [<item:minecraft:prismarine_shard>, <tag:items:forge:ingots/gold>, <item:minecraft:prismarine_shard>],
+    [<item:minecraft:prismarine_shard>, ContextualConstants.GOLD_INGOT, <item:minecraft:prismarine_shard>],
 ]);
 #endif
 #onlyif modloaded tfmg

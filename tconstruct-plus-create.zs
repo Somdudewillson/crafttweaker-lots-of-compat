@@ -16,10 +16,10 @@ import crafttweaker.api.ingredient.IIngredient;
     <tag:items:forge:dusts/blaze> as IData,
     <tag:items:forge:dusts/blaze> as IData,
     <tag:items:forge:dusts/blaze> as IData,
-    (<fluid:tconstruct:liquid_soul> * 1000) as IData
+    (<fluid:tconstruct:liquid_soul> * ContextualConstants.fluidAmtFromMb(1000)) as IData
   ],
   "results": [
-    (<fluid:tconstruct:blazing_blood> * 100) as IData
+    (<fluid:tconstruct:blazing_blood> * ContextualConstants.fluidAmtFromMb(100)) as IData
   ]
 });
 <recipetype:create:mixing>.addJsonRecipe("create_mix_blazing_blood_from_liquid_soul_superheated", {
@@ -27,10 +27,10 @@ import crafttweaker.api.ingredient.IIngredient;
   "heatRequirement": "superheated",
   "ingredients": [
     <tag:items:forge:dusts/blaze> as IData,
-    (<fluid:tconstruct:liquid_soul> * 500) as IData
+    (<fluid:tconstruct:liquid_soul> * ContextualConstants.fluidAmtFromMb(500)) as IData
   ],
   "results": [
-    (<fluid:tconstruct:blazing_blood> * 100) as IData
+    (<fluid:tconstruct:blazing_blood> * ContextualConstants.fluidAmtFromMb(100)) as IData
   ]
 });
 
@@ -68,7 +68,7 @@ import crafttweaker.api.ingredient.IIngredient;
     }
   ],
   "results": [
-    (<fluid:tconstruct:blazing_blood> * 100) as IData
+    (<fluid:tconstruct:blazing_blood> * ContextualConstants.fluidAmtFromMb(100)) as IData
   ]
 });
 

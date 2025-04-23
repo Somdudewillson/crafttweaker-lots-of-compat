@@ -222,7 +222,7 @@ var BASE_INGREDIENT_TO_MOLTEN_MAP as FractionalFluid[IIngredient] = {
     <tag:items:forge:gears/iron> as IIngredient: new FractionalFluid(<fluid:tconstruct:molten_iron>, 360),
 
     <tag:items:forge:storage_blocks/gold> as IIngredient: new FractionalFluid(<fluid:tconstruct:molten_gold>, 810),
-    <tag:items:forge:ingots/gold> as IIngredient: new FractionalFluid(<fluid:tconstruct:molten_gold>, 90),
+    ContextualConstants.GOLD_INGOT as IIngredient: new FractionalFluid(<fluid:tconstruct:molten_gold>, 90),
     <tag:items:forge:plates/gold> as IIngredient: new FractionalFluid(<fluid:tconstruct:molten_gold>, 90),
     <tag:items:forge:nuggets/gold> as IIngredient: new FractionalFluid(<fluid:tconstruct:molten_gold>, 10),
     <tag:items:forge:gears/gold> as IIngredient: new FractionalFluid(<fluid:tconstruct:molten_gold>, 360),

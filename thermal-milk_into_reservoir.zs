@@ -16,7 +16,7 @@ events.register<crafttweaker.forge.api.event.interact.EntityInteractEvent>(event
     var fluidHandlerStack = event.itemStack.getInternal().getCapability<IFluidHandlerItem>(Capabilities.FLUID_ITEM);
     if (!fluidHandlerStack.isFluidValid(0, ContextualConstants.MILK_FLUID)) { return; }
     var isCreative = (event.entity is Player) && event.entity.isCreative;
-    var filledMilk = fluidHandlerStack.fill(ContextualConstants.MILK_FLUID * 1000, isCreative ? <constant:forge:fluid_action:simulate> : <constant:forge:fluid_action:execute>);
+    var filledMilk = fluidHandlerStack.fill(ContextualConstants.MILK_FLUID * ContextualConstants.fluidAmtFromMb(1000), isCreative ? <constant:forge:fluid_action:simulate> : <constant:forge:fluid_action:execute>);
 
     if (filledMilk > 0) {
         event.setAllow();

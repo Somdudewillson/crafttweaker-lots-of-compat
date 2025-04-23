@@ -108,7 +108,7 @@ import crafttweaker.api.ingredient.IIngredient;
     (<tag:items:forge:dusts/blaze> * 9) as IData
   ],
   "result": [
-    (<fluid:tconstruct:blazing_blood> * 200) as IData
+    (<fluid:tconstruct:blazing_blood> * ContextualConstants.fluidAmtFromMb(200)) as IData
   ],
   "energy": 50000
 });
@@ -122,7 +122,7 @@ import crafttweaker.api.ingredient.IIngredient;
     (<tag:items:forge:dusts/blaze> * 9) as IData
   ],
   "result": [
-    (<fluid:tconstruct:blazing_blood> * 100) as IData
+    (<fluid:tconstruct:blazing_blood> * ContextualConstants.fluidAmtFromMb(100)) as IData
   ],
   "energy": 75000
 });

@@ -36,7 +36,7 @@ import crafttweaker.api.item.ItemStack;
  .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:sweet_berries>))
  .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:sweet_berries>))
  .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:sweet_berries>))
- .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(ContextualConstants.MILK_FLUID * 250)) );
+ .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(ContextualConstants.MILK_FLUID * ContextualConstants.fluidAmtFromMb(250))) );
 
 <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_pumpkin_pie")
  .transitionTo(<item:farmersdelight:pie_crust>)

@@ -14,53 +14,54 @@ import crafttweaker.api.mod.Mods;
 public class Utils {
 
     public static var FLUID_ITEM_TYPES as IFluidStack[IIngredient] = {
-        (<item:minecraft:milk_bucket> as IIngredient): ContextualConstants.MILK_FLUID * 1000,
-        (<item:minecraft:water_bucket> as IIngredient): <fluid:minecraft:water> * 1000,
+        (<item:minecraft:milk_bucket> as IIngredient): ContextualConstants.MILK_FLUID * ContextualConstants.fluidAmtFromMb(1000),
+        (<item:minecraft:water_bucket> as IIngredient): <fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(1000),
+        (<item:minecraft:lava_bucket> as IIngredient): <fluid:minecraft:lava> * ContextualConstants.fluidAmtFromMb(1000),
     };
 
     static {
         #onlyif modloaded create
-        FLUID_ITEM_TYPES[ (<item:minecraft:honey_bottle> as IIngredient) ] = <fluid:create:honey> * 1000;
+        FLUID_ITEM_TYPES[ (<item:minecraft:honey_bottle> as IIngredient) ] = <fluid:create:honey> * ContextualConstants.fluidAmtFromMb(1000);
         #endif
 
         #onlyif modloaded blue_skies
-        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("blue_skies:ventium_milk_bucket") as IIngredient) ] = ContextualConstants.MILK_FLUID * 1000;
-        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("blue_skies:ventium_water_bucket") as IIngredient) ] = <fluid:minecraft:water> * 1000;
+        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("blue_skies:ventium_milk_bucket") as IIngredient) ] = ContextualConstants.MILK_FLUID * ContextualConstants.fluidAmtFromMb(1000);
+        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("blue_skies:ventium_water_bucket") as IIngredient) ] = <fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(1000);
         #endif
         
         #onlyif modloaded farmersdelight
-        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("farmersdelight:milk_bottle") as IIngredient) ] = ContextualConstants.MILK_FLUID * 250;
+        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("farmersdelight:milk_bottle") as IIngredient) ] = ContextualConstants.MILK_FLUID * ContextualConstants.fluidAmtFromMb(250);
         #onlyif modloaded create_central_kitchen
-        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("farmersdelight:tomato_sauce") as IIngredient) ] = BracketHandlers.getFluidStack("create_central_kitchen:tomato_sauce") * 250;
+        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("farmersdelight:tomato_sauce") as IIngredient) ] = BracketHandlers.getFluidStack("create_central_kitchen:tomato_sauce") * ContextualConstants.fluidAmtFromMb(250);
         #endif
         #endif
         
         #onlyif modloaded miners_delight
-        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("miners_delight:milk_cup") as IIngredient) ] = ContextualConstants.MILK_FLUID * 1000;
-        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("miners_delight:water_cup") as IIngredient) ] = <fluid:minecraft:water> * 1000;
+        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("miners_delight:milk_cup") as IIngredient) ] = ContextualConstants.MILK_FLUID * ContextualConstants.fluidAmtFromMb(1000);
+        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("miners_delight:water_cup") as IIngredient) ] = <fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(1000);
         #endif
 
         #onlyif modloaded cyclic
-        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("cyclic:milk_bottle") as IIngredient) ] = ContextualConstants.MILK_FLUID * 250;
+        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("cyclic:milk_bottle") as IIngredient) ] = ContextualConstants.MILK_FLUID * ContextualConstants.fluidAmtFromMb(250);
         #onlyif modloaded create
-        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("cyclic:honey_bucket") as IIngredient) ] = <fluid:create:honey> * 1000;
+        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("cyclic:honey_bucket") as IIngredient) ] = <fluid:create:honey> * ContextualConstants.fluidAmtFromMb(1000);
         #endif
         #endif
 
         #onlyif modloaded thermal
-        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("thermal:syrup_bucket") as IIngredient) ] = BracketHandlers.getFluidStack("thermal:syrup") * 1000;
-        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("thermal:syrup_bottle") as IIngredient) ] = BracketHandlers.getFluidStack("thermal:syrup") * 250;
+        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("thermal:syrup_bucket") as IIngredient) ] = BracketHandlers.getFluidStack("thermal:syrup") * ContextualConstants.fluidAmtFromMb(1000);
+        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("thermal:syrup_bottle") as IIngredient) ] = BracketHandlers.getFluidStack("thermal:syrup") * ContextualConstants.fluidAmtFromMb(250);
         #onlyif modloaded create_central_kitchen thermal_cultivation
-        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("thermal:tomato_sauce") as IIngredient) ] = BracketHandlers.getFluidStack("create_central_kitchen:tomato_sauce") * 625;
+        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("thermal:tomato_sauce") as IIngredient) ] = BracketHandlers.getFluidStack("create_central_kitchen:tomato_sauce") * ContextualConstants.fluidAmtFromMb(625);
         #endif
         #endif
         
         #onlyif modloaded create_central_kitchen
-        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("create_central_kitchen:tomato_sauce_bucket") as IIngredient) ] = BracketHandlers.getFluidStack("create_central_kitchen:tomato_sauce") * 1000;
+        FLUID_ITEM_TYPES[ (BracketHandlers.getItem("create_central_kitchen:tomato_sauce_bucket") as IIngredient) ] = BracketHandlers.getFluidStack("create_central_kitchen:tomato_sauce") * ContextualConstants.fluidAmtFromMb(1000);
         #endif
 
         #onlyif modloaded create_enchantment_industry
-        FLUID_ITEM_TYPES[ (<item:minecraft:experience_bottle> as IIngredient) ] = <fluid:create_enchantment_industry:experience> * 1000;
+        FLUID_ITEM_TYPES[ (<item:minecraft:experience_bottle> as IIngredient) ] = <fluid:create_enchantment_industry:experience> * ContextualConstants.fluidAmtFromMb(1000);
         #endif
     }
 

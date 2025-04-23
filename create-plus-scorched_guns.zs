@@ -19,7 +19,7 @@ var SCGUNS_BLUEPRINT_TYPES as IIngredient[IItemStack] = {
     (<item:scguns:treated_brass_blueprint> as IItemStack): (<item:scguns:treated_brass_ingot> as IIngredient),
     (<item:scguns:diamond_steel_blueprint> as IItemStack): (<item:scguns:diamond_steel_ingot> as IIngredient),
     (<item:scguns:ocean_blueprint> as IItemStack): (<tag:items:forge:gems/prismarine> as IIngredient),
-    (<item:scguns:piglin_blueprint> as IItemStack): (<tag:items:forge:ingots/gold> as IIngredient),
+    (<item:scguns:piglin_blueprint> as IItemStack): (ContextualConstants.GOLD_INGOT as IIngredient),
     (<item:scguns:deep_dark_blueprint> as IItemStack): (<item:minecraft:echo_shard> as IIngredient),
     (<item:scguns:end_blueprint> as IItemStack): (<item:minecraft:chorus_fruit> as IIngredient)
 };

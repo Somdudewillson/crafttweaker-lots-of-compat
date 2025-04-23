@@ -16,7 +16,7 @@
  .addOutput(<item:minecraft:air>, 2)
  .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<fluid:minecraft:lava> * 10))
  .addStep<mods.createtweaker.PressingRecipe>((rb) => rb)
- .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<fluid:minecraft:water> * 100)) );
+ .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(100))) );
 
 <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("refine_emerald_to_pristine")
  .require(<item:minecraft:emerald_block>)
@@ -34,7 +34,7 @@
  .addOutput(<item:minecraft:air>, 2)
  .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<fluid:minecraft:lava> * 10))
  .addStep<mods.createtweaker.PressingRecipe>((rb) => rb)
- .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<fluid:minecraft:water> * 100)) );
+ .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(100))) );
 
 <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("refine_diamond_to_pristine")
  .require(<item:minecraft:diamond_block>)
@@ -52,7 +52,7 @@
  .addOutput(<item:minecraft:air>, 2)
  .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<fluid:minecraft:lava> * 10))
  .addStep<mods.createtweaker.PressingRecipe>((rb) => rb)
- .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<fluid:minecraft:water> * 100)) );
+ .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(100))) );
 
 <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("refine_amethyst_to_pristine")
  .require(<item:minecraft:amethyst_block>)
@@ -65,4 +65,4 @@
  .addOutput(<item:minecraft:air>, 2)
  .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<fluid:minecraft:lava> * 10))
  .addStep<mods.createtweaker.PressingRecipe>((rb) => rb)
- .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<fluid:minecraft:water> * 100)) );
+ .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(100))) );

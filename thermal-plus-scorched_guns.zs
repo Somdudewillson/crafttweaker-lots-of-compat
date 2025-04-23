@@ -228,7 +228,7 @@ craftingTable.addShapeless("convert_scguns_plasma_to_systeams_plasma_ball",
     .transitionTo(<item:scguns:empty_cell>)
     .loops(1)
     .addOutput(<item:scguns:energy_cell>, 1)
-    .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<fluid:systeams:steamiestest> * 100))
+    .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<fluid:systeams:steamiestest> * ContextualConstants.fluidAmtFromMb(100)))
     .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:scguns:stan_bullet_tips>))
     .addStep<mods.createtweaker.PressingRecipe>((rb) => rb) );
 #endif
