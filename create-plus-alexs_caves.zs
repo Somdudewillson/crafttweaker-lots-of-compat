@@ -23,7 +23,7 @@ import crafttweaker.api.ingredient.IIngredient;
   "heatRequirement": "heated",
   "ingredients": [
     <tag:items:forge:slimeballs> as IData,
-    <tag:items:forge:ingots/iron> as IData
+    ContextualConstants.IRON_INGOT as IData
   ],
   "results": [
     {
@@ -58,7 +58,7 @@ if (<tag:fluids:lots_of_compat:liquid_slime>.elements.length > 0) {
                 "fluidTag": "lots_of_compat:liquid_slime",
                 "amount": 250
             },
-            <tag:items:forge:ingots/iron> as IData
+            ContextualConstants.IRON_INGOT as IData
         ],
         "results": [
             {
@@ -146,7 +146,7 @@ if (<tag:fluids:lots_of_compat:liquid_slime>.elements.length > 0) {
   "type": "create:mixing",
   "heatRequirement": "heated",
   "ingredients": [
-    (<tag:items:forge:ingots/iron> as IIngredient | <tag:items:forge:dusts/iron>) as IData,
+    (ContextualConstants.IRON_INGOT as IIngredient | <tag:items:forge:dusts/iron>) as IData,
     <tag:items:forge:dusts/sulfur> as IData,
     (<tag:items:forge:ingots/uranium> as IIngredient | <tag:items:forge:dusts/uranium> | <item:alexscaves:uranium>) as IData
   ],

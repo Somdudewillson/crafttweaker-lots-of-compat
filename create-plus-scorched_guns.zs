@@ -15,7 +15,7 @@ var SCGUNS_BLUEPRINTS as IItemStack[] = [
 ];
 var SCGUNS_BLUEPRINT_TYPES as IIngredient[IItemStack] = {
     (<item:scguns:copper_blueprint> as IItemStack): (<tag:items:forge:ingots/copper> as IIngredient),
-    (<item:scguns:iron_blueprint> as IItemStack): (<tag:items:forge:ingots/iron> as IIngredient),
+    (<item:scguns:iron_blueprint> as IItemStack): (ContextualConstants.IRON_INGOT as IIngredient),
     (<item:scguns:treated_brass_blueprint> as IItemStack): (<item:scguns:treated_brass_ingot> as IIngredient),
     (<item:scguns:diamond_steel_blueprint> as IItemStack): (<item:scguns:diamond_steel_ingot> as IIngredient),
     (<item:scguns:ocean_blueprint> as IItemStack): (<tag:items:forge:gems/prismarine> as IIngredient),

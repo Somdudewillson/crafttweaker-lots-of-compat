@@ -11,6 +11,8 @@ public class ContextualConstants {
 
     public static var GLOWSTONE_DUST = <tag:items:forge:dusts/glowstone>;
     public static var GLOWSTONE_STORAGE_BLOCK = <tag:items:forge:storage_blocks/glowstone>;
+    public static var IRON_INGOT = <tag:items:forge:ingots/iron>;
+    public static var REDSTONE_DUST = <tag:items:forge:dusts/redstone>;
     #endif
 
     #onlyif modloader fabric
@@ -23,5 +25,7 @@ public class ContextualConstants {
 
     public static var GLOWSTONE_DUST = <tag:items:c:glowstone_dusts>;
     public static var GLOWSTONE_STORAGE_BLOCK = <tag:items:c:glowstone_blocks>;
+    public static var IRON_INGOT = <tag:items:c:iron_ingots>;
+    public static var REDSTONE_DUST = <tag:items:c:redstone_dusts>;
     #endif
 }

@@ -52,14 +52,14 @@ craftingTable.addShapeless("treated_iron_blend_from_dusts",
         <tag:items:forge:dusts/iron>,
         <tag:items:forge:dusts/niter>,
         <tag:items:minecraft:coals>,
-        <tag:items:forge:dusts/redstone>
+        ContextualConstants.REDSTONE_DUST
     ]);
 craftingTable.addShapeless("treated_iron_blend_from_dusts_incl_steel_dust", 
     <item:scguns:treated_iron_blend> * 3, 
     [
         <tag:items:forge:dusts/steel>,
         <tag:items:forge:dusts/niter>,
-        <tag:items:forge:dusts/redstone>
+        ContextualConstants.REDSTONE_DUST
     ]);
 craftingTable.addShapeless("diamond_steel_blend_from_dusts", 
     <item:scguns:diamond_steel_blend> * 4, 
@@ -79,7 +79,7 @@ craftingTable.addShaped("scguns_powered_macerator_with_thermal",
         [<tag:items:forge:slabs/smooth_stone>,<item:minecraft:blast_furnace>,<tag:items:forge:slabs/smooth_stone>],
         [<tag:items:forge:smooth_stone>,<item:scguns:lightning_battery> as IIngredient | <item:thermal:rf_coil>,<tag:items:forge:smooth_stone>]
     ]);
-var pressIngotIngredient = <tag:items:forge:ingots/iron> as IIngredient | <item:scguns:treated_iron_ingot>;
+var pressIngotIngredient = ContextualConstants.IRON_INGOT as IIngredient | <item:scguns:treated_iron_ingot>;
 craftingTable.removeByName("scguns:powered_mechanical_press");
 craftingTable.addShaped("scguns_powered_mechanical_press_with_thermal", 
     <item:scguns:powered_mechanical_press>, 
@@ -249,18 +249,18 @@ var SCGUNS_MOLD_PROCESS_TIME as int[IItemStack] = {
     (<item:scguns:disc_mold> as IItemStack): 200
 };
 var SCGUNS_MOLD_RECIPES = [
-    [<item:scguns:small_casing_mold> as IIngredient, <tag:items:forge:ingots/iron> as IIngredient, (<item:scguns:small_iron_casing> as IIngredient) * 12],
+    [<item:scguns:small_casing_mold> as IIngredient, ContextualConstants.IRON_INGOT as IIngredient, (<item:scguns:small_iron_casing> as IIngredient) * 12],
     [<item:scguns:small_casing_mold> as IIngredient, <tag:items:forge:ingots/copper> as IIngredient, (<item:scguns:small_copper_casing> as IIngredient) * 12],
     [<item:scguns:small_casing_mold> as IIngredient, <tag:items:forge:ingots/brass> as IIngredient, (<item:scguns:small_brass_casing> as IIngredient) * 12],
     [<item:scguns:small_casing_mold> as IIngredient, <tag:items:forge:ingots/diamond_steel> as IIngredient, (<item:scguns:small_diamond_steel_casing> as IIngredient) * 12],
 
-    [<item:scguns:medium_casing_mold> as IIngredient, <tag:items:forge:ingots/iron> as IIngredient, (<item:scguns:empty_cell> as IIngredient) * 8],
+    [<item:scguns:medium_casing_mold> as IIngredient, ContextualConstants.IRON_INGOT as IIngredient, (<item:scguns:empty_cell> as IIngredient) * 8],
     [<item:scguns:medium_casing_mold> as IIngredient, <tag:items:forge:ingots/copper> as IIngredient, (<item:scguns:medium_copper_casing> as IIngredient) * 8],
     [<item:scguns:medium_casing_mold> as IIngredient, <tag:items:forge:ingots/brass> as IIngredient, (<item:scguns:medium_brass_casing> as IIngredient) * 8],
     [<item:scguns:medium_casing_mold> as IIngredient, <tag:items:forge:ingots/diamond_steel> as IIngredient, (<item:scguns:medium_diamond_steel_casing> as IIngredient) * 8],
     [<item:scguns:medium_casing_mold> as IIngredient, <item:minecraft:shulker_shell> as IIngredient, (<item:scguns:shulker_casing> as IIngredient) * 12],
 
-    [<item:scguns:large_casing_mold> as IIngredient, <tag:items:forge:ingots/iron> as IIngredient, (<item:scguns:large_iron_casing> as IIngredient) * 5],
+    [<item:scguns:large_casing_mold> as IIngredient, ContextualConstants.IRON_INGOT as IIngredient, (<item:scguns:large_iron_casing> as IIngredient) * 5],
     [<item:scguns:large_casing_mold> as IIngredient, <tag:items:forge:ingots/brass> as IIngredient, (<item:scguns:large_brass_casing> as IIngredient) * 5],
 
     [<item:scguns:bullet_mold> as IIngredient, <tag:items:scguns:standard_bullet_material> as IIngredient, (<item:scguns:standard_bullet> as IIngredient) * 12],

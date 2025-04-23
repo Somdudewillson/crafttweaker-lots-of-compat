@@ -5,5 +5,5 @@
  .transitionTo(<item:spore:compound_plate>)
  .loops(3)
  .addOutput(<item:spore:circuit_board>, 1)
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:forge:dusts/redstone>))
+ .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(ContextualConstants.REDSTONE_DUST))
  .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:repeater>)) );

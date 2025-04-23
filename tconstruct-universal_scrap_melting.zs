@@ -216,7 +216,7 @@ val INVALID_FLUID = new FractionalFluid(<fluid:minecraft:empty>, -1);
 
 var BASE_INGREDIENT_TO_MOLTEN_MAP as FractionalFluid[IIngredient] = {
     <tag:items:forge:storage_blocks/iron> as IIngredient: new FractionalFluid(<fluid:tconstruct:molten_iron>, 810),
-    <tag:items:forge:ingots/iron> as IIngredient: new FractionalFluid(<fluid:tconstruct:molten_iron>, 90),
+    ContextualConstants.IRON_INGOT as IIngredient: new FractionalFluid(<fluid:tconstruct:molten_iron>, 90),
     <tag:items:forge:plates/iron> as IIngredient: new FractionalFluid(<fluid:tconstruct:molten_iron>, 90),
     <tag:items:forge:nuggets/iron> as IIngredient: new FractionalFluid(<fluid:tconstruct:molten_iron>, 10),
     <tag:items:forge:gears/iron> as IIngredient: new FractionalFluid(<fluid:tconstruct:molten_iron>, 360),
@@ -397,7 +397,7 @@ var BURNABLE_INGREDIENTS as IIngredient[] = [
     <tag:items:forge:normal_stone> as IIngredient,
     <tag:items:forge:feathers> as IIngredient,
     <tag:items:forge:torches> as IIngredient,
-    <tag:items:forge:dusts/redstone> as IIngredient
+    ContextualConstants.REDSTONE_DUST as IIngredient
 ];
 var mergedBurnableIngredient = BURNABLE_INGREDIENTS[0];
 for i in 1 .. BURNABLE_INGREDIENTS.length {

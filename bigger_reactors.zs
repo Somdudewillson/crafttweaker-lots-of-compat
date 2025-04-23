@@ -12,9 +12,9 @@ var FLUID_PIPES = <tag:items:lots_of_compat:fluid_pipes>;
 if ( (loadedMods.isModLoaded("thermal") && loadedMods.isModLoaded("thermal_dynamics") && loadedMods.isModLoaded("thermal_expansion")) || (DIAMOND_CIRCUITS.elements.length > 0) ) {
     craftingTable.remove(<item:biggerreactors:reactor_terminal>);
     craftingTable.addShaped("reactor_terminal_circuit", <item:biggerreactors:reactor_terminal>, [
-        [<tag:items:forge:ingots/iron>, <tag:items:forge:ingots/graphite>, <tag:items:forge:ingots/iron>],
+        [ContextualConstants.IRON_INGOT, <tag:items:forge:ingots/graphite>, ContextualConstants.IRON_INGOT],
         [<tag:items:forge:ingots/graphite>, DIAMOND_CIRCUITS, <tag:items:forge:ingots/graphite>],
-        [<tag:items:forge:ingots/iron>, <tag:items:forge:ingots/graphite>, <tag:items:forge:ingots/iron>],
+        [ContextualConstants.IRON_INGOT, <tag:items:forge:ingots/graphite>, ContextualConstants.IRON_INGOT],
     ]);
     craftingTable.addShaped("reactor_terminal_signalum", <item:biggerreactors:reactor_terminal>, [
         [<tag:items:forge:ingots/graphite>, <tag:items:forge:ingots/signalum>, <tag:items:forge:ingots/graphite>],
@@ -28,7 +28,7 @@ if ( (loadedMods.isModLoaded("thermal") && loadedMods.isModLoaded("thermal_dynam
     craftingTable.addShaped("turbine_terminal_circuit", <item:biggerreactors:turbine_terminal>, [
         [<tag:items:forge:gems/quartz>, <tag:items:forge:ingots/graphite>, <tag:items:forge:gems/quartz>],
         [<item:biggerreactors:blutonium_ingot>, DIAMOND_CIRCUITS, <item:biggerreactors:blutonium_ingot>],
-        [<tag:items:forge:ingots/iron>, <tag:items:forge:ingots/graphite>, <tag:items:forge:ingots/iron>],
+        [ContextualConstants.IRON_INGOT, <tag:items:forge:ingots/graphite>, ContextualConstants.IRON_INGOT],
     ]);
     craftingTable.addShaped("turbine_terminal_signalum", <item:biggerreactors:turbine_terminal>, [
         [<tag:items:forge:gems/quartz>, <tag:items:forge:ingots/signalum>, <tag:items:forge:gems/quartz>],
@@ -40,7 +40,7 @@ if ( (loadedMods.isModLoaded("thermal") && loadedMods.isModLoaded("thermal_dynam
 if ( (loadedMods.isModLoaded("thermal") && loadedMods.isModLoaded("thermal_dynamics") && loadedMods.isModLoaded("thermal_expansion")) || (DIAMOND_CIRCUITS.elements.length > 0) ) {
     craftingTable.remove(<item:biggerreactors:heat_exchanger_terminal>);
     craftingTable.addShaped("heat_exchanger_terminal_circuit", <item:biggerreactors:heat_exchanger_terminal>, [
-        [<tag:items:forge:ingots/iron>, DIAMOND_CIRCUITS, <tag:items:forge:ingots/iron>],
+        [ContextualConstants.IRON_INGOT, DIAMOND_CIRCUITS, ContextualConstants.IRON_INGOT],
         [<item:biggerreactors:ludicrite_ingot>, <item:biggerreactors:ludicrite_ingot>, <item:biggerreactors:ludicrite_ingot>],
         [<tag:items:forge:ingots/copper>, DIAMOND_CIRCUITS, <tag:items:forge:ingots/copper>],
     ]);

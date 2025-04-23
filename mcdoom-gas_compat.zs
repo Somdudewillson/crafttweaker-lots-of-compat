@@ -16,6 +16,6 @@ if (DOOM_VALID_FUEL.elements.length > 0) {
         <item:doom:gas_barrel> * 16, 
         [
             (DOOM_VALID_FUEL as IIngredient).transformReplace(<item:minecraft:bucket>),
-            (<tag:items:forge:ingots/iron> as IIngredient) | <tag:items:forge:ingots/plastic>
+            (ContextualConstants.IRON_INGOT as IIngredient) | <tag:items:forge:ingots/plastic>
         ]);
 }

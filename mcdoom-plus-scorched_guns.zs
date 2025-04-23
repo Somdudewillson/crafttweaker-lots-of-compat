@@ -7,7 +7,7 @@ craftingTable.removeByName("doom:shotgun_shell");
 craftingTable.addShapeless("pack_doom_shotgun_shells_manual_only", 
     <item:doom:shotgun_shells>, 
     [
-        <tag:items:forge:ingots/iron>,
+        ContextualConstants.IRON_INGOT,
         <item:scguns:shotgun_shell>,
         <item:scguns:shotgun_shell>,
         <item:scguns:shotgun_shell>,
@@ -42,7 +42,7 @@ craftingTable.removeByName("doom:chaingun_bullets");
 craftingTable.addShapeless("pack_doom_chaingun_mag_manual_only", 
     <item:doom:chaingunbullets>, 
     [
-        <tag:items:forge:ingots/iron>,
+        ContextualConstants.IRON_INGOT,
         <item:doom:bullets>,
         <item:doom:bullets>,
         <item:doom:bullets>,
