@@ -90,6 +90,12 @@ COOKIES.add(<item:farmersdelight:honey_cookie>);
 COOKIES.add(<item:farmersdelight:sweet_berry_cookie>);
 #endif
 
+var RAW_HUMANOID_FLESH = <tag:items:lots_of_compat:raw_humanoid_flesh>;
+RAW_HUMANOID_FLESH.add(<item:minecraft:rotten_flesh>);
+#onlyif modloaded foodtxf
+RAW_HUMANOID_FLESH.add(<item:foodtxf:player_flesh>);
+#endif
+
 // Non-lots_of_compat-specific (FORGE)
 #onlyif modloader forge
 

@@ -1,6 +1,7 @@
 #priority 9
 #modloaded create farmersdelight
 
+import crafttweaker.api.data.IData;
 import mods.create.MixingManager;
 import crafttweaker.api.recipe.type.Recipe;
 import mods.createtweaker.ProcessingRecipe;
@@ -70,3 +71,18 @@ import crafttweaker.api.item.ItemStack;
  .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(ContextualConstants.CABBAGE))
  .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(ContextualConstants.COOKED_MUTTON))
  .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(ContextualConstants.ONION)) );
+
+<recipetype:create:mixing>.addJsonRecipe("create_mix_farmersdelight_honey_cookie", {
+  "type": "create:mixing",
+  "ingredients": [
+    ((<item:minecraft:wheat> * 1) as IIngredient) as IData,
+    ((<item:minecraft:wheat> * 1) as IIngredient) as IData,
+    {
+      "amount": ContextualConstants.fluidAmtFromMb(250),
+      "fluid": "create:honey"
+    }
+  ],
+  "results": [
+    (<item:farmersdelight:honey_cookie> * 8) as IData
+  ]
+});

@@ -21,7 +21,7 @@ public class Utils {
 
     static {
         #onlyif modloaded create
-        FLUID_ITEM_TYPES[ (<item:minecraft:honey_bottle> as IIngredient) ] = <fluid:create:honey> * ContextualConstants.fluidAmtFromMb(1000);
+        FLUID_ITEM_TYPES[ (<item:minecraft:honey_bottle> as IIngredient) ] = <fluid:create:honey> * ContextualConstants.fluidAmtFromMb(250);
         #endif
 
         #onlyif modloaded blue_skies
