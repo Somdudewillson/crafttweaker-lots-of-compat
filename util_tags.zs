@@ -83,6 +83,13 @@ LIQUID_SLIME.add(<fluid:tconstruct:sky_slime>);
 LIQUID_SLIME.add(<fluid:tconstruct:ender_slime>);
 #endif
 
+var COOKIES = <tag:items:lots_of_compat:cookies>;
+COOKIES.add(<item:minecraft:cookie>);
+#onlyif modloaded farmersdelight
+COOKIES.add(<item:farmersdelight:honey_cookie>);
+COOKIES.add(<item:farmersdelight:sweet_berry_cookie>);
+#endif
+
 // Non-lots_of_compat-specific (FORGE)
 #onlyif modloader forge
 
