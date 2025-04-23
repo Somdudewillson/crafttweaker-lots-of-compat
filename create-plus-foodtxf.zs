@@ -137,21 +137,21 @@ import crafttweaker.api.ingredient.IIngredient;
  .require(<item:foodtxf:glass_of_milk>)
  .loops(2)
  .addOutput(<item:foodtxf:glass_of_milk_and_cookies> * 1, 1)
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:cookie>)) );
+ .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:lots_of_compat:cookies>)) );
 <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_glass_of_chocomilk_and_cookies_from_chocomilk")
  .transitionTo(<item:foodtxf:glass_of_chocomilk>)
  .require(<item:foodtxf:glass_of_chocomilk>)
  .loops(2)
  .addOutput(<item:foodtxf:glass_of_chocomilk_and_cookies> * 1, 1)
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:cookie>)) );
+ .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:lots_of_compat:cookies>)) );
 <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_glass_of_chocomilk_and_cookies_from_milk")
  .transitionTo(<item:foodtxf:glass_of_milk>)
  .require(<item:foodtxf:glass_of_milk>)
  .loops(1)
  .addOutput(<item:foodtxf:glass_of_chocomilk_and_cookies> * 1, 1)
  .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:cocoa_beans>))
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:cookie>))
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:cookie>)) );
+ .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:lots_of_compat:cookies>))
+ .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:lots_of_compat:cookies>)) );
 
 <recipetype:create:mixing>.addJsonRecipe("create_mix_foodtxf_glass_of_fruit_juice", {
   "type": "create:mixing",
@@ -232,7 +232,7 @@ import crafttweaker.api.ingredient.IIngredient;
  .require(<item:foodtxf:box>)
  .loops(8)
  .addOutput(<item:foodtxf:box_of_cookies> * 1, 1)
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:cookie>)) );
+ .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:lots_of_compat:cookies>)) );
 
  // Bowl of Rice =====
 <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_foodtxf_rice_bowl")
