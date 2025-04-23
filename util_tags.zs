@@ -22,16 +22,20 @@ var DIAMOND_CIRCUITS = <tag:items:lots_of_compat:diamond_circuits>;
 #onlyif modloaded ae2
 DIAMOND_CIRCUITS.add(<item:ae2:engineering_processor>);
 #endif
+#onlyif modloader forge
 if (<tag:items:forge:circuits/elite>.exists() && <tag:items:forge:circuits/elite>.elements.length>0) {
     DIAMOND_CIRCUITS.add(<tag:items:forge:circuits/elite>);
 }
+#endif
 var GOLD_CIRCUITS = <tag:items:lots_of_compat:gold_circuits>;
 #onlyif modloaded ae2
 GOLD_CIRCUITS.add(<item:ae2:logic_processor>);
 #endif
+#onlyif modloader forge
 if (<tag:items:forge:circuits/advanced>.exists() && <tag:items:forge:circuits/advanced>.elements.length>0) {
     GOLD_CIRCUITS.add(<tag:items:forge:circuits/advanced>);
 }
+#endif
 var FLUID_PIPES = <tag:items:lots_of_compat:fluid_pipes>;
 #onlyif modloaded thermal
 FLUID_PIPES.add(<item:thermal:fluid_duct>);
@@ -79,7 +83,9 @@ LIQUID_SLIME.add(<fluid:tconstruct:sky_slime>);
 LIQUID_SLIME.add(<fluid:tconstruct:ender_slime>);
 #endif
 
-// Non-lots_of_compat-specific
+// Non-lots_of_compat-specific (FORGE)
+#onlyif modloader forge
+
 #onlyif modloaded burnt
 <tag:fluids:forge:magma>.add(<fluid:burnt:liquid_magma>);
 #endif
@@ -299,6 +305,238 @@ LIQUID_SLIME.add(<fluid:tconstruct:ender_slime>);
 <tag:items:forge:foods/meat/raw>.add(<item:alexsmobs:moose_ribs>);
 #endif
 
+#endif
+
+// Non-lots_of_compat-specific (FABRIC)
+#onlyif modloader fabric
+
+#onlyif modloaded burnt
+<tag:fluids:c:magma>.add(<fluid:burnt:liquid_magma>);
+#endif
+#onlyif modloaded scguns
+<tag:items:c:tools/knifes>.add(<item:scguns:anthralite_knife>);
+
+
+<tag:items:c:dusts/niter>.add(<item:scguns:niter_dust>);
+
+<tag:items:c:anthralite_ores>.add(<item:scguns:anthralite_ore>);
+<tag:blocks:c:ores_in_ground/stone>.add(<block:scguns:anthralite_ore>);
+<tag:items:c:anthralite_ores>.add(<item:scguns:deepslate_anthralite_ore>);
+<tag:blocks:c:ores_in_ground/deepslate>.add(<block:scguns:deepslate_anthralite_ore>);
+
+<tag:blocks:c:ores_in_ground/stone>.add(<block:scguns:sulfur_ore>);
+<tag:blocks:c:ores_in_ground/deepslate>.add(<block:scguns:deepslate_sulfur_ore>);
+<tag:blocks:c:ores_in_ground/netherrack>.add(<block:scguns:nether_sulfur_ore>);
+
+<tag:blocks:c:ores_in_ground/netherrack>.add(<block:scguns:vehement_coal_ore>);
+<tag:blocks:c:ores>.add(<block:scguns:rich_phosphorite>);
+<tag:blocks:c:ores_in_ground/deepslate>.add(<block:scguns:rich_phosphorite>);
+
+<tag:items:c:anthralite_raw_materials>.add(<item:scguns:raw_anthralite>);
+<tag:items:c:dusts/anthralite>.add(<item:scguns:crushed_raw_anthralite>);
+<tag:items:c:nuggets>.add(<item:scguns:anthralite_nugget>);
+<tag:items:c:anthralite_ingots>.add(<item:scguns:anthralite_ingot>);
+<tag:items:c:ingots>.add(<item:scguns:anthralite_ingot>);
+<tag:items:c:anthralite_blocks>.add(<item:scguns:anthralite_block>);
+
+<tag:items:c:treated_iron_ingots>.add(<item:scguns:treated_iron_ingot>);
+<tag:items:c:ingots>.add(<item:scguns:treated_iron_ingot>);
+<tag:blocks:c:iron_blocks>.remove(<block:scguns:treated_iron_block>);
+<tag:items:c:treated_iron_blocks>.add(<item:scguns:treated_iron_block>);
+<tag:blocks:c:treated_iron_blocks>.add(<block:scguns:treated_iron_block>);
+<tag:items:forge:storage_blocks>.add(<item:scguns:treated_iron_block>);
+
+<tag:items:c:treated_brass_ingots>.add(<item:scguns:treated_brass_ingot>);
+<tag:items:c:ingots>.add(<item:scguns:treated_brass_ingot>);
+<tag:items:c:treated_brass_blocks>.add(<item:scguns:treated_brass_block>);
+<tag:blocks:c:treated_brass_blocks>.add(<block:scguns:treated_brass_block>);
+<tag:blocks:forge:storage_blocks>.add(<block:scguns:treated_brass_block>);
+<tag:items:forge:storage_blocks>.add(<item:scguns:treated_brass_block>);
+
+<tag:items:c:diamond_steel_raw_materials>.add(<item:scguns:diamond_steel_blend>);
+<tag:items:c:diamond_steel_ingots>.add(<item:scguns:diamond_steel_ingot>);
+<tag:items:c:ingots>.add(<item:scguns:diamond_steel_ingot>);
+<tag:items:c:diamond_steel_blocks>.add(<item:scguns:diamond_steel_block>);
+<tag:blocks:c:diamond_steel_blocks>.add(<block:scguns:diamond_steel_block>);
+<tag:items:forge:storage_blocks>.add(<item:scguns:diamond_steel_block>);
+<tag:blocks:forge:storage_blocks>.add(<block:scguns:diamond_steel_block>);
+
+<tag:items:c:ingots>.add(<item:scguns:scorched_ingot>);
+<tag:items:c:scorched_netherite_ingots>.add(<item:scguns:scorched_ingot>);
+#endif
+#onlyif modloaded spore
+<tag:items:c:dusts/amethyst>.add(<item:spore:amethyst_dust>);
+<tag:items:forge:circuits/basic>.add(<item:spore:circuit_board>);
+#endif
+#onlyif modloaded jaopca jaopcaextras ae2
+<tag:items:forge:circuits/basic>.add(<tag:items:forge:processors/tin>);
+<tag:items:forge:circuits/basic>.add(<tag:items:forge:processors/copper>);
+<tag:items:forge:circuits/basic>.add(<tag:items:forge:processors/iron>);
+#endif
+#onlyif modloaded bigreactors
+<tag:blocks:c:ores_in_ground/stone>.add(<block:bigreactors:yellorite_ore>);
+<tag:blocks:c:ores_in_ground/end_stone>.add(<block:bigreactors:anglesite_ore>);
+<tag:blocks:c:ores_in_ground/netherrack>.add(<block:bigreactors:benitoite_ore>);
+#endif
+#onlyif modloaded thermal
+<tag:blocks:c:ores_in_ground/stone>.add(<block:thermal:apatite_ore>);
+<tag:blocks:c:ores_in_ground/deepslate>.add(<block:thermal:deepslate_apatite_ore>);
+
+<tag:blocks:c:ores_in_ground/stone>.add(<block:thermal:cinnabar_ore>);
+<tag:blocks:c:ores_in_ground/deepslate>.add(<block:thermal:deepslate_cinnabar_ore>);
+
+<tag:blocks:c:ores_in_ground/stone>.add(<block:thermal:niter_ore>);
+<tag:blocks:c:ores_in_ground/deepslate>.add(<block:thermal:deepslate_niter_ore>);
+
+<tag:blocks:c:ores_in_ground/stone>.add(<block:thermal:apatite_ore>);
+<tag:blocks:c:ores_in_ground/deepslate>.add(<block:thermal:deepslate_apatite_ore>);
+
+<tag:blocks:c:ores_in_ground/stone>.add(<block:thermal:sulfur_ore>);
+<tag:blocks:c:ores_in_ground/deepslate>.add(<block:thermal:deepslate_sulfur_ore>);
+
+<tag:blocks:c:ores_in_ground/stone>.add(<block:thermal:tin_ore>);
+<tag:blocks:c:ores_in_ground/deepslate>.add(<block:thermal:deepslate_tin_ore>);
+
+<tag:blocks:c:ores_in_ground/stone>.add(<block:thermal:lead_ore>);
+<tag:blocks:c:ores_in_ground/deepslate>.add(<block:thermal:deepslate_lead_ore>);
+
+<tag:blocks:c:ores_in_ground/stone>.add(<block:thermal:silver_ore>);
+<tag:blocks:c:ores_in_ground/deepslate>.add(<block:thermal:deepslate_silver_ore>);
+
+<tag:blocks:c:ores_in_ground/stone>.add(<block:thermal:nickel_ore>);
+<tag:blocks:c:ores_in_ground/deepslate>.add(<block:thermal:deepslate_nickel_ore>);
+
+<tag:blocks:c:ores_in_ground/stone>.add(<block:thermal:ruby_ore>);
+<tag:blocks:c:ores_in_ground/deepslate>.add(<block:thermal:deepslate_ruby_ore>);
+
+<tag:blocks:c:ores_in_ground/stone>.add(<block:thermal:sapphire_ore>);
+<tag:blocks:c:ores_in_ground/deepslate>.add(<block:thermal:deepslate_sapphire_ore>);
+
+<tag:blocks:c:ores_in_ground/stone>.add(<block:thermal:apatite_ore>);
+<tag:blocks:c:ores_in_ground/deepslate>.add(<block:thermal:deepslate_apatite_ore>);
+#endif
+#onlyif modloaded tfmg
+<tag:items:c:coal_coke>.add(<item:tfmg:coal_coke>);
+<tag:items:c:coal_coke_blocks>.add(<item:tfmg:coal_coke_block>);
+<tag:blocks:c:coal_coke_blocks>.add(<block:tfmg:coal_coke_block>);
+
+<tag:items:c:ingots>.add(<item:tfmg:magnetic_ingot>);
+
+<tag:fluids:c:gasoline>.add(<fluid:tfmg:gasoline>);
+<tag:fluids:c:molten_steel>.add(<fluid:tfmg:molten_steel>);
+<tag:fluids:c:creosote>.add(<fluid:tfmg:creosote>);
+#endif
+#onlyif modloaded bigreactors
+<tag:items:c:ingots>.add(<item:bigreactors:insanite_ingot>);
+<tag:items:c:ingots>.add(<item:bigreactors:inanite_ingot>);
+<tag:items:c:ingots>.add(<item:bigreactors:ridiculite_ingot>);
+<tag:items:c:ingots>.add(<item:bigreactors:ludicrite_ingot>);
+#endif
+#onlyif modloaded iceandfire
+<tag:items:c:ghost_ingots>.add(<item:iceandfire:ghost_ingot>);
+
+<tag:items:c:dragonsteel_ingots>.add(<item:iceandfire:dragonsteel_fire_ingot>);
+<tag:items:c:dragonsteel_fire_ingots>.add(<item:iceandfire:dragonsteel_fire_ingot>);
+<tag:items:c:dragonsteel_ingots>.add(<item:iceandfire:dragonsteel_ice_ingot>);
+<tag:items:c:dragonsteel_ice_ingots>.add(<item:iceandfire:dragonsteel_ice_ingot>);
+<tag:items:c:dragonsteel_ingots>.add(<item:iceandfire:dragonsteel_lightning_ingot>);
+<tag:items:c:dragonsteel_lightning_ingots>.add(<item:iceandfire:dragonsteel_lightning_ingot>);
+
+<tag:blocks:c:storage_blocks>.add(<block:iceandfire:dragonsteel_fire_block>);
+<tag:blocks:c:dragonsteel_blocks>.add(<block:iceandfire:dragonsteel_fire_block>);
+<tag:blocks:c:dragonsteel_fire_blocks>.add(<block:iceandfire:dragonsteel_fire_block>);
+<tag:items:c:dragonsteel_blocks>.add(<item:iceandfire:dragonsteel_fire_block>);
+<tag:items:c:dragonsteel_fire_blocks>.add(<item:iceandfire:dragonsteel_fire_block>);
+
+<tag:blocks:c:storage_blocks>.add(<block:iceandfire:dragonsteel_ice_block>);
+<tag:blocks:c:dragonsteel_blocks>.add(<block:iceandfire:dragonsteel_ice_block>);
+<tag:blocks:c:dragonsteel_ice_blocks>.add(<block:iceandfire:dragonsteel_ice_block>);
+<tag:items:c:dragonsteel_blocks>.add(<item:iceandfire:dragonsteel_ice_block>);
+<tag:items:c:dragonsteel_ice_blocks>.add(<item:iceandfire:dragonsteel_ice_block>);
+
+<tag:blocks:c:storage_blocks>.add(<block:iceandfire:dragonsteel_lightning_block>);
+<tag:blocks:c:dragonsteel_blocks>.add(<block:iceandfire:dragonsteel_lightning_block>);
+<tag:blocks:c:dragonsteel_lightning_blocks>.add(<block:iceandfire:dragonsteel_lightning_block>);
+<tag:items:c:dragonsteel_blocks>.add(<item:iceandfire:dragonsteel_lightning_block>);
+<tag:items:c:dragonsteel_lightning_blocks>.add(<item:iceandfire:dragonsteel_lightning_block>);
+#endif
+#onlyif modloaded megacells
+<tag:items:c:ingots>.add(<item:megacells:sky_steel_ingot>);
+#endif
+#onlyif modloaded botania
+<tag:items:c:ingots>.add(<item:botania:gaia_ingot>);
+<tag:items:c:gaia_ingots>.add(<item:botania:gaia_ingot>);
+
+<tag:items:c:gems>.add(<item:botania:quartz_mana>);
+<tag:items:c:mana_quartz_gems>.add(<item:botania:quartz_mana>);
+#endif
+#onlyif modloaded alexscaves
+<tag:items:c:ingots>.add(<item:alexscaves:scarlet_neodymium_ingot>);
+<tag:items:c:neodymium_ingots>.add(<item:alexscaves:scarlet_neodymium_ingot>);
+<tag:items:c:scarlet_neodymium_ingots>.add(<item:alexscaves:scarlet_neodymium_ingot>);
+<tag:items:c:ingots>.add(<item:alexscaves:azure_neodymium_ingot>);
+<tag:items:c:neodymium_ingots>.add(<item:alexscaves:azure_neodymium_ingot>);
+<tag:items:c:azure_neodymium_ingots>.add(<item:alexscaves:azure_neodymium_ingot>);
+
+<tag:blocks:c:storage_blocks>.add(<block:alexscaves:block_of_scarlet_neodymium>);
+<tag:blocks:c:scarlet_neodymium_blocks>.add(<block:alexscaves:block_of_scarlet_neodymium>);
+<tag:items:c:scarlet_neodymium_blocks>.add(<item:alexscaves:block_of_scarlet_neodymium>);
+
+<tag:blocks:c:storage_blocks>.add(<block:alexscaves:block_of_azure_neodymium>);
+<tag:blocks:c:azure_neodymium_blocks>.add(<block:alexscaves:block_of_azure_neodymium>);
+<tag:items:c:azure_neodymium_blocks>.add(<item:alexscaves:block_of_azure_neodymium>);
+#endif
+#onlyif modloaded grimoireofgaia
+<tag:items:c:pearl_raw_materials>.add(<item:grimoireofgaia:shiny_pearl>);
+
+<tag:blocks:c:storage_blocks>.add(<block:grimoireofgaia:pearl_block>);
+<tag:blocks:c:pearl_blocks>.add(<block:grimoireofgaia:pearl_block>);
+<tag:items:c:pearl_blocks>.add(<item:grimoireofgaia:pearl_block>);
+#endif
+#onlyif modloaded hammerlib
+<tag:items:c:gears>.add(<item:hammerlib:gears/wooden>);
+<tag:items:c:gears>.add(<item:hammerlib:gears/stone>);
+#endif
+#onlyif modloaded ae2
+<tag:items:c:tools/knifes>.add(<tag:items:ae2:knife>);
+#endif
+#onlyif modloaded ae2 ae2_tools
+<tag:items:c:tools/knifes>.add(<item:ae2_tools:certus_quartz_knife>);
+<tag:items:c:tools/knifes>.add(<item:ae2_tools:fluix_knife>);
+#endif
+#onlyif modloaded tools_complement
+<tag:items:c:tools/knifes>.add(<item:tools_complement:iron_knife>);
+<tag:items:c:tools/knifes>.add(<item:tools_complement:gold_knife>);
+<tag:items:c:tools/knifes>.add(<item:tools_complement:diamond_knife>);
+<tag:items:c:tools/knifes>.add(<item:tools_complement:netherite_knife>);
+<tag:items:c:tools/knifes>.add(<item:tools_complement:copper_knife>);
+<tag:items:c:tools/knifes>.add(<item:tools_complement:tin_knife>);
+<tag:items:c:tools/knifes>.add(<item:tools_complement:lead_knife>);
+<tag:items:c:tools/knifes>.add(<item:tools_complement:silver_knife>);
+<tag:items:c:tools/knifes>.add(<item:tools_complement:nickel_knife>);
+<tag:items:c:tools/knifes>.add(<item:tools_complement:bronze_knife>);
+<tag:items:c:tools/knifes>.add(<item:tools_complement:electrum_knife>);
+<tag:items:c:tools/knifes>.add(<item:tools_complement:invar_knife>);
+<tag:items:c:tools/knifes>.add(<item:tools_complement:constantan_knife>);
+#endif
+#onlyif modloaded alexsmobs
+<tag:items:c:raw_fishes>.add(<item:alexsmobs:raw_catfish>);
+<tag:items:c:foods/raw_fishes>.add(<item:alexsmobs:raw_catfish>);
+<tag:items:c:foods/fish/raw>.add(<item:alexsmobs:raw_catfish>);
+<tag:items:c:foods/meat>.add(<item:alexsmobs:kangaroo_meat>);
+<tag:items:c:foods/meat/raw>.add(<item:alexsmobs:kangaroo_meat>);
+<tag:items:c:foods/meat>.add(<item:alexsmobs:moose_ribs>);
+<tag:items:c:foods/meat/raw>.add(<item:alexsmobs:moose_ribs>);
+#endif
+<tag:blocks:c:glowstone_blocks>.add(<block:minecraft:glowstone>);
+<tag:items:c:glowstone_blocks>.add(<item:minecraft:glowstone>);
+#onlyif modloaded chipped
+<tag:blocks:c:glowstone_blocks>.add(<tag:blocks:chipped:glowstone>);
+<tag:items:c:glowstone_blocks>.add(<tag:items:chipped:glowstone>);
+#endif
+
+#endif
+
 // Farmers Delight Item Tags
 #onlyif modloaded farmersdelight
 <tag:items:farmersdelight:offhand_equipment>.add(<item:minecraft:torch>);
@@ -316,10 +554,23 @@ LIQUID_SLIME.add(<fluid:tconstruct:ender_slime>);
 
 // Farmers Delight Block Tags
 #onlyif modloaded farmersdelight
-<tag:blocks:farmersdelight:heat_sources>.add(<tag:blocks:forge:storage_blocks/uranium>);
+
+#onlyif modloader forge
+if (<tag:blocks:forge:storage_blocks/uranium>.exists() && <tag:blocks:forge:storage_blocks/uranium>.elements.length>0) {
+    <tag:blocks:farmersdelight:heat_sources>.add(<tag:blocks:forge:storage_blocks/uranium>);
+}
 <tag:blocks:farmersdelight:compost_activators>.add(<tag:blocks:forge:mushrooms>);
 <tag:blocks:farmersdelight:heat_conductors>.add(<tag:blocks:forge:storage_blocks/copper>);
 <tag:blocks:farmersdelight:heat_conductors>.add(<tag:blocks:forge:storage_blocks/gold>);
+#endif
+#onlyif modloader fabric
+if (<tag:blocks:c:uranium_blocks>.exists() && <tag:blocks:c:uranium_blocks>.elements.length>0) {
+    <tag:blocks:farmersdelight:heat_sources>.add(<tag:blocks:c:uranium_blocks>);
+}
+<tag:blocks:farmersdelight:compost_activators>.add(<tag:items:c:mushrooms>);
+<tag:blocks:farmersdelight:heat_conductors>.add(<tag:blocks:c:copper_blocks>);
+<tag:blocks:farmersdelight:heat_conductors>.add(<tag:blocks:c:gold_blocks>);
+#endif
 #onlyif modloaded alexscaves
 <tag:blocks:farmersdelight:heat_sources>.add(<block:alexscaves:primal_magma>);
 <tag:blocks:farmersdelight:heat_sources>.add(<block:alexscaves:volcanic_core>);
@@ -351,6 +602,7 @@ LIQUID_SLIME.add(<fluid:tconstruct:ender_slime>);
 #onlyif modloaded tconstruct
 <tag:items:farmersdelight:straw_harvesters>.add(<item:tconstruct:scythe>);
 #endif
+
 #endif
 
 // Create Upright Items

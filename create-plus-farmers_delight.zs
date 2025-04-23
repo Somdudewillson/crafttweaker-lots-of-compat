@@ -12,10 +12,7 @@ import crafttweaker.api.ingredient.IIngredient;
 import crafttweaker.api.fluid.FluidIngredient;
 import crafttweaker.api.fluid.IFluidStack;
 import crafttweaker.api.fluid.Fluid;
-import crafttweaker.api.capability.Capabilities;
-import crafttweaker.api.capability.ICapabilityProvider;
 import crafttweaker.api.item.ItemStack;
-
 
 <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_apple_pie")
  .transitionTo(<item:farmersdelight:pie_crust>)
@@ -27,9 +24,9 @@ import crafttweaker.api.item.ItemStack;
  .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:apple>))
  .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:sugar>))
  .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:apple>))
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:forge:flour>))
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:forge:flour>))
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:forge:flour>)) );
+ .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(ContextualConstants.FLOUR))
+ .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(ContextualConstants.FLOUR))
+ .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(ContextualConstants.FLOUR)) );
 
 <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_berry_cheesecake")
  .transitionTo(<item:farmersdelight:pie_crust>)
@@ -67,9 +64,9 @@ import crafttweaker.api.item.ItemStack;
  
 <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_mutton_wrap")
  .transitionTo(<item:farmersdelight:mutton_wrap>)
- .require(<tag:items:forge:bread>)
+ .require(ContextualConstants.BREAD)
  .loops(1)
  .addOutput(<item:farmersdelight:mutton_wrap>, 1)
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:forge:crops/cabbage>))
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:forge:cooked_mutton>))
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:forge:crops/onion>)) );
+ .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(ContextualConstants.CABBAGE))
+ .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(ContextualConstants.COOKED_MUTTON))
+ .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(ContextualConstants.ONION)) );

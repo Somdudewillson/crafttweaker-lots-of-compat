@@ -25,14 +25,14 @@ import crafttweaker.api.item.ItemStack;
 );
 <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_vegan_wrap")
  .transitionTo(<item:miners_delight:vegan_wrap>)
- .require(<tag:items:forge:bread>)
+ .require(ContextualConstants.BREAD)
  .loops(1)
  .addOutput(<item:miners_delight:vegan_wrap>, 1)
  .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:miners_delight:baked_cave_carrot>))
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:forge:bread>)) );
+ .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(ContextualConstants.BREAD)) );
 <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_insect_wrap")
  .transitionTo(<item:miners_delight:insect_wrap>)
- .require(<tag:items:forge:bread>)
+ .require(ContextualConstants.BREAD)
  .loops(2)
  .addOutput(<item:miners_delight:insect_wrap>, 1)
  .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:miners_delight:insect_meat>)) );

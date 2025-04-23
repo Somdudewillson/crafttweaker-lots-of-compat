@@ -24,9 +24,9 @@ craftingTable.addShaped("solarflux_traversal_upgrade_signalum", <item:solarflux:
 ]);
 
 craftingTable.addShaped("solarflux_dispersive_upgrade_enderium", <item:solarflux:dispersive_upgrade>, [
-    [<item:minecraft:air>, <tag:items:forge:dusts/glowstone>, <item:minecraft:air>],
+    [<item:minecraft:air>, <ContextualConstants.GLOWSTONE_DUST, <item:minecraft:air>],
     [<tag:items:forge:ingots/enderium>, <item:solarflux:blank_upgrade>, <tag:items:forge:ingots/enderium>],
-    [<item:minecraft:air>, <tag:items:forge:dusts/glowstone>, <item:minecraft:air>],
+    [<item:minecraft:air>, <ContextualConstants.GLOWSTONE_DUST, <item:minecraft:air>],
 ]);
 craftingTable.addShaped("solarflux_block_charging_upgrade_enderium", <item:solarflux:block_charging_upgrade>, [
     [<item:minecraft:air>, <tag:items:forge:dusts/redstone>, <item:minecraft:air>],

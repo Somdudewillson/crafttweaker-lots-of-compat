@@ -13,8 +13,6 @@ import crafttweaker.api.ingredient.IIngredient;
 import crafttweaker.api.fluid.FluidIngredient;
 import crafttweaker.api.fluid.IFluidStack;
 import crafttweaker.api.fluid.Fluid;
-import crafttweaker.api.capability.Capabilities;
-import crafttweaker.api.capability.ICapabilityProvider;
 import crafttweaker.api.item.ItemStack;
 
 var processedResultItemNames as bool[string] = {};

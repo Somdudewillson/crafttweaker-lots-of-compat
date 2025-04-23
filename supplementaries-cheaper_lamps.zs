@@ -12,6 +12,6 @@ Replacer.create()
         <recipecomponent:crafttweaker:input/ingredients>, 
         <targetingstrategy:crafttweaker:deep>, 
         <item:minecraft:shroomlight> as IIngredient, 
-        <item:minecraft:shroomlight> as IIngredient | <tag:items:forge:storage_blocks/glowstone>
+        <item:minecraft:shroomlight> as IIngredient | ContextualConstants.GLOWSTONE_STORAGE_BLOCK
     )
     .execute();
