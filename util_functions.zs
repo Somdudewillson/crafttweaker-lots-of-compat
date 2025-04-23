@@ -63,6 +63,11 @@ public class Utils {
         #onlyif modloaded create_enchantment_industry
         FLUID_ITEM_TYPES[ (<item:minecraft:experience_bottle> as IIngredient) ] = <fluid:create_enchantment_industry:experience> * ContextualConstants.fluidAmtFromMb(1000);
         #endif
+
+        #onlyif modloaded supplementaries
+        FLUID_ITEM_TYPES[ (<item:supplementaries:lumisene_bottle> as IIngredient) ] = <fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(250);
+        FLUID_ITEM_TYPES[ (<item:supplementaries:lumisene_bucket> as IIngredient) ] = <fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(1000);
+        #endif
     }
 
     public static compareVersions(a as string, b as string) as int {
