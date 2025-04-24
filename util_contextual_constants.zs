@@ -2,6 +2,7 @@
 #onlyif modloaded jei
 import mods.jeitweaker.Jei;
 #endif
+import crafttweaker.api.tag.type.KnownTag;
 import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.ingredient.IIngredient;
 

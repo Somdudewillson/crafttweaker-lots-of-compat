@@ -34,6 +34,13 @@ var SCGUNS_BLUEPRINT_TIERS as int[IItemStack] = {
     (<item:scguns:end_blueprint> as IItemStack): 4
 };
 
+var BASE_REPLICATION_FLUID_AMT = 200;
+var REPLICATION_FLUID = <fluid:minecraft:lava>;
+if (<tag:items:forge:circuits/advanced>.exists() && <tag:items:forge:circuits/advanced>.elements.length>0) {
+    BASE_REPLICATION_FLUID_AMT = 100;
+    REPLICATION_FLUID = <tag:fluids:forge:experience>;
+}
+
 for scgunBlueprint, copyingItem in SCGUNS_BLUEPRINT_TYPES {
     <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("copy_scguns_"+scgunBlueprint.registryName.path)
         .require(scgunBlueprint)
@@ -56,6 +63,6 @@ for scgunBlueprint in SCGUNS_BLUEPRINTS {
         .addOutput(scgunBlueprint, 1)
         .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(componentMaterial))
         .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:forge:paper>))
-        .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<tag:fluids:forge:experience> * (100*tier*tier)))
+        .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(REPLICATION_FLUID * ContextualConstants.fluidAmtFromMb(BASE_REPLICATION_FLUID_AMT*tier*tier)))
         .addStep<mods.createtweaker.PressingRecipe>((rb) => rb) );
 }
