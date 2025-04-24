@@ -28,6 +28,8 @@ public class ContextualConstants {
     public static var REDSTONE_DUST = <tag:items:forge:dusts/redstone>;
 
     public static var GRAVEL = <tag:items:forge:gravel>;
+
+    public static var DYES = <tag:items:forge:dye>;
     #endif
 
     #onlyif modloader fabric
@@ -51,6 +53,8 @@ public class ContextualConstants {
     public static var REDSTONE_DUST = <tag:items:c:redstone_dusts>;
 
     public static var GRAVEL = <tag:items:c:gravel>;
+
+    public static var DYES = <tag:items:c:dyes>;
     #endif
 
     public static fluidAmtFromMb(millibuckets as int) as int {
