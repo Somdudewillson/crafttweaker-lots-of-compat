@@ -25,6 +25,8 @@ public class ContextualConstants {
     public static var IRON_INGOT = <tag:items:forge:ingots/iron>;
     public static var GOLD_INGOT = <tag:items:forge:ingots/gold>;
     public static var REDSTONE_DUST = <tag:items:forge:dusts/redstone>;
+
+    public static var GRAVEL = <tag:items:forge:gravel>;
     #endif
 
     #onlyif modloader fabric
@@ -46,6 +48,8 @@ public class ContextualConstants {
     public static var IRON_INGOT = <tag:items:c:iron_ingots>;
     public static var GOLD_INGOT = <tag:items:c:gold_ingots>;
     public static var REDSTONE_DUST = <tag:items:c:redstone_dusts>;
+
+    public static var GRAVEL = <tag:items:c:gravel>;
     #endif
 
     public static fluidAmtFromMb(millibuckets as int) as int {

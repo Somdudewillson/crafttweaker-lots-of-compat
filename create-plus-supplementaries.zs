@@ -43,8 +43,42 @@ import crafttweaker.api.entity.effect.MobEffectInstance;
   ]
 });
 
-// Potion mixing =====
+// Lumisene Generic Mixing =====
+<recipetype:create:mixing>.addJsonRecipe("create_mix_lumisene_and_sand_to_glowstone_dust", {
+  "type": "create:mixing",
+  "ingredients": [
+    (<fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(200)) as IData,
+    (<tag:items:minecraft:sand>) as IData,
+  ],
+  "results": [
+    (<item:minecraft:glowstone_dust> * 4) as IData
+  ]
+});
+<recipetype:create:filling>.addRecipe("create_fill_sand_with_lumisene_to_glowstone_dust", <item:minecraft:glowstone_dust> * 4, <tag:items:minecraft:sand>, <fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(200), 100);
+<recipetype:create:mixing>.addJsonRecipe("create_mix_lumisene_and_gravel_to_gunpowder", {
+  "type": "create:mixing",
+  "ingredients": [
+    (<fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(200)) as IData,
+    (ContextualConstants.GRAVEL) as IData,
+  ],
+  "results": [
+    (<item:minecraft:gunpowder> * 2) as IData
+  ]
+});
+<recipetype:create:filling>.addRecipe("create_fill_gravel_with_lumisene_to_gunpowder", <item:minecraft:gunpowder> * 2, ContextualConstants.GRAVEL, <fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(200), 100);
+<recipetype:create:mixing>.addJsonRecipe("create_mix_lumisene_and_ink_sac_to_glow_ink_sac", {
+  "type": "create:mixing",
+  "ingredients": [
+    (<fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(400)) as IData,
+    (<item:minecraft:ink_sac>) as IData,
+  ],
+  "results": [
+    (<item:minecraft:glow_ink_sac> * 1) as IData
+  ]
+});
+<recipetype:create:filling>.addRecipe("create_fill_ink_sac_with_lumisene_to_glow_ink_sac", <item:minecraft:glow_ink_sac> * 1, <item:minecraft:ink_sac>, <fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(400), 100);
 
+// Potion mixing =====
 var base_lumisene_potion = <fluid:create:potion>.withTag({
     CustomPotionEffects: [
             new MobEffectInstance(<mobeffect:supplementaries:flammable>, 30*20).save(),
