@@ -23,7 +23,8 @@ var modIdWhitelist as bool[string] = {
     "farmersdelight":true, 
     "nethersdelight":true, 
     "miners_delight":true, 
-    "alexsmobs":true
+    "alexsmobs":true,
+    "minecraft":true,
 };
 for craftingRecipe in craftingRecipes {
     var castRecipe = (craftingRecipe as Recipe<Container>);
