@@ -9,8 +9,8 @@ import crafttweaker.api.fluid.IFluidStack;
 import crafttweaker.api.fluid.Fluid;
 import crafttweaker.api.item.ItemStack;
 
-((<item:supplementaries:lumisene_bottle> as IIngredient).getRemainingItem(<item:minecraft:glass_bottle>) as IIngredient).burnTime = 100000/4;
-((<item:supplementaries:lumisene_bucket> as IIngredient).getRemainingItem(<item:minecraft:bucket>) as IIngredient).burnTime = 100000;
+(<item:supplementaries:lumisene_bottle> as IIngredient).burnTime = 100000/4;
+(<item:supplementaries:lumisene_bucket> as IIngredient).burnTime = 100000;
 
 craftingTable.addShapeless("lumisene_bottle_and_sand_to_glowstone_dust_manual_only", <item:minecraft:glowstone_dust> * 4, [
     <item:supplementaries:lumisene_bottle>,
