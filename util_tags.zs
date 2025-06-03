@@ -551,6 +551,9 @@ RAW_HUMANOID_FLESH.add(<item:foodtxf:player_flesh>);
 <tag:blocks:c:glowstone_blocks>.add(<tag:blocks:chipped:glowstone>);
 <tag:items:c:glowstone_blocks>.add(<tag:items:chipped:glowstone>);
 #endif
+#onlyif modloaded foodtxf
+<tag:items:c:milks>.add(<item:foodtxf:glass_of_milk>);
+#endif
 
 #endif
 
