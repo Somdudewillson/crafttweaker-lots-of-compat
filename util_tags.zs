@@ -664,4 +664,45 @@ if (<tag:blocks:c:uranium_blocks>.exists() && <tag:blocks:c:uranium_blocks>.elem
 #onlyif modloaded supplementaries
 <tag:items:create:upright_on_belt>.add(<item:supplementaries:lumisene_bottle>);
 #endif
+#onlyif modloaded foodtxf
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:thermos>);
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:water_thermos>);
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:lava_thermos>);
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:milk_thermos>);
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:chocomilk_thermos>);
+
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:glass>);
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:glass_of_fruit_juice>);
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:glass_of_vegetable_juice>);
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:glass_of_mixed_juice>);
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:glass_of_water>);
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:glass_of_water_and_bread>);
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:glass_of_lava>);
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:glass_of_milk>);
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:glass_of_milk_and_cookies>);
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:glass_of_milk_and_toasted_bread>);
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:glass_of_chocomilk>);
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:glass_of_chocomilk_and_cookies>);
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:glass_of_chocomilk_and_toasted_bread>);
+
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:box>);
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:box_of_cereal>);
+<tag:items:create:upright_on_belt>.add(<item:foodtxf:box_of_cookies>);
+#endif
+#onlyif modloaded amendments
+<tag:items:create:upright_on_belt>.add(<item:amendments:dye_bottle>);
+#endif
+#onlyif modloaded brewery
+<tag:items:create:upright_on_belt>.add(<item:brewery:beer_mug>);
+<tag:items:create:upright_on_belt>.add(<item:brewery:beer_wheat>);
+<tag:items:create:upright_on_belt>.add(<item:brewery:beer_barley>);
+<tag:items:create:upright_on_belt>.add(<item:brewery:beer_hops>);
+<tag:items:create:upright_on_belt>.add(<item:brewery:beer_haley>);
+
+<tag:items:create:upright_on_belt>.add(<item:brewery:whiskey_jojannik>);
+<tag:items:create:upright_on_belt>.add(<item:brewery:whiskey_lilitusinglemalt>);
+<tag:items:create:upright_on_belt>.add(<item:brewery:whiskey_cristelwalker>);
+<tag:items:create:upright_on_belt>.add(<item:brewery:whiskey_maggoallan>);
+<tag:items:create:upright_on_belt>.add(<item:brewery:whiskey_carrasconlabel>);
+#endif
 #endif
