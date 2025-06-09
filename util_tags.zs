@@ -625,8 +625,10 @@ if (<tag:blocks:c:uranium_blocks>.exists() && <tag:blocks:c:uranium_blocks>.elem
 
 #endif
 
-// Create Upright Items
+// Create Tags
 #onlyif modloaded create
+
+// Upright Items
 #onlyif modloaded alexscaves
 <tag:items:create:upright_on_belt>.add(<item:alexscaves:hot_chocolate_bottle>);
 <tag:items:create:upright_on_belt>.add(<item:alexscaves:purple_soda_bottle>);
@@ -708,4 +710,13 @@ if (<tag:blocks:c:uranium_blocks>.exists() && <tag:blocks:c:uranium_blocks>.elem
 <tag:items:create:upright_on_belt>.add(<item:brewery:whiskey_maggoallan>);
 <tag:items:create:upright_on_belt>.add(<item:brewery:whiskey_carrasconlabel>);
 #endif
+
+// NBT-safe blocks
+#onlyif modloaded supplementaries
+<tag:blocks:create:safe_nbt>.add(<block:supplementaries:blackboard>);
+<tag:blocks:create:safe_nbt>.add(<block:supplementaries:lock_block>);
+<tag:blocks:create:safe_nbt>.add(<block:supplementaries:netherite_door>);
+<tag:blocks:create:safe_nbt>.add(<block:supplementaries:netherite_trapdoor>);
+#endif
+
 #endif
