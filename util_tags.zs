@@ -718,5 +718,33 @@ if (<tag:blocks:c:uranium_blocks>.exists() && <tag:blocks:c:uranium_blocks>.elem
 <tag:blocks:create:safe_nbt>.add(<block:supplementaries:netherite_door>);
 <tag:blocks:create:safe_nbt>.add(<block:supplementaries:netherite_trapdoor>);
 #endif
+#onlyif modloaded amendments
+<tag:blocks:create:safe_nbt>.add(<block:amendments:wall_lantern>);
+#endif
+
+// Block Movability Tags
+#onlyif modloaded handcrafted
+<tag:blocks:create:movable_empty_collider>.add(<tag:blocks:handcrafted:crockery>);
+<tag:blocks:create:brittle>.add(<tag:blocks:handcrafted:crockery>);
+<tag:blocks:create:movable_empty_collider>.add(<tag:blocks:handcrafted:trophies>);
+<tag:blocks:create:brittle>.add(<tag:blocks:handcrafted:trophies>);
+#endif
+#onlyif modloaded farmersdelight
+<tag:blocks:create:brittle>.add(<block:farmersdelight:roast_chicken_block>);
+<tag:blocks:create:brittle>.add(<block:farmersdelight:stuffed_pumpkin_block>);
+<tag:blocks:create:brittle>.add(<block:farmersdelight:honey_glazed_ham_block>);
+<tag:blocks:create:brittle>.add(<block:farmersdelight:shepherds_pie_block>);
+<tag:blocks:create:brittle>.add(<block:farmersdelight:rice_roll_medley_block>);
+#endif
+
+// Fan Transparent Blocks
+#onlyif modloaded chipped
+<tag:blocks:create:fan_transparent>.add(<tag:blocks:chipped:iron_bars>);
+#endif
+
+// Passive Boiler Heaters
+#onlyif modloaded chipped
+<tag:blocks:create:passive_boiler_heaters>.add(<tag:blocks:chipped:magma_block>);
+#endif
 
 #endif
