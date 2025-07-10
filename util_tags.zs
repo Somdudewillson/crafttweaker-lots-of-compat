@@ -748,3 +748,16 @@ if (<tag:blocks:c:uranium_blocks>.exists() && <tag:blocks:c:uranium_blocks>.elem
 #endif
 
 #endif
+
+// Supplementaries Tags
+#onlyif modloaded supplementaries
+
+// Bellows-Tickable
+#onlyif modloaded handcrafted
+<tag:blocks:supplementaries:bellows_tickable>.add(<block:handcrafted:oven>);
+#endif
+#onlyif modloaded farmersdelight
+<tag:blocks:supplementaries:bellows_tickable>.add(<block:farmersdelight:stove>);
+#endif
+
+#endif
