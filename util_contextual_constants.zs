@@ -1,7 +1,7 @@
 #priority 300
-#onlyif modloaded jei
-import mods.jeitweaker.Jei;
-#endif
+// #onlyif modloaded jei
+// import mods.jeitweaker.Jei;
+// #endif
 import crafttweaker.api.tag.type.KnownTag;
 import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.ingredient.IIngredient;
@@ -70,9 +70,9 @@ public class ContextualConstants {
         unifiedHideStacks([hideStack] as IItemStack[]);
     }
     public static unifiedHideStacks(hideStacks as IItemStack[]) as void {
-        #onlyif modloaded jei
-        Jei.hideIngredients(hideStacks);
-        #endif
+        // #onlyif modloaded jei
+        // Jei.hideIngredients(hideStacks);
+        // #endif
         #onlyif modloaded emi
         <tag:item:c:hidden_from_recipe_viewers>.add(hideStacks);
         #endif
