@@ -747,6 +747,24 @@ if (<tag:blocks:c:uranium_blocks>.exists() && <tag:blocks:c:uranium_blocks>.elem
 <tag:blocks:create:passive_boiler_heaters>.add(<tag:blocks:chipped:magma_block>);
 #endif
 
+// Wrench-pick-up-able Blocks
+#onlyif modloaded supplementaries
+<tag:blocks:create:wrench_pickup>.add(<block:supplementaries:relayer>);
+<tag:blocks:create:wrench_pickup>.add(<block:supplementaries:cog_block>);
+<tag:blocks:create:wrench_pickup>.add(<block:supplementaries:speaker_block>);
+<tag:blocks:create:wrench_pickup>.add(<block:supplementaries:wind_vane>);
+<tag:blocks:create:wrench_pickup>.add(<block:supplementaries:crystal_display>);
+<tag:blocks:create:wrench_pickup>.add(<block:supplementaries:turn_table>);
+<tag:blocks:create:wrench_pickup>.add(<block:supplementaries:spring_launcher>);
+<tag:blocks:create:wrench_pickup>.add(<block:supplementaries:clock_block>);
+<tag:blocks:create:wrench_pickup>.add(<block:supplementaries:pulley_block>);
+<tag:blocks:create:wrench_pickup>.add(<block:supplementaries:bellows>);
+<tag:blocks:create:wrench_pickup>.add(<block:supplementaries:redstone_illuminator>);
+<tag:blocks:create:wrench_pickup>.add(<block:supplementaries:crank>);
+<tag:blocks:create:wrench_pickup>.add(<block:supplementaries:sconce_lever>);
+<tag:blocks:create:wrench_pickup>.add(<block:supplementaries:hourglass>);
+#endif
+
 #endif
 
 // Supplementaries Tags
