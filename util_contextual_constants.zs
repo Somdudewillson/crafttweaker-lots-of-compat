@@ -32,6 +32,31 @@ public class ContextualConstants {
     public static var DYES = <tag:item:forge:dye>;
     #endif
 
+    #onlyif modloader neoforge
+    public static var MILK_FLUID = <fluid:minecraft:milk>;
+
+    public static var SEEDS = <tag:item:c:seeds>;
+
+    public static var FLOUR = <tag:item:c:flour>;
+    public static var BREAD = <tag:item:c:bread>;
+    public static var CABBAGE = <tag:item:c:crops/cabbage>;
+    public static var COOKED_MUTTON = <tag:item:c:foods/cooked_meats/cooked_mutton>;
+    public static var ONION = <tag:item:c:crops/onion>;
+    public static var DOUGH = <tag:item:c:dough>;
+    public static var RICE = <tag:item:c:seeds/rice> as IIngredient | <tag:item:c:grain/rice>;
+    public static var RAW_MEAT = <tag:item:c:rawmeats>;
+
+    public static var GLOWSTONE_DUST = <tag:item:c:glowstone_dusts>;
+    public static var GLOWSTONE_STORAGE_BLOCK = <tag:item:c:glowstone_blocks>;
+    public static var IRON_INGOT = <tag:item:c:iron_ingots>;
+    public static var GOLD_INGOT = <tag:item:c:gold_ingots>;
+    public static var REDSTONE_DUST = <tag:item:c:redstone_dusts>;
+
+    public static var GRAVEL = <tag:item:c:gravel>;
+
+    public static var DYES = <tag:item:c:dyes>;
+    #endif
+
     #onlyif modloader fabric
     public static var MILK_FLUID = <fluid:milk:still_milk>;
 
@@ -59,6 +84,9 @@ public class ContextualConstants {
 
     public static fluidAmtFromMb(millibuckets as int) as int {
         #onlyif modloader forge
+        return millibuckets;
+        #endif
+        #onlyif modloader neoforge
         return millibuckets;
         #endif
         #onlyif modloader fabric
