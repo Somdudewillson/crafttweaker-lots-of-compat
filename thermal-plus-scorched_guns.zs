@@ -223,14 +223,46 @@ craftingTable.addShapeless("convert_scguns_plasma_to_systeams_plasma_ball",
 #endif
 
 #onlyif modloaded create systeams
-<recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("scguns_energy_cell_filling")
-    .require(<item:scguns:empty_cell>)
-    .transitionTo(<item:scguns:empty_cell>)
-    .loops(1)
-    .addOutput(<item:scguns:energy_cell>, 1)
-    .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<fluid:systeams:steamiestest> * ContextualConstants.fluidAmtFromMb(100)))
-    .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:item:scguns:stan_bullet_tips>))
-    .addStep<mods.createtweaker.PressingRecipe>((rb) => rb) );
+<recipetype:create:sequenced_assembly>.addJsonRecipe("scguns_energy_cell_filling", {
+    "type": "create:sequenced_assembly",
+    "ingredient": { "item": "scguns:empty_cell" },
+    "transitionalItem": { "item": "scguns:empty_cell" },
+    "sequence": [
+        {
+            "type": "create:filling",
+            "ingredients": [
+                { "item": "scguns:empty_cell" },
+                { "fluid": "systeams:steamiestest", "amount": 100}
+            ],
+            "results": [
+                { "item": "scguns:empty_cell" }
+            ]
+        },
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                { "item": "scguns:empty_cell" },
+                { "tag": "scguns:stan_bullet_tips" }
+            ],
+            "results": [
+                { "item": "scguns:empty_cell" }
+            ]
+        },
+        {
+            "type": "create:pressing",
+            "ingredients": [
+                { "item": "scguns:empty_cell" }
+            ],
+            "results": [
+                { "item": "scguns:empty_cell" }
+            ]
+        }
+    ],
+    "results": [
+        { "item": "scguns:energy_cell" }
+    ],
+    "loops": 1
+} as IData);
 #endif
 
 // Mold Pressing
@@ -285,11 +317,11 @@ for moldRecipeParts in SCGUNS_MOLD_RECIPES {
     <recipetype:thermal:press>.addJsonRecipe(recipeName, {
         "type": "thermal:press",
         "ingredients": [
-        moldRecipeParts[1] as IData,
-        moldRecipeParts[0] as IData
+            moldRecipeParts[1] as IData,
+            moldRecipeParts[0] as IData
         ],
         "result": [
-        moldRecipeParts[2] as IData
+            moldRecipeParts[2] as IData
         ],
         "energy": (500*recipeTime) as int
     });

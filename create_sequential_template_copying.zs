@@ -2,6 +2,7 @@
 
 import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.ingredient.IIngredient;
+import crafttweaker.api.data.IData;
 
 var COPYABLE_TEMPLATES as stdlib.List<IItemStack> = [
     (<item:minecraft:netherite_upgrade_smithing_template> as IItemStack),
@@ -48,18 +49,99 @@ COPYABLE_TEMPLATES_MATERIALS[<item:deeperdarker:warden_upgrade_smithing_template
 
 for copyableTemplate in COPYABLE_TEMPLATES {
     var componentMaterial = COPYABLE_TEMPLATES_MATERIALS[copyableTemplate];
+    var lavaAmount = ContextualConstants.fluidAmtFromMb(250);
     
-    <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("sequenced_copy_template_"+copyableTemplate.registryName.path)
-        .require(copyableTemplate)
-        .transitionTo(copyableTemplate)
-        .loops(1)
-        .addOutput(copyableTemplate * 2, 1)
-        .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(componentMaterial))
-        .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<fluid:minecraft:lava> * ContextualConstants.fluidAmtFromMb(250)))
-        .addStep<mods.createtweaker.PressingRecipe>((rb) => rb)
-        .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:diamond>))
-        .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:diamond>))
-        .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:diamond>))
-        .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:diamond>))
-        .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:diamond>)) );
+    <recipetype:create:sequenced_assembly>.addJsonRecipe("sequenced_copy_template_"+copyableTemplate.registryName.path, {
+        "type": "create:sequenced_assembly",
+        "ingredient": copyableTemplate as IIngredient as IData,
+        "transitionalItem": copyableTemplate as IData,
+        "sequence": [
+            {
+                "type": "create:deploying",
+                "ingredients": [
+                    copyableTemplate as IData,
+                    componentMaterial as IData
+                ],
+                "results": [
+                    copyableTemplate as IData
+                ]
+            },
+            {
+                "type": "create:filling",
+                "ingredients": [
+                    copyableTemplate as IData,
+                    {
+                        "fluid": "minecraft:lava",
+                        "amount": lavaAmount
+                    }
+                ],
+                "results": [
+                    copyableTemplate as IData
+                ]
+            },
+            {
+                "type": "create:pressing",
+                "ingredients": [
+                    copyableTemplate as IData
+                ],
+                "results": [
+                    copyableTemplate as IData
+                ]
+            },
+            {
+                "type": "create:deploying",
+                "ingredients": [
+                    copyableTemplate as IData,
+                    {"item": "minecraft:diamond"}
+                ],
+                "results": [
+                    copyableTemplate as IData
+                ]
+            },
+            {
+                "type": "create:deploying",
+                "ingredients": [
+                    copyableTemplate as IData,
+                    {"item": "minecraft:diamond"}
+                ],
+                "results": [
+                    copyableTemplate as IData
+                ]
+            },
+            {
+                "type": "create:deploying",
+                "ingredients": [
+                    copyableTemplate as IData,
+                    {"item": "minecraft:diamond"}
+                ],
+                "results": [
+                    copyableTemplate as IData
+                ]
+            },
+            {
+                "type": "create:deploying",
+                "ingredients": [
+                    copyableTemplate as IData,
+                    {"item": "minecraft:diamond"}
+                ],
+                "results": [
+                    copyableTemplate as IData
+                ]
+            },
+            {
+                "type": "create:deploying",
+                "ingredients": [
+                    copyableTemplate as IData,
+                    {"item": "minecraft:diamond"}
+                ],
+                "results": [
+                    copyableTemplate as IData
+                ]
+            }
+        ],
+        "results": [
+            (copyableTemplate * 2) as IData
+        ],
+        "loops": 1
+    });
 }

@@ -2,6 +2,7 @@
 
 import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.ingredient.IIngredient;
+import crafttweaker.api.data.IData;
 
 var SCGUNS_BLUEPRINTS as IItemStack[] = [
     (<item:scguns:copper_blueprint> as IItemStack),
@@ -34,35 +35,47 @@ var SCGUNS_BLUEPRINT_TIERS as int[IItemStack] = {
     (<item:scguns:end_blueprint> as IItemStack): 4
 };
 
-var BASE_REPLICATION_FLUID_AMT = 200;
+var BASE_REPLICATION_FLUID_AMT = ContextualConstants.fluidAmtFromMb(200);
 var REPLICATION_FLUID = <fluid:minecraft:lava>;
 if (<tag:item:forge:circuits/advanced>.exists() && <tag:item:forge:circuits/advanced>.elements.length>0) {
-    BASE_REPLICATION_FLUID_AMT = 100;
+    BASE_REPLICATION_FLUID_AMT = ContextualConstants.fluidAmtFromMb(100);
     REPLICATION_FLUID = <tag:fluid:forge:experience>;
 }
 
 for scgunBlueprint, copyingItem in SCGUNS_BLUEPRINT_TYPES {
-    <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("copy_scguns_"+scgunBlueprint.registryName.path)
-        .require(scgunBlueprint)
-        .transitionTo(scgunBlueprint)
-        .loops(2)
-        .addOutput(scgunBlueprint * 2, 1)
-        .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:item:forge:paper>))
-        .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(copyingItem))
-        .addStep<mods.createtweaker.PressingRecipe>((rb) => rb) );
+    <recipetype:create:sequenced_assembly>.addJsonRecipe("copy_scguns_"+scgunBlueprint.registryName.path, {
+        "type": "create:sequenced_assembly",
+        "ingredient": scgunBlueprint as IData,
+        "transitionalItem": scgunBlueprint as IData,
+        "sequence": [
+            { "type": "create:deploying", "ingredients": [ <item:minecraft:air> as IData, <tag:item:forge:paper> as IData ], "results": [ <item:minecraft:air> as IData ] },
+            { "type": "create:deploying", "ingredients": [ <item:minecraft:air> as IData, copyingItem as IData ], "results": [ <item:minecraft:air> as IData ] },
+            { "type": "create:pressing", "ingredients": [ <item:minecraft:air> as IData ], "results": [ <item:minecraft:air> as IData ] }
+        ],
+        "results": [
+            (scgunBlueprint * 2) as IData
+        ],
+        "loops": 2
+    });
 }
 
 for scgunBlueprint in SCGUNS_BLUEPRINTS {
     var componentMaterial = SCGUNS_BLUEPRINT_TYPES[scgunBlueprint];
     var tier = SCGUNS_BLUEPRINT_TIERS[scgunBlueprint];
     
-    <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("fabricate_scguns_"+scgunBlueprint.registryName.path)
-        .require(<tag:item:forge:paper>)
-        .transitionTo(<item:minecraft:paper>)
-        .loops(4)
-        .addOutput(scgunBlueprint, 1)
-        .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(componentMaterial))
-        .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:item:forge:paper>))
-        .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(REPLICATION_FLUID * ContextualConstants.fluidAmtFromMb(BASE_REPLICATION_FLUID_AMT*tier*tier)))
-        .addStep<mods.createtweaker.PressingRecipe>((rb) => rb) );
+    <recipetype:create:sequenced_assembly>.addJsonRecipe("fabricate_scguns_"+scgunBlueprint.registryName.path, {
+        "type": "create:sequenced_assembly",
+        "ingredient": <tag:item:forge:paper> as IData,
+        "transitionalItem": <item:minecraft:paper> as IData,
+        "sequence": [
+            { "type": "create:deploying", "ingredients": [ <item:minecraft:air> as IData, componentMaterial as IData ], "results": [ <item:minecraft:air> as IData ] },
+            { "type": "create:deploying", "ingredients": [ <item:minecraft:air> as IData, <tag:item:forge:paper> as IData ], "results": [ <item:minecraft:air> as IData ] },
+            { "type": "create:filling", "ingredients": [ <item:minecraft:air> as IData ], "fluid": { "fluid": REPLICATION_FLUID.registryName.toString(), "amount": BASE_REPLICATION_FLUID_AMT*tier*tier }, "results": [ <item:minecraft:air> as IData ] },
+            { "type": "create:pressing", "ingredients": [ <item:minecraft:air> as IData ], "results": [ <item:minecraft:air> as IData ] }
+        ],
+        "results": [
+            scgunBlueprint as IData
+        ],
+        "loops": 4
+    });
 }

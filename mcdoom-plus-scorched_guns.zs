@@ -1,5 +1,6 @@
 #modloaded doom scguns
 
+import crafttweaker.api.data.IData;
 import crafttweaker.api.recipe.CraftingTableRecipeManager;
 
 // Ammo crafting
@@ -67,38 +68,91 @@ craftingTable.addShaped("convert_doom_energy_cell_to_bfg_cell",
     ]);
 
 #onlyif modloaded create
-<recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("create_pack_doom_shotgun_shells")
-    .require(<item:minecraft:iron_ingot>)
-    .transitionTo(<item:minecraft:iron_ingot>)
-    .loops(4)
-    .addOutput(<item:doom:shotgun_shells>, 1)
-    .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:scguns:shotgun_shell>)) );
-<recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("create_pack_doom_rifle_mag")
-    .require(<item:minecraft:iron_ingot>)
-    .transitionTo(<item:minecraft:iron_ingot>)
-    .loops(10)
-    .addOutput(<item:doom:bullets>, 1)
-    .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:scguns:standard_copper_round>)) );
-<recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("create_pack_doom_chaingun_mag")
-    .require(<item:minecraft:iron_ingot>)
-    .transitionTo(<item:minecraft:iron_ingot>)
-    .loops(50)
-    .addOutput(<item:doom:chaingunbullets>, 1)
-    .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:scguns:standard_copper_round>)) );
-<recipetype:create:deploying>.addRecipe(
-    "create_convert_scguns_energy_cell_to_doom_energy_cell", 
-    <item:doom:argent_energy>, 
-    <item:scguns:energy_cell>, 
-    [<item:doom:energy_cells> % 50, <item:scguns:energy_cell> % 50], 
-    false
+<recipetype:create:sequenced_assembly>.addJsonRecipe("create_pack_doom_shotgun_shells", {
+    "type": "create:sequenced_assembly",
+    "ingredient": { "item": "minecraft:iron_ingot" },
+    "transitionalItem": { "item": "minecraft:iron_ingot" },
+    "sequence": [
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                { "item": "minecraft:iron_ingot" },
+                { "item": "scguns:shotgun_shell" }
+            ],
+            "results": [
+                { "item": "minecraft:iron_ingot" }
+            ]
+        }
+    ],
+    "results": [
+        { "item": "doom:shotgun_shells" }
+    ],
+    "loops": 4
+});
+<recipetype:create:sequenced_assembly>.addJsonRecipe("create_pack_doom_rifle_mag", {
+    "type": "create:sequenced_assembly",
+    "ingredient": { "item": "minecraft:iron_ingot" },
+    "transitionalItem": { "item": "minecraft:iron_ingot" },
+    "sequence": [
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                { "item": "minecraft:iron_ingot" },
+                { "item": "scguns:standard_copper_round" }
+            ],
+            "results": [
+                { "item": "minecraft:iron_ingot" }
+            ]
+        }
+    ],
+    "results": [
+        { "item": "doom:bullets" }
+    ],
+    "loops": 10
 );
-<recipetype:create:deploying>.addRecipe(
-    "create_convert_doom_energy_cell_to_bfg_cell", 
-    <item:doom:energy_cells>, 
-    <item:doom:argent_energy>, 
-    [<item:doom:energy_cells> % 50, <item:doom:bfg_cell> % 50], 
-    false
-);
+<recipetype:create:sequenced_assembly>.addJsonRecipe("create_pack_doom_chaingun_mag", {
+    "type": "create:sequenced_assembly",
+    "ingredient": { "item": "minecraft:iron_ingot" },
+    "transitionalItem": { "item": "minecraft:iron_ingot" },
+    "sequence": [
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                { "item": "minecraft:iron_ingot" },
+                { "item": "scguns:standard_copper_round" }
+            ],
+            "results": [
+                { "item": "minecraft:iron_ingot" }
+            ]
+        }
+    ],
+    "results": [
+        { "item": "doom:chaingunbullets" }
+    ],
+    "loops": 50
+});
+<recipetype:create:deploying>.addJsonRecipe("create_convert_scguns_energy_cell_to_doom_energy_cell", {
+    "type": "create:deploying",
+    "ingredients": [
+        { "item": "doom:argent_energy" },
+        { "item": "scguns:energy_cell" }
+    ],
+    "results": [
+        { "item": "doom:energy_cells", "chance": 0.5 },
+        { "item": "scguns:energy_cell", "chance": 0.5 }
+    ]
+});
+<recipetype:create:deploying>.addJsonRecipe("create_convert_doom_energy_cell_to_bfg_cell", {
+    "type": "create:deploying",
+    "ingredients": [
+        { "item": "doom:energy_cells" },
+        { "item": "doom:argent_energy" }
+    ],
+    "results": [
+        { "item": "doom:energy_cells", "chance": 0.5 },
+        { "item": "doom:bfg_cell", "chance": 0.5 }
+    ]
+});
 #endif
 
 #onlyif modloaded thermal thermal_expansion

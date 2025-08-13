@@ -1,18 +1,85 @@
 #modloaded create doom
 
-<recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_argent_bolt")
-    .require(<item:doom:argent_energy>)
-    .transitionTo(<item:doom:argent_energy>)
-    .loops(1)
-    .addOutput(<item:doom:argent_bolt>, 1)
-    .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(ContextualConstants.IRON_INGOT))
-    .addStep<mods.createtweaker.PressingRecipe>((rb) => rb) );
-<recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_unmaykr_bolt")
-    .require(<item:doom:argent_bolt>)
-    .transitionTo(<item:doom:argent_bolt>)
-    .loops(1)
-    .addOutput(<item:doom:unmaykr_bolt>, 1)
-    .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:doom:argent_energy>))
-    .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:doom:argent_energy>))
-    .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:doom:argent_energy>))
-    .addStep<mods.createtweaker.PressingRecipe>((rb) => rb) );
+import crafttweaker.api.data.IData;
+
+<recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_argent_bolt", {
+    "type": "create:sequenced_assembly",
+    "ingredient": <item:doom:argent_energy> as IData,
+    "transitionalItem": <item:doom:argent_energy> as IData,
+    "sequence": [
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                <item:doom:argent_energy> as IData,
+                ContextualConstants.IRON_INGOT as IData
+            ],
+            "results": [
+                <item:doom:argent_energy> as IData
+            ]
+        },
+        {
+            "type": "create:pressing",
+            "ingredients": [
+                <item:doom:argent_energy> as IData
+            ],
+            "results": [
+                <item:doom:argent_energy> as IData
+            ]
+        }
+    ],
+    "results": [
+        <item:doom:argent_bolt> as IData
+    ],
+    "loops": 1
+});
+
+<recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_unmaykr_bolt", {
+    "type": "create:sequenced_assembly",
+    "ingredient": <item:doom:argent_bolt> as IData,
+    "transitionalItem": <item:doom:argent_bolt> as IData,
+    "sequence": [
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                <item:doom:argent_bolt> as IData,
+                <item:doom:argent_energy> as IData
+            ],
+            "results": [
+                <item:doom:argent_bolt> as IData
+            ]
+        },
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                <item:doom:argent_bolt> as IData,
+                <item:doom:argent_energy> as IData
+            ],
+            "results": [
+                <item:doom:argent_bolt> as IData
+            ]
+        },
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                <item:doom:argent_bolt> as IData,
+                <item:doom:argent_energy> as IData
+            ],
+            "results": [
+                <item:doom:argent_bolt> as IData
+            ]
+        },
+        {
+            "type": "create:pressing",
+            "ingredients": [
+                <item:doom:argent_bolt> as IData
+            ],
+            "results": [
+                <item:doom:argent_bolt> as IData
+            ]
+        }
+    ],
+    "results": [
+        <item:doom:unmaykr_bolt> as IData
+    ],
+    "loops": 1
+});

@@ -15,16 +15,58 @@ import crafttweaker.api.fluid.Fluid;
 import crafttweaker.api.item.ItemStack;
 import crafttweaker.api.entity.effect.MobEffectInstance;
 
-<recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_supplementaries_candy")
- .transitionTo(<item:minecraft:paper>)
- .require(<item:minecraft:paper>)
- .loops(1)
- .addOutput(<item:supplementaries:candy> * 8, 1)
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:sugar>))
- .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<fluid:create:honey> * ContextualConstants.fluidAmtFromMb(250))) );
+<recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_supplementaries_candy", {
+    "type": "create:sequenced_assembly",
+    "ingredient": <item:minecraft:paper> as IData,
+    "transitionalItem": <item:minecraft:paper> as IData,
+    "sequence": [
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                <item:minecraft:paper> as IData,
+                <item:minecraft:sugar> as IData
+            ],
+            "results": [
+                <item:minecraft:paper> as IData
+            ]
+        },
+        {
+            "type": "create:filling",
+            "ingredients": [
+                <item:minecraft:paper> as IData,
+                (<fluid:create:honey> * ContextualConstants.fluidAmtFromMb(250)) as IData
+            ],
+            "results": [
+                <item:minecraft:paper> as IData
+            ]
+        }
+    ],
+    "results": [
+        (<item:supplementaries:candy> * 8) as IData
+    ],
+    "loops": 1
+});
 
-<recipetype:create:emptying>.addRecipe("empty_lumisene_bottle", <item:minecraft:glass_bottle>, <fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(250), <item:supplementaries:lumisene_bottle>, 100);
-<recipetype:create:filling>.addRecipe("fill_lumisene_bottle", <item:supplementaries:lumisene_bottle>, <item:minecraft:glass_bottle>, <fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(250), 100);
+<recipetype:create:emptying>.addJsonRecipe("empty_lumisene_bottle", {
+    "type": "create:emptying",
+    "ingredients": [
+        <item:supplementaries:lumisene_bottle> as IData
+    ],
+    "results": [
+        <item:minecraft:glass_bottle> as IData,
+        (<fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(250)) as IData
+    ]
+});
+<recipetype:create:filling>.addJsonRecipe("fill_lumisene_bottle", {
+    "type": "create:filling",
+    "ingredients": [
+        <item:minecraft:glass_bottle> as IData,
+        (<fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(250)) as IData
+    ],
+    "results": [
+        <item:supplementaries:lumisene_bottle> as IData
+    ]
+});
 
 <recipetype:create:compacting>.addJsonRecipe("create_compact_glow_berries_into_lumisene", {
   "type": "create:compacting",
@@ -54,7 +96,16 @@ import crafttweaker.api.entity.effect.MobEffectInstance;
     (<item:minecraft:glowstone_dust> * 4) as IData
   ]
 });
-<recipetype:create:filling>.addRecipe("create_fill_sand_with_lumisene_to_glowstone_dust", <item:minecraft:glowstone_dust> * 4, <tag:item:minecraft:sand>, <fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(200), 100);
+<recipetype:create:filling>.addJsonRecipe("create_fill_sand_with_lumisene_to_glowstone_dust", {
+    "type": "create:filling",
+    "ingredients": [
+        <tag:item:minecraft:sand> as IData,
+        (<fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(200)) as IData
+    ],
+    "results": [
+        (<item:minecraft:glowstone_dust> * 4) as IData
+    ]
+});
 <recipetype:create:mixing>.addJsonRecipe("create_mix_lumisene_and_gravel_to_gunpowder", {
   "type": "create:mixing",
   "ingredients": [
@@ -65,7 +116,16 @@ import crafttweaker.api.entity.effect.MobEffectInstance;
     (<item:minecraft:gunpowder> * 2) as IData
   ]
 });
-<recipetype:create:filling>.addRecipe("create_fill_gravel_with_lumisene_to_gunpowder", <item:minecraft:gunpowder> * 2, ContextualConstants.GRAVEL, <fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(200), 100);
+<recipetype:create:filling>.addJsonRecipe("create_fill_gravel_with_lumisene_to_gunpowder", {
+    "type": "create:filling",
+    "ingredients": [
+        ContextualConstants.GRAVEL as IData,
+        (<fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(200)) as IData
+    ],
+    "results": [
+        (<item:minecraft:gunpowder> * 2) as IData
+    ]
+});
 <recipetype:create:mixing>.addJsonRecipe("create_mix_lumisene_and_ink_sac_to_glow_ink_sac", {
   "type": "create:mixing",
   "ingredients": [
@@ -76,7 +136,16 @@ import crafttweaker.api.entity.effect.MobEffectInstance;
     (<item:minecraft:glow_ink_sac> * 1) as IData
   ]
 });
-<recipetype:create:filling>.addRecipe("create_fill_ink_sac_with_lumisene_to_glow_ink_sac", <item:minecraft:glow_ink_sac> * 1, <item:minecraft:ink_sac>, <fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(400), 100);
+<recipetype:create:filling>.addJsonRecipe("create_fill_ink_sac_with_lumisene_to_glow_ink_sac", {
+    "type": "create:filling",
+    "ingredients": [
+        <item:minecraft:ink_sac> as IData,
+        (<fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(400)) as IData
+    ],
+    "results": [
+        (<item:minecraft:glow_ink_sac> * 1) as IData
+    ]
+});
 
 // Potion mixing =====
 var base_lumisene_potion = <fluid:create:potion>.withTag({
