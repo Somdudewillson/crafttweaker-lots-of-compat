@@ -48,7 +48,7 @@ import crafttweaker.api.ingredient.IIngredient;
 <recipetype:tconstruct:melting>.addJsonRecipe("melting_blaze_prediction", {
   "type": "tconstruct:melting",
   "ingredient": [
-    <item:hostilenetworks:prediction>.withTag({data_model: {id: "hostilenetworks:blaze"}}) as IData
+    <item:hostilenetworks:prediction>.withJsonComponents({data_model: {id: "hostilenetworks:blaze"}}) as IData
   ],
   "result": {
     "amount": 20*10*16,
@@ -100,7 +100,7 @@ import crafttweaker.api.ingredient.IIngredient;
 });
 <recipetype:thermal:crucible>.addJsonRecipe("crucible_blaze_prediction", {
   "type": "thermal:crucible",
-  "ingredient": <item:hostilenetworks:prediction>.withTag({data_model: {id: "hostilenetworks:blaze"}}) as IData,
+  "ingredient": <item:hostilenetworks:prediction>.withJsonComponents({data_model: {id: "hostilenetworks:blaze"}}) as IData,
   "result": [
     {
       "fluid": "tconstruct:blazing_blood",

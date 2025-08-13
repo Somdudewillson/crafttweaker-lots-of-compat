@@ -14,7 +14,7 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
     <tag:item:minecraft:wooden_slabs> as IData
   ],
   "results": [
-    <item:handcrafted:wood_plate> as IData
+    CreateUtils.convertItemResult(<item:handcrafted:wood_plate>)
   ]
 });
 <recipetype:create:pressing>.addJsonRecipe("create_press_terracotta_to_plate", {

@@ -46,7 +46,7 @@ for scgunBlueprint, copyingItem in SCGUNS_BLUEPRINT_TYPES {
     <recipetype:create:sequenced_assembly>.addJsonRecipe("copy_scguns_"+scgunBlueprint.registryName.path, {
         "type": "create:sequenced_assembly",
         "ingredient": scgunBlueprint as IData,
-        "transitionalItem": scgunBlueprint as IData,
+        "transitional_item": scgunBlueprint as IData,
         "sequence": [
             { "type": "create:deploying", "ingredients": [ <item:minecraft:air> as IData, <tag:item:forge:paper> as IData ], "results": [ <item:minecraft:air> as IData ] },
             { "type": "create:deploying", "ingredients": [ <item:minecraft:air> as IData, copyingItem as IData ], "results": [ <item:minecraft:air> as IData ] },
@@ -66,7 +66,7 @@ for scgunBlueprint in SCGUNS_BLUEPRINTS {
     <recipetype:create:sequenced_assembly>.addJsonRecipe("fabricate_scguns_"+scgunBlueprint.registryName.path, {
         "type": "create:sequenced_assembly",
         "ingredient": <tag:item:forge:paper> as IData,
-        "transitionalItem": <item:minecraft:paper> as IData,
+        "transitional_item": <item:minecraft:paper> as IData,
         "sequence": [
             { "type": "create:deploying", "ingredients": [ <item:minecraft:air> as IData, componentMaterial as IData ], "results": [ <item:minecraft:air> as IData ] },
             { "type": "create:deploying", "ingredients": [ <item:minecraft:air> as IData, <tag:item:forge:paper> as IData ], "results": [ <item:minecraft:air> as IData ] },

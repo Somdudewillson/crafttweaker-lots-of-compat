@@ -54,7 +54,7 @@ for copyableTemplate in COPYABLE_TEMPLATES {
     <recipetype:create:sequenced_assembly>.addJsonRecipe("sequenced_copy_template_"+copyableTemplate.registryName.path, {
         "type": "create:sequenced_assembly",
         "ingredient": copyableTemplate as IIngredient as IData,
-        "transitionalItem": copyableTemplate as IData,
+        "transitional_item": copyableTemplate as IData,
         "sequence": [
             {
                 "type": "create:deploying",

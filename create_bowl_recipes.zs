@@ -25,7 +25,7 @@ var modIdWhitelist as bool[string] = {
 };
 for craftingRecipe in craftingRecipes {
     var castRecipe = (craftingRecipe as Recipe<RecipeInput>);
-    if !(castRecipe.id.namespace in modIdWhitelist) {
+    if !(craftingRecipe.id.namespace in modIdWhitelist) {
         continue;
     }
 
@@ -110,7 +110,7 @@ for craftingRecipe in craftingRecipes {
     fluidIngredients = splitFluidIngredients;
 
     // Generate Sequential Recipe
-    sequence_steps = new stdlib.List<IData>();
+    var sequence_steps = new stdlib.List<IData>();
     for solidIngredient in solidIngredients {
         sequence_steps.add({
             "type": "create:deploying",
@@ -142,6 +142,6 @@ for craftingRecipe in craftingRecipes {
         "transitional_item": <item:minecraft:bowl> as IData,
         "loops": greatest_common_divisor,
         "results": [result as IData],
-        "sequence": sequence_steps as IData
+        "sequence": sequence_steps as IData[]
     });
 }

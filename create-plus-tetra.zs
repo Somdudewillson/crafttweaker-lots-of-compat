@@ -5,7 +5,7 @@ import crafttweaker.api.data.IData;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("refine_lapis_to_pristine", {
     "type": "create:sequenced_assembly",
     "ingredient": <item:minecraft:lapis_block> as IData,
-    "transitionalItem": <item:minecraft:lapis_block> as IData,
+    "transitional_item": <item:minecraft:lapis_block> as IData,
     "sequence": [
         {
             "type": "create:filling",
@@ -61,7 +61,7 @@ import crafttweaker.api.data.IData;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("refine_emerald_to_pristine", {
     "type": "create:sequenced_assembly",
     "ingredient": <item:minecraft:emerald_block> as IData,
-    "transitionalItem": <item:minecraft:emerald_block> as IData,
+    "transitional_item": <item:minecraft:emerald_block> as IData,
     "sequence": [
         {
             "type": "create:filling",
@@ -117,7 +117,7 @@ import crafttweaker.api.data.IData;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("refine_diamond_to_pristine", {
     "type": "create:sequenced_assembly",
     "ingredient": <item:minecraft:diamond_block> as IData,
-    "transitionalItem": <item:minecraft:diamond_block> as IData,
+    "transitional_item": <item:minecraft:diamond_block> as IData,
     "sequence": [
         {
             "type": "create:filling",
@@ -173,7 +173,7 @@ import crafttweaker.api.data.IData;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("refine_amethyst_to_pristine", {
     "type": "create:sequenced_assembly",
     "ingredient": <item:minecraft:amethyst_block> as IData,
-    "transitionalItem": <item:minecraft:amethyst_block> as IData,
+    "transitional_item": <item:minecraft:amethyst_block> as IData,
     "sequence": [
         {
             "type": "create:filling",

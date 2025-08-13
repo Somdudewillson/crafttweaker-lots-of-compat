@@ -5,7 +5,7 @@ import crafttweaker.api.data.IData;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_spore_circuit_board", {
     "type": "create:sequenced_assembly",
     "ingredient": <item:spore:compound_plate> as IData,
-    "transitionalItem": <item:spore:compound_plate> as IData,
+    "transitional_item": <item:spore:compound_plate> as IData,
     "sequence": [
         {
             "type": "create:deploying",

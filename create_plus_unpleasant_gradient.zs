@@ -4,28 +4,28 @@ import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.ingredient.IIngredient;
 import crafttweaker.api.data.IData;
 
-var brown_dye = <item:minecraft:brown_dye>.withTag({
+var brown_dye = <item:minecraft:brown_dye>.withJsonComponents({
     display: {Name: "[\"\",{\"text\":\"Dye of Brown\",\"italic\":false}]"},
     Damage:1,
 });
-var lime_dye = <item:minecraft:lime_dye>.withTag({
+var lime_dye = <item:minecraft:lime_dye>.withJsonComponents({
     display: {Name: "[\"\",{\"text\":\"Dye of Lime\",\"italic\":false}]"},
     Damage:3,
 });
-var magenta_dye = <item:minecraft:magenta_dye>.withTag({
+var magenta_dye = <item:minecraft:magenta_dye>.withJsonComponents({
     display: {Name: "[\"\",{\"text\":\"Dye of Magenta\",\"italic\":false}]"},
     Damage:4,
 });
-var red_dye = <item:minecraft:red_dye>.withTag({
+var red_dye = <item:minecraft:red_dye>.withJsonComponents({
     display: {Name: "[\"\",{\"text\":\"Red of Dye\",\"italic\":false}]"},
     Damage:6,
 });
 
-var string_item = <item:minecraft:string>.withTag({
+var string_item = <item:minecraft:string>.withJsonComponents({
     display: {Name: "[\"\",{\"text\":\"Stroing\",\"italic\":false}]"},
     Damage:6,
 });
-var rotten_flesh = <item:minecraft:rotten_flesh>.withTag({
+var rotten_flesh = <item:minecraft:rotten_flesh>.withJsonComponents({
     display: {Name: "[\"\",{\"text\":\"Rotten\",\"italic\":false}]"},
     Damage:3,
 });
@@ -113,7 +113,7 @@ var rotten_flesh = <item:minecraft:rotten_flesh>.withTag({
   ]
 });
 
-var lapis_reward = <item:minecraft:lapis_lazuli>.withTag({
+var lapis_reward = <item:minecraft:lapis_lazuli>.withJsonComponents({
     AttributeModifiers: [
         {Amount: -0.01, Name: "unpleasant_speed", Operation: 2, UUID: [-125323, 33529, 204022, -67058], AttributeName: "generic.movement_speed"}
     ], 
@@ -151,7 +151,7 @@ var lapis_reward = <item:minecraft:lapis_lazuli>.withTag({
   ]
 });
 
-var fake_enchanted_apple = <item:minecraft:golden_apple>.withTag({
+var fake_enchanted_apple = <item:minecraft:golden_apple>.withJsonComponents({
     display: {Name: "[\"\",{\"text\":\"Enchanted Golden Aρρle \",\"italic\":false,\"color\":\"light_purple\"}]"}, 
     Enchantments: [{}]
 });

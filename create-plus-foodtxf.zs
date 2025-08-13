@@ -49,7 +49,7 @@ import crafttweaker.api.ingredient.IIngredient;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_thermos_of_chocomilk_from_milk", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "foodtxf:milk_thermos" },
-    "transitionalItem": { "item": "foodtxf:milk_thermos" },
+    "transitional_item": { "item": "foodtxf:milk_thermos" },
     "sequence": [
         {
             "type": "create:deploying",
@@ -196,7 +196,7 @@ import crafttweaker.api.ingredient.IIngredient;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_glass_of_milk_and_cookies", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "foodtxf:glass_of_milk" },
-    "transitionalItem": { "item": "foodtxf:glass_of_milk" },
+    "transitional_item": { "item": "foodtxf:glass_of_milk" },
     "sequence": [
         {
             "type": "create:deploying",
@@ -217,7 +217,7 @@ import crafttweaker.api.ingredient.IIngredient;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_glass_of_chocomilk_and_cookies_from_chocomilk", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "foodtxf:glass_of_chocomilk" },
-    "transitionalItem": { "item": "foodtxf:glass_of_chocomilk" },
+    "transitional_item": { "item": "foodtxf:glass_of_chocomilk" },
     "sequence": [
         {
             "type": "create:deploying",
@@ -238,7 +238,7 @@ import crafttweaker.api.ingredient.IIngredient;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_glass_of_chocomilk_and_cookies_from_milk", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "foodtxf:glass_of_milk" },
-    "transitionalItem": { "item": "foodtxf:glass_of_milk" },
+    "transitional_item": { "item": "foodtxf:glass_of_milk" },
     "sequence": [
         {
             "type": "create:deploying",
@@ -346,7 +346,7 @@ import crafttweaker.api.ingredient.IIngredient;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_cheese_sandwich", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "foodtxf:toasted_bread_slice" },
-    "transitionalItem": { "item": "foodtxf:toasted_bread_slice" },
+    "transitional_item": { "item": "foodtxf:toasted_bread_slice" },
     "sequence": [
         {
             "type": "create:deploying",
@@ -413,7 +413,7 @@ import crafttweaker.api.ingredient.IIngredient;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_foodtxf_box", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "minecraft:paper" },
-    "transitionalItem": { "item": "minecraft:paper" },
+    "transitional_item": { "item": "minecraft:paper" },
     "sequence": [
         {
             "type": "create:filling",
@@ -449,7 +449,7 @@ import crafttweaker.api.ingredient.IIngredient;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_box_of_cereal", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "foodtxf:box" },
-    "transitionalItem": { "item": "foodtxf:box" },
+    "transitional_item": { "item": "foodtxf:box" },
     "sequence": [
         {
             "type": "create:deploying",
@@ -472,7 +472,7 @@ import crafttweaker.api.ingredient.IIngredient;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_box_of_cookies", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "foodtxf:box" },
-    "transitionalItem": { "item": "foodtxf:box" },
+    "transitional_item": { "item": "foodtxf:box" },
     "sequence": [
         {
             "type": "create:deploying",
@@ -495,7 +495,7 @@ import crafttweaker.api.ingredient.IIngredient;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_foodtxf_rice_bowl", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "minecraft:bowl" },
-    "transitionalItem": { "item": "minecraft:bowl" },
+    "transitional_item": { "item": "minecraft:bowl" },
     "sequence": [
         {
             "type": "create:deploying",

@@ -25,7 +25,7 @@ import crafttweaker.api.item.ItemStack;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_vegan_wrap", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": ContextualConstants.BREAD.items[0].id },
-    "transitionalItem": { "item": "miners_delight:vegan_wrap" },
+    "transitional_item": { "item": "miners_delight:vegan_wrap" },
     "sequence": [
         {
             "type": "create:deploying",
@@ -56,7 +56,7 @@ import crafttweaker.api.item.ItemStack;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_insect_wrap", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": ContextualConstants.BREAD.items[0].id },
-    "transitionalItem": { "item": "miners_delight:insect_wrap" },
+    "transitional_item": { "item": "miners_delight:insect_wrap" },
     "sequence": [
         {
             "type": "create:deploying",

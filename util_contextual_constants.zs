@@ -37,13 +37,13 @@ public class ContextualConstants {
 
     public static var SEEDS = <tag:item:c:seeds>;
 
-    public static var FLOUR = <tag:item:c:flour>;
+    public static var FLOUR = <tag:item:c:flours>;
     public static var BREAD = <tag:item:c:bread>;
     public static var CABBAGE = <tag:item:c:crops/cabbage>;
-    public static var COOKED_MUTTON = <tag:item:c:foods/cooked_meats/cooked_mutton>;
+    public static var COOKED_MUTTON = <tag:item:c:foods/cooked_mutton>;
     public static var ONION = <tag:item:c:crops/onion>;
-    public static var DOUGH = <tag:item:c:dough>;
-    public static var RICE = <tag:item:c:seeds/rice> as IIngredient | <tag:item:c:grain/rice>;
+    public static var DOUGH = <tag:item:c:doughs> as IIngredient | <tag:item:c:foods/dough>;
+    public static var RICE = <tag:item:c:seeds/rice> as IIngredient | <tag:item:c:crops/rice>;
     public static var RAW_MEAT = <tag:item:c:rawmeats>;
 
     public static var GLOWSTONE_DUST = <tag:item:c:glowstone_dusts>;

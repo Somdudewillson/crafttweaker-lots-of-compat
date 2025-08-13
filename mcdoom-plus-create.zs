@@ -5,7 +5,7 @@ import crafttweaker.api.data.IData;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_argent_bolt", {
     "type": "create:sequenced_assembly",
     "ingredient": <item:doom:argent_energy> as IData,
-    "transitionalItem": <item:doom:argent_energy> as IData,
+    "transitional_item": <item:doom:argent_energy> as IData,
     "sequence": [
         {
             "type": "create:deploying",
@@ -36,7 +36,7 @@ import crafttweaker.api.data.IData;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_unmaykr_bolt", {
     "type": "create:sequenced_assembly",
     "ingredient": <item:doom:argent_bolt> as IData,
-    "transitionalItem": <item:doom:argent_bolt> as IData,
+    "transitional_item": <item:doom:argent_bolt> as IData,
     "sequence": [
         {
             "type": "create:deploying",
