@@ -8,13 +8,14 @@ import crafttweaker.api.recipe.type.Recipe;
 import mods.createtweaker.ProcessingRecipe;
 import mods.createtweaker.BasinRecipe;
 import mods.createtweaker.MixingRecipe;
-import crafttweaker.api.world.Container;
+import crafttweaker.api.recipe.input.RecipeInput;
 import crafttweaker.api.ingredient.IIngredientWithAmount;
 import crafttweaker.api.ingredient.IIngredient;
 import crafttweaker.api.fluid.FluidIngredient;
 import crafttweaker.api.fluid.IFluidStack;
 import crafttweaker.api.fluid.Fluid;
 import crafttweaker.api.item.ItemStack;
+import crafttweaker.api.data.IData;
 
 var processedResultItemNames as bool[string] = {};
 var craftingRecipes = craftingTable.allRecipes;
@@ -27,7 +28,7 @@ var modIdWhitelist as bool[string] = {
     "minecraft":true,
 };
 for craftingRecipe in craftingRecipes {
-    var castRecipe = (craftingRecipe as Recipe<Container>);
+    var castRecipe = (craftingRecipe as Recipe<RecipeInput>);
     if !(castRecipe.id.namespace in modIdWhitelist) {
         continue;
     }
@@ -113,18 +114,38 @@ for craftingRecipe in craftingRecipes {
     fluidIngredients = splitFluidIngredients;
 
     // Generate Sequential Recipe
-    var seqBuilder = <recipetype:create:sequenced_assembly>.builder("assemble_"+resultName)
-        .transitionTo(<item:minecraft:bowl>)
-        .require(<item:minecraft:bowl>)
-        .addOutput(result, 1)
-        .loops(greatest_common_divisor);
+    sequence_steps = new stdlib.List<IData>();
     for solidIngredient in solidIngredients {
-        seqBuilder = seqBuilder
-            .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(solidIngredient));
+        sequence_steps.add({
+            "type": "create:deploying",
+            "ingredients": [
+                <item:minecraft:bowl> as IData,
+                solidIngredient as IData
+            ],
+            "results": [
+                <item:minecraft:bowl> as IData
+            ]
+        });
     }
     for fluidIngredient in fluidIngredients {
-        seqBuilder = seqBuilder
-            .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(fluidIngredient));
+        sequence_steps.add({
+            "type": "create:filling",
+            "ingredients": [
+                <item:minecraft:bowl> as IData,
+                fluidIngredient as IData
+            ],
+            "results": [
+                <item:minecraft:bowl> as IData
+            ]
+        });
     }
-    <recipetype:create:sequenced_assembly>.addRecipe(seqBuilder);
+
+    <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_"+resultName, {
+        "type": "create:sequenced_assembly",
+        "ingredient": <item:minecraft:bowl> as IData,
+        "transitional_item": <item:minecraft:bowl> as IData,
+        "loops": greatest_common_divisor,
+        "results": [result as IData],
+        "sequence": sequence_steps as IData
+    });
 }
