@@ -41,18 +41,18 @@ public class ContextualConstants {
     public static var BREAD = <tag:item:c:bread>;
     public static var CABBAGE = <tag:item:c:crops/cabbage>;
     public static var COOKED_MUTTON = <tag:item:c:foods/cooked_mutton>;
-    public static var ONION = <tag:item:c:crops/onion>;
+    public static var ONION = <tag:item:c:crops/onion> as IIngredient | <tag:item:c:foods/onion>;
     public static var DOUGH = <tag:item:c:doughs> as IIngredient | <tag:item:c:foods/dough>;
-    public static var RICE = <tag:item:c:seeds/rice> as IIngredient | <tag:item:c:crops/rice>;
-    public static var RAW_MEAT = <tag:item:c:rawmeats>;
+    public static var RICE = <tag:item:c:crops/rice>;
+    public static var RAW_MEAT = <tag:item:c:foods/raw_meat>;
 
-    public static var GLOWSTONE_DUST = <tag:item:c:glowstone_dusts>;
-    public static var GLOWSTONE_STORAGE_BLOCK = <tag:item:c:glowstone_blocks>;
-    public static var IRON_INGOT = <tag:item:c:iron_ingots>;
-    public static var GOLD_INGOT = <tag:item:c:gold_ingots>;
-    public static var REDSTONE_DUST = <tag:item:c:redstone_dusts>;
+    public static var GLOWSTONE_DUST = <tag:item:c:dusts/glowstone>;
+    public static var GLOWSTONE_STORAGE_BLOCK = <item:minecraft:glowstone> as IIngredient;
+    public static var IRON_INGOT = <tag:item:c:ingots/iron>;
+    public static var GOLD_INGOT = <tag:item:c:ingots/gold>;
+    public static var REDSTONE_DUST = <tag:item:c:dusts/redstone>;
 
-    public static var GRAVEL = <tag:item:c:gravel>;
+    public static var GRAVEL = <tag:item:c:gravels>;
 
     public static var DYES = <tag:item:c:dyes>;
     #endif
