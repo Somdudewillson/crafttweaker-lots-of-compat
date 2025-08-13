@@ -23,7 +23,7 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
     <item:minecraft:terracotta> as IData
   ],
   "results": [
-    <item:handcrafted:terracotta_plate> as IData
+    CreateUtils.convertItemResult(<item:handcrafted:terracotta_plate>)
   ]
 });
 
@@ -34,7 +34,7 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
     <item:minecraft:white_dye> as IData
   ],
   "results": [
-    <item:handcrafted:white_plate> as IData
+    CreateUtils.convertItemResult(<item:handcrafted:white_plate>)
   ]
 });
 
@@ -45,7 +45,7 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
     <item:minecraft:yellow_dye> as IData
   ],
   "results": [
-    <item:handcrafted:yellow_plate> as IData
+    CreateUtils.convertItemResult(<item:handcrafted:yellow_plate>)
   ]
 });
 
@@ -56,7 +56,7 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
     <item:minecraft:blue_dye> as IData
   ],
   "results": [
-    <item:handcrafted:blue_plate> as IData
+    CreateUtils.convertItemResult(<item:handcrafted:blue_plate>)
   ]
 });
 
@@ -64,13 +64,10 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
   "type": "create:mixing",
   "ingredients": [
     (<item:handcrafted:white_plate> as IIngredient | <item:handcrafted:yellow_plate> | <item:handcrafted:blue_plate>) as IData,
-    {
-      "amount": ContextualConstants.fluidAmtFromMb(100),
-      "fluid": "minecraft:water"
-    }
+    CreateUtils.convertFluidIngredient(<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(100))
   ],
   "results": [
-    (<item:handcrafted:terracotta_plate> * 1) as IData
+    CreateUtils.convertItemResult(<item:handcrafted:terracotta_plate> * 1)
   ]
 });
 
@@ -82,7 +79,7 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
     <item:minecraft:white_dye> as IData
   ],
   "results": [
-    <item:handcrafted:white_cup> as IData
+    CreateUtils.convertItemResult(<item:handcrafted:white_cup>)
   ]
 });
 
@@ -93,7 +90,7 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
     <item:minecraft:yellow_dye> as IData
   ],
   "results": [
-    <item:handcrafted:yellow_cup> as IData
+    CreateUtils.convertItemResult(<item:handcrafted:yellow_cup>)
   ]
 });
 
@@ -104,7 +101,7 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
     <item:minecraft:blue_dye> as IData
   ],
   "results": [
-    <item:handcrafted:blue_cup> as IData
+    CreateUtils.convertItemResult(<item:handcrafted:blue_cup>)
   ]
 });
 
@@ -112,13 +109,10 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
   "type": "create:mixing",
   "ingredients": [
     (<item:handcrafted:white_cup> as IIngredient | <item:handcrafted:yellow_cup> | <item:handcrafted:blue_cup>) as IData,
-    {
-      "amount": ContextualConstants.fluidAmtFromMb(100),
-      "fluid": "minecraft:water"
-    }
+    CreateUtils.convertFluidIngredient(<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(100))
   ],
   "results": [
-    (<item:handcrafted:terracotta_cup> * 1) as IData
+    CreateUtils.convertItemResult(<item:handcrafted:terracotta_cup> * 1)
   ]
 });
 
@@ -130,7 +124,7 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
     <item:minecraft:white_dye> as IData
   ],
   "results": [
-    <item:handcrafted:white_bowl> as IData
+    CreateUtils.convertItemResult(<item:handcrafted:white_bowl>)
   ]
 });
 
@@ -141,7 +135,7 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
     <item:minecraft:yellow_dye> as IData
   ],
   "results": [
-    <item:handcrafted:yellow_bowl> as IData
+    CreateUtils.convertItemResult(<item:handcrafted:yellow_bowl>)
   ]
 });
 
@@ -152,7 +146,7 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
     <item:minecraft:blue_dye> as IData
   ],
   "results": [
-    <item:handcrafted:blue_bowl> as IData
+    CreateUtils.convertItemResult(<item:handcrafted:blue_bowl>)
   ]
 });
 
@@ -160,13 +154,10 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
   "type": "create:mixing",
   "ingredients": [
     (<item:handcrafted:white_bowl> as IIngredient | <item:handcrafted:yellow_bowl> | <item:handcrafted:blue_bowl>) as IData,
-    {
-      "amount": ContextualConstants.fluidAmtFromMb(100),
-      "fluid": "minecraft:water"
-    }
+    CreateUtils.convertFluidIngredient(<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(100))
   ],
   "results": [
-    (<item:handcrafted:terracotta_bowl> * 1) as IData
+    CreateUtils.convertItemResult(<item:handcrafted:terracotta_bowl> * 1)
   ]
 });
 
@@ -178,7 +169,7 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
     <item:handcrafted:wood_cup> as IData
   ],
   "results": [
-    <item:handcrafted:wood_crockery_combo> as IData
+    CreateUtils.convertItemResult(<item:handcrafted:wood_crockery_combo>)
   ]
 });
 <recipetype:create:deploying>.addJsonRecipe("deploy_terracotta_cup_onto_terracotta_plate", {
@@ -188,7 +179,7 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
     <item:handcrafted:terracotta_cup> as IData
   ],
   "results": [
-    <item:handcrafted:terracotta_crockery_combo> as IData
+    CreateUtils.convertItemResult(<item:handcrafted:terracotta_crockery_combo>)
   ]
 });
 <recipetype:create:deploying>.addJsonRecipe("deploy_white_cup_onto_white_plate", {
@@ -198,7 +189,7 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
     <item:handcrafted:white_cup> as IData
   ],
   "results": [
-    <item:handcrafted:white_crockery_combo> as IData
+    CreateUtils.convertItemResult(<item:handcrafted:white_crockery_combo>)
   ]
 });
 <recipetype:create:deploying>.addJsonRecipe("deploy_yellow_cup_onto_yellow_plate", {
@@ -208,7 +199,7 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
     <item:handcrafted:yellow_cup> as IData
   ],
   "results": [
-    <item:handcrafted:yellow_crockery_combo> as IData
+    CreateUtils.convertItemResult(<item:handcrafted:yellow_crockery_combo>)
   ]
 });
 <recipetype:create:deploying>.addJsonRecipe("deploy_blue_cup_onto_blue_plate", {
@@ -218,7 +209,7 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
     <item:handcrafted:blue_cup> as IData
   ],
   "results": [
-    <item:handcrafted:blue_crockery_combo> as IData
+    CreateUtils.convertItemResult(<item:handcrafted:blue_crockery_combo>)
   ]
 });
 
@@ -239,13 +230,10 @@ craftingTable.addShapeless("combine_to_blue_crockery_combo", <item:handcrafted:b
   "type": "create:mixing",
   "ingredients": [
     (<item:handcrafted:white_crockery_combo> as IIngredient | <item:handcrafted:yellow_crockery_combo> | <item:handcrafted:blue_crockery_combo>) as IData,
-    {
-      "amount": ContextualConstants.fluidAmtFromMb(100),
-      "fluid": "minecraft:water"
-    }
+    CreateUtils.convertFluidIngredient(<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(100))
   ],
   "results": [
-    (<item:handcrafted:terracotta_crockery_combo> * 1) as IData
+    CreateUtils.convertItemResult(<item:handcrafted:terracotta_crockery_combo> * 1)
   ]
 });
 
@@ -254,13 +242,10 @@ craftingTable.addShapeless("combine_to_blue_crockery_combo", <item:handcrafted:b
   "type": "create:mixing",
   "ingredients": [
     (<item:handcrafted:black_cushion> as IIngredient | <item:handcrafted:blue_cushion> | <item:handcrafted:brown_cushion> | <item:handcrafted:cyan_cushion> | <item:handcrafted:gray_cushion> | <item:handcrafted:green_cushion> | <item:handcrafted:light_blue_cushion> | <item:handcrafted:light_gray_cushion> | <item:handcrafted:lime_cushion> | <item:handcrafted:magenta_cushion> | <item:handcrafted:orange_cushion> | <item:handcrafted:pink_cushion> | <item:handcrafted:purple_cushion> | <item:handcrafted:red_cushion> | <item:handcrafted:yellow_cushion>) as IData,
-    {
-      "amount": ContextualConstants.fluidAmtFromMb(100),
-      "fluid": "minecraft:water"
-    }
+    CreateUtils.convertFluidIngredient(<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(100))
   ],
   "results": [
-    (<item:handcrafted:white_cushion> * 1) as IData
+    CreateUtils.convertItemResult(<item:handcrafted:white_cushion> * 1)
   ]
 });
 
@@ -269,12 +254,9 @@ craftingTable.addShapeless("combine_to_blue_crockery_combo", <item:handcrafted:b
   "type": "create:mixing",
   "ingredients": [
     (<item:handcrafted:black_sheet> as IIngredient | <item:handcrafted:blue_sheet> | <item:handcrafted:brown_sheet> | <item:handcrafted:cyan_sheet> | <item:handcrafted:gray_sheet> | <item:handcrafted:green_sheet> | <item:handcrafted:light_blue_sheet> | <item:handcrafted:light_gray_sheet> | <item:handcrafted:lime_sheet> | <item:handcrafted:magenta_sheet> | <item:handcrafted:orange_sheet> | <item:handcrafted:pink_sheet> | <item:handcrafted:purple_sheet> | <item:handcrafted:red_sheet> | <item:handcrafted:yellow_sheet>) as IData,
-    {
-      "amount": ContextualConstants.fluidAmtFromMb(100),
-      "fluid": "minecraft:water"
-    }
+    CreateUtils.convertFluidIngredient(<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(100))
   ],
   "results": [
-    (<item:handcrafted:white_sheet> * 1) as IData
+    CreateUtils.convertItemResult(<item:handcrafted:white_sheet> * 1)
   ]
 });

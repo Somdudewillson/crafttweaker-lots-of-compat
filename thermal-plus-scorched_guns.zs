@@ -226,7 +226,7 @@ craftingTable.addShapeless("convert_scguns_plasma_to_systeams_plasma_ball",
 <recipetype:create:sequenced_assembly>.addJsonRecipe("scguns_energy_cell_filling", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "scguns:empty_cell" },
-    "transitional_item": { "item": "scguns:empty_cell" },
+    "transitional_item": { "id": "scguns:empty_cell" },
     "sequence": [
         {
             "type": "create:filling",

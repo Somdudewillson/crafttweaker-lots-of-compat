@@ -14,7 +14,7 @@ import crafttweaker.api.data.IData;
                 ContextualConstants.REDSTONE_DUST as IData
             ],
             "results": [
-                <item:spore:compound_plate> as IData
+                CreateUtils.convertItemResult(<item:spore:compound_plate>)
             ]
         },
         {
@@ -24,12 +24,12 @@ import crafttweaker.api.data.IData;
                 <item:minecraft:repeater> as IData
             ],
             "results": [
-                <item:spore:compound_plate> as IData
+                CreateUtils.convertItemResult(<item:spore:compound_plate>)
             ]
         }
     ],
     "results": [
-        <item:spore:circuit_board> as IData
+        CreateUtils.convertItemResult(<item:spore:circuit_board>)
     ],
     "loops": 3
 });

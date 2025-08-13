@@ -18,8 +18,8 @@ import crafttweaker.api.item.ItemStack;
     <item:nethersdelight:strider_slice> as IData
   ],
   "results": [
-    (<item:nethersdelight:ground_strider> * 2) as IData,
-    (<item:nethersdelight:ground_strider> % 50) as IData
+    CreateUtils.convertItemResult((<item:nethersdelight:ground_strider> * 2)),
+    CreateUtils.convertItemResult((<item:nethersdelight:ground_strider> % 50))
   ],
   "processingTime": 80
 });
@@ -29,8 +29,8 @@ import crafttweaker.api.item.ItemStack;
     <item:nethersdelight:strider_slice> as IData
   ],
   "results": [
-    (<item:nethersdelight:ground_strider> * 2) as IData,
-    (<item:nethersdelight:ground_strider> % 75) as IData
+    CreateUtils.convertItemResult((<item:nethersdelight:ground_strider> * 2)),
+    CreateUtils.convertItemResult((<item:nethersdelight:ground_strider> % 75))
   ],
   "processingTime": 20
 });

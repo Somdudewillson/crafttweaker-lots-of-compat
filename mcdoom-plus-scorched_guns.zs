@@ -71,7 +71,7 @@ craftingTable.addShaped("convert_doom_energy_cell_to_bfg_cell",
 <recipetype:create:sequenced_assembly>.addJsonRecipe("create_pack_doom_shotgun_shells", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "minecraft:iron_ingot" },
-    "transitional_item": { "item": "minecraft:iron_ingot" },
+    "transitional_item": { "id": "minecraft:iron_ingot" },
     "sequence": [
         {
             "type": "create:deploying",
@@ -92,7 +92,7 @@ craftingTable.addShaped("convert_doom_energy_cell_to_bfg_cell",
 <recipetype:create:sequenced_assembly>.addJsonRecipe("create_pack_doom_rifle_mag", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "minecraft:iron_ingot" },
-    "transitional_item": { "item": "minecraft:iron_ingot" },
+    "transitional_item": { "id": "minecraft:iron_ingot" },
     "sequence": [
         {
             "type": "create:deploying",
@@ -113,7 +113,7 @@ craftingTable.addShaped("convert_doom_energy_cell_to_bfg_cell",
 <recipetype:create:sequenced_assembly>.addJsonRecipe("create_pack_doom_chaingun_mag", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "minecraft:iron_ingot" },
-    "transitional_item": { "item": "minecraft:iron_ingot" },
+    "transitional_item": { "id": "minecraft:iron_ingot" },
     "sequence": [
         {
             "type": "create:deploying",

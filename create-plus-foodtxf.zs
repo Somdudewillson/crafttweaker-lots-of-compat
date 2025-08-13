@@ -12,7 +12,7 @@ import crafttweaker.api.ingredient.IIngredient;
     (<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(1000)) as IData
   ],
   "results": [
-    <item:foodtxf:water_thermos> as IData
+    CreateUtils.convertItemResult(<item:foodtxf:water_thermos>)
   ]
 });
 <recipetype:create:filling>.addJsonRecipe("create_fill_lava_thermos", {
@@ -22,7 +22,7 @@ import crafttweaker.api.ingredient.IIngredient;
     (<fluid:minecraft:lava> * ContextualConstants.fluidAmtFromMb(1000)) as IData
   ],
   "results": [
-    <item:foodtxf:lava_thermos> as IData
+    CreateUtils.convertItemResult(<item:foodtxf:lava_thermos>)
   ]
 });
 <recipetype:create:filling>.addJsonRecipe("create_fill_milk_thermos", {
@@ -32,7 +32,7 @@ import crafttweaker.api.ingredient.IIngredient;
     (ContextualConstants.MILK_FLUID * ContextualConstants.fluidAmtFromMb(1000)) as IData
   ],
   "results": [
-    <item:foodtxf:milk_thermos> as IData
+    CreateUtils.convertItemResult(<item:foodtxf:milk_thermos>)
   ]
 });
 <recipetype:create:filling>.addJsonRecipe("create_fill_chocomilk_thermos", {
@@ -42,14 +42,14 @@ import crafttweaker.api.ingredient.IIngredient;
     (<fluid:create:chocolate> * ContextualConstants.fluidAmtFromMb(333)) as IData
   ],
   "results": [
-    <item:foodtxf:chocomilk_thermos> as IData
+    CreateUtils.convertItemResult(<item:foodtxf:chocomilk_thermos>)
   ]
 });
 
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_thermos_of_chocomilk_from_milk", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "foodtxf:milk_thermos" },
-    "transitional_item": { "item": "foodtxf:milk_thermos" },
+    "transitional_item": { "id": "foodtxf:milk_thermos" },
     "sequence": [
         {
             "type": "create:deploying",
@@ -74,7 +74,7 @@ import crafttweaker.api.ingredient.IIngredient;
     (<item:foodtxf:water_thermos> * 1) as IData,
   ],
   "results": [
-    (<item:foodtxf:thermos> * 1) as IData,
+    CreateUtils.convertItemResult((<item:foodtxf:thermos> * 1)),
     (<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(1000)) as IData
   ]
 });
@@ -84,7 +84,7 @@ import crafttweaker.api.ingredient.IIngredient;
     (<item:foodtxf:lava_thermos> * 1) as IData,
   ],
   "results": [
-    (<item:foodtxf:thermos> * 1) as IData,
+    CreateUtils.convertItemResult((<item:foodtxf:thermos> * 1)),
     (<fluid:minecraft:lava> * ContextualConstants.fluidAmtFromMb(1000)) as IData
   ]
 });
@@ -94,7 +94,7 @@ import crafttweaker.api.ingredient.IIngredient;
     (<item:foodtxf:milk_thermos> * 1) as IData,
   ],
   "results": [
-    (<item:foodtxf:thermos> * 1) as IData,
+    CreateUtils.convertItemResult((<item:foodtxf:thermos> * 1)),
     (ContextualConstants.MILK_FLUID * ContextualConstants.fluidAmtFromMb(1000)) as IData
   ]
 });
@@ -107,7 +107,7 @@ import crafttweaker.api.ingredient.IIngredient;
     (<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(333)) as IData
   ],
   "results": [
-    <item:foodtxf:glass_of_water> as IData
+    CreateUtils.convertItemResult(<item:foodtxf:glass_of_water>)
   ]
 });
 <recipetype:create:filling>.addJsonRecipe("create_fill_foodtxf_glass_of_lava", {
@@ -117,7 +117,7 @@ import crafttweaker.api.ingredient.IIngredient;
     (<fluid:minecraft:lava> * ContextualConstants.fluidAmtFromMb(333)) as IData
   ],
   "results": [
-    <item:foodtxf:glass_of_lava> as IData
+    CreateUtils.convertItemResult(<item:foodtxf:glass_of_lava>)
   ]
 });
 <recipetype:create:filling>.addJsonRecipe("create_fill_foodtxf_glass_of_milk", {
@@ -127,7 +127,7 @@ import crafttweaker.api.ingredient.IIngredient;
     (ContextualConstants.MILK_FLUID * ContextualConstants.fluidAmtFromMb(333)) as IData
   ],
   "results": [
-    <item:foodtxf:glass_of_milk> as IData
+    CreateUtils.convertItemResult(<item:foodtxf:glass_of_milk>)
   ]
 });
 <recipetype:create:filling>.addJsonRecipe("create_fill_foodtxf_glass_of_chocomilk", {
@@ -137,7 +137,7 @@ import crafttweaker.api.ingredient.IIngredient;
     (<fluid:create:chocolate> * ContextualConstants.fluidAmtFromMb(111)) as IData
   ],
   "results": [
-    <item:foodtxf:glass_of_chocomilk> as IData
+    CreateUtils.convertItemResult(<item:foodtxf:glass_of_chocomilk>)
   ]
 });
 
@@ -149,7 +149,7 @@ import crafttweaker.api.ingredient.IIngredient;
     <item:minecraft:bread> as IData
   ],
   "results": [
-    <item:foodtxf:glass_of_water_and_bread> as IData
+    CreateUtils.convertItemResult(<item:foodtxf:glass_of_water_and_bread>)
   ]
 });
 <recipetype:create:deploying>.addJsonRecipe("create_deploy_toasted_bread_with_glass_of_milk", {
@@ -159,7 +159,7 @@ import crafttweaker.api.ingredient.IIngredient;
     <item:foodtxf:toasted_bread> as IData
   ],
   "results": [
-    <item:foodtxf:glass_of_milk_and_toasted_bread> as IData
+    CreateUtils.convertItemResult(<item:foodtxf:glass_of_milk_and_toasted_bread>)
   ]
 });
 <recipetype:create:deploying>.addJsonRecipe("create_deploy_toasted_bread_with_glass_of_chocomilk", {
@@ -169,7 +169,7 @@ import crafttweaker.api.ingredient.IIngredient;
     <item:foodtxf:toasted_bread> as IData
   ],
   "results": [
-    <item:foodtxf:glass_of_chocomilk_and_toasted_bread> as IData
+    CreateUtils.convertItemResult(<item:foodtxf:glass_of_chocomilk_and_toasted_bread>)
   ]
 });
 <recipetype:create:deploying>.addJsonRecipe("create_deploy_cocoa_beans_into_glass_of_milk_and_toasted_bread", {
@@ -179,7 +179,7 @@ import crafttweaker.api.ingredient.IIngredient;
     <item:minecraft:cocoa_beans> as IData
   ],
   "results": [
-    <item:foodtxf:glass_of_chocomilk_and_toasted_bread> as IData
+    CreateUtils.convertItemResult(<item:foodtxf:glass_of_chocomilk_and_toasted_bread>)
   ]
 });
 <recipetype:create:deploying>.addJsonRecipe("create_deploy_cocoa_beans_into_glass_of_milk_and_cookies", {
@@ -189,14 +189,14 @@ import crafttweaker.api.ingredient.IIngredient;
     <item:minecraft:cocoa_beans> as IData
   ],
   "results": [
-    <item:foodtxf:glass_of_chocomilk_and_cookies> as IData
+    CreateUtils.convertItemResult(<item:foodtxf:glass_of_chocomilk_and_cookies>)
   ]
 });
 
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_glass_of_milk_and_cookies", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "foodtxf:glass_of_milk" },
-    "transitional_item": { "item": "foodtxf:glass_of_milk" },
+    "transitional_item": { "id": "foodtxf:glass_of_milk" },
     "sequence": [
         {
             "type": "create:deploying",
@@ -217,7 +217,7 @@ import crafttweaker.api.ingredient.IIngredient;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_glass_of_chocomilk_and_cookies_from_chocomilk", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "foodtxf:glass_of_chocomilk" },
-    "transitional_item": { "item": "foodtxf:glass_of_chocomilk" },
+    "transitional_item": { "id": "foodtxf:glass_of_chocomilk" },
     "sequence": [
         {
             "type": "create:deploying",
@@ -238,7 +238,7 @@ import crafttweaker.api.ingredient.IIngredient;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_glass_of_chocomilk_and_cookies_from_milk", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "foodtxf:glass_of_milk" },
-    "transitional_item": { "item": "foodtxf:glass_of_milk" },
+    "transitional_item": { "id": "foodtxf:glass_of_milk" },
     "sequence": [
         {
             "type": "create:deploying",
@@ -285,7 +285,7 @@ import crafttweaker.api.ingredient.IIngredient;
     (<tag:item:foodtxf:fruits> * 1) as IData
   ],
   "results": [
-    (<item:foodtxf:glass_of_fruit_juice> * 1) as IData
+    CreateUtils.convertItemResult((<item:foodtxf:glass_of_fruit_juice> * 1))
   ]
 });
 <recipetype:create:mixing>.addJsonRecipe("create_mix_foodtxf_glass_of_vegetable_juice", {
@@ -296,7 +296,7 @@ import crafttweaker.api.ingredient.IIngredient;
     (<tag:item:foodtxf:vegetables> * 1) as IData
   ],
   "results": [
-    (<item:foodtxf:glass_of_vegetable_juice> * 1) as IData
+    CreateUtils.convertItemResult((<item:foodtxf:glass_of_vegetable_juice> * 1))
   ]
 });
 <recipetype:create:mixing>.addJsonRecipe("create_mix_foodtxf_glass_of_mixed_juice", {
@@ -307,7 +307,7 @@ import crafttweaker.api.ingredient.IIngredient;
     (<tag:item:foodtxf:vegetables> * 1) as IData
   ],
   "results": [
-    (<item:foodtxf:glass_of_mixed_juice> * 1) as IData
+    CreateUtils.convertItemResult((<item:foodtxf:glass_of_mixed_juice> * 1))
   ]
 });
 
@@ -317,7 +317,7 @@ import crafttweaker.api.ingredient.IIngredient;
     (<item:foodtxf:glass_of_water> * 1) as IData,
   ],
   "results": [
-    (<item:foodtxf:glass> * 1) as IData,
+    CreateUtils.convertItemResult((<item:foodtxf:glass> * 1)),
     (<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(333)) as IData
   ]
 });
@@ -327,7 +327,7 @@ import crafttweaker.api.ingredient.IIngredient;
     (<item:foodtxf:glass_of_lava> * 1) as IData,
   ],
   "results": [
-    (<item:foodtxf:glass> * 1) as IData,
+    CreateUtils.convertItemResult((<item:foodtxf:glass> * 1)),
     (<fluid:minecraft:lava> * ContextualConstants.fluidAmtFromMb(333)) as IData
   ]
 });
@@ -337,7 +337,7 @@ import crafttweaker.api.ingredient.IIngredient;
     (<item:foodtxf:glass_of_milk> * 1) as IData,
   ],
   "results": [
-    (<item:foodtxf:glass> * 1) as IData,
+    CreateUtils.convertItemResult((<item:foodtxf:glass> * 1)),
     (ContextualConstants.MILK_FLUID * ContextualConstants.fluidAmtFromMb(333)) as IData
   ]
 });
@@ -346,7 +346,7 @@ import crafttweaker.api.ingredient.IIngredient;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_cheese_sandwich", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "foodtxf:toasted_bread_slice" },
-    "transitional_item": { "item": "foodtxf:toasted_bread_slice" },
+    "transitional_item": { "id": "foodtxf:toasted_bread_slice" },
     "sequence": [
         {
             "type": "create:deploying",
@@ -383,7 +383,7 @@ import crafttweaker.api.ingredient.IIngredient;
     <item:foodtxf:cheese_slice> as IData
   ],
   "results": [
-    (<item:foodtxf:raw_cheese_empanada> * 1) as IData
+    CreateUtils.convertItemResult((<item:foodtxf:raw_cheese_empanada> * 1))
   ]
 });
 <recipetype:create:compacting>.addJsonRecipe("create_compact_raw_meat_empanada", {
@@ -393,7 +393,7 @@ import crafttweaker.api.ingredient.IIngredient;
     ContextualConstants.RAW_MEAT as IData
   ],
   "results": [
-    (<item:foodtxf:raw_meat_empanada> * 1) as IData
+    CreateUtils.convertItemResult((<item:foodtxf:raw_meat_empanada> * 1))
   ]
 });
 
@@ -407,13 +407,13 @@ import crafttweaker.api.ingredient.IIngredient;
     (<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(1000)) as IData
   ],
   "results": [
-    (<item:foodtxf:box> * 3) as IData
+    CreateUtils.convertItemResult((<item:foodtxf:box> * 3))
   ]
 });
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_foodtxf_box", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "minecraft:paper" },
-    "transitional_item": { "item": "minecraft:paper" },
+    "transitional_item": { "id": "minecraft:paper" },
     "sequence": [
         {
             "type": "create:filling",
@@ -449,7 +449,7 @@ import crafttweaker.api.ingredient.IIngredient;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_box_of_cereal", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "foodtxf:box" },
-    "transitional_item": { "item": "foodtxf:box" },
+    "transitional_item": { "id": "foodtxf:box" },
     "sequence": [
         {
             "type": "create:deploying",
@@ -472,7 +472,7 @@ import crafttweaker.api.ingredient.IIngredient;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_box_of_cookies", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "foodtxf:box" },
-    "transitional_item": { "item": "foodtxf:box" },
+    "transitional_item": { "id": "foodtxf:box" },
     "sequence": [
         {
             "type": "create:deploying",
@@ -495,7 +495,7 @@ import crafttweaker.api.ingredient.IIngredient;
 <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_foodtxf_rice_bowl", {
     "type": "create:sequenced_assembly",
     "ingredient": { "item": "minecraft:bowl" },
-    "transitional_item": { "item": "minecraft:bowl" },
+    "transitional_item": { "id": "minecraft:bowl" },
     "sequence": [
         {
             "type": "create:deploying",

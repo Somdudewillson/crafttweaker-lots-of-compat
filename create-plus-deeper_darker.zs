@@ -28,6 +28,6 @@ craftingTable.addShapeless("craft_resonarium_plate_manual_only", <item:deeperdar
     <item:minecraft:scute> as IData
   ],
   "results": [
-    (<item:deeperdarker:resonarium_plate> * 1) as IData
+    CreateUtils.convertItemResult((<item:deeperdarker:resonarium_plate> * 1))
   ]
 });

@@ -47,14 +47,14 @@ COPYABLE_TEMPLATES.add(<item:deeperdarker:warden_upgrade_smithing_template> as I
 COPYABLE_TEMPLATES_MATERIALS[<item:deeperdarker:warden_upgrade_smithing_template> as IItemStack] = (<item:minecraft:sculk> as IIngredient);
 #endif
 
+var lavaAmount = ContextualConstants.fluidAmtFromMb(250);
 for copyableTemplate in COPYABLE_TEMPLATES {
     var componentMaterial = COPYABLE_TEMPLATES_MATERIALS[copyableTemplate];
-    var lavaAmount = ContextualConstants.fluidAmtFromMb(250);
     
     <recipetype:create:sequenced_assembly>.addJsonRecipe("sequenced_copy_template_"+copyableTemplate.registryName.path, {
         "type": "create:sequenced_assembly",
         "ingredient": copyableTemplate as IIngredient as IData,
-        "transitional_item": copyableTemplate as IData,
+        "transitional_item": CreateUtils.convertItemResult(copyableTemplate),
         "sequence": [
             {
                 "type": "create:deploying",
@@ -63,20 +63,17 @@ for copyableTemplate in COPYABLE_TEMPLATES {
                     componentMaterial as IData
                 ],
                 "results": [
-                    copyableTemplate as IData
+                    CreateUtils.convertItemResult(copyableTemplate)
                 ]
             },
             {
                 "type": "create:filling",
                 "ingredients": [
                     copyableTemplate as IData,
-                    {
-                        "fluid": "minecraft:lava",
-                        "amount": lavaAmount
-                    }
+                    CreateUtils.convertFluidIngredient(<fluid:minecraft:lava> * lavaAmount)
                 ],
                 "results": [
-                    copyableTemplate as IData
+                    CreateUtils.convertItemResult(copyableTemplate)
                 ]
             },
             {
@@ -85,7 +82,7 @@ for copyableTemplate in COPYABLE_TEMPLATES {
                     copyableTemplate as IData
                 ],
                 "results": [
-                    copyableTemplate as IData
+                    CreateUtils.convertItemResult(copyableTemplate)
                 ]
             },
             {
@@ -95,7 +92,7 @@ for copyableTemplate in COPYABLE_TEMPLATES {
                     {"item": "minecraft:diamond"}
                 ],
                 "results": [
-                    copyableTemplate as IData
+                    CreateUtils.convertItemResult(copyableTemplate)
                 ]
             },
             {
@@ -105,7 +102,7 @@ for copyableTemplate in COPYABLE_TEMPLATES {
                     {"item": "minecraft:diamond"}
                 ],
                 "results": [
-                    copyableTemplate as IData
+                    CreateUtils.convertItemResult(copyableTemplate)
                 ]
             },
             {
@@ -115,7 +112,7 @@ for copyableTemplate in COPYABLE_TEMPLATES {
                     {"item": "minecraft:diamond"}
                 ],
                 "results": [
-                    copyableTemplate as IData
+                    CreateUtils.convertItemResult(copyableTemplate)
                 ]
             },
             {
@@ -125,7 +122,7 @@ for copyableTemplate in COPYABLE_TEMPLATES {
                     {"item": "minecraft:diamond"}
                 ],
                 "results": [
-                    copyableTemplate as IData
+                    CreateUtils.convertItemResult(copyableTemplate)
                 ]
             },
             {
@@ -135,12 +132,12 @@ for copyableTemplate in COPYABLE_TEMPLATES {
                     {"item": "minecraft:diamond"}
                 ],
                 "results": [
-                    copyableTemplate as IData
+                    CreateUtils.convertItemResult(copyableTemplate)
                 ]
             }
         ],
         "results": [
-            (copyableTemplate * 2) as IData
+            CreateUtils.convertItemResult(copyableTemplate * 2)
         ],
         "loops": 1
     });

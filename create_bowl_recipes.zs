@@ -119,7 +119,7 @@ for craftingRecipe in craftingRecipes {
                 solidIngredient as IData
             ],
             "results": [
-                <item:minecraft:bowl> as IData
+                { "id": "minecraft:bowl" }
             ]
         });
     }
@@ -128,10 +128,10 @@ for craftingRecipe in craftingRecipes {
             "type": "create:filling",
             "ingredients": [
                 <item:minecraft:bowl> as IData,
-                fluidIngredient as IData
+                CreateUtils.convertFluidIngredient(fluidIngredient)
             ],
             "results": [
-                <item:minecraft:bowl> as IData
+                { "id": "minecraft:bowl" }
             ]
         });
     }
@@ -139,9 +139,9 @@ for craftingRecipe in craftingRecipes {
     <recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_"+resultName, {
         "type": "create:sequenced_assembly",
         "ingredient": <item:minecraft:bowl> as IData,
-        "transitional_item": <item:minecraft:bowl> as IData,
+        "transitional_item": { "id": "minecraft:bowl" },
         "loops": greatest_common_divisor,
-        "results": [result as IData],
+        "results": [CreateUtils.convertItemResult(result)],
         "sequence": sequence_steps as IData[]
     });
 }

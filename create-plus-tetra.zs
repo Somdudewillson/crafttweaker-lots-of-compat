@@ -14,7 +14,7 @@ import crafttweaker.api.data.IData;
                 (<fluid:minecraft:lava> * 10) as IData
             ],
             "results": [
-                <item:minecraft:lapis_block> as IData
+                CreateUtils.convertItemResult(<item:minecraft:lapis_block>)
             ]
         },
         {
@@ -23,7 +23,7 @@ import crafttweaker.api.data.IData;
                 <item:minecraft:lapis_block> as IData
             ],
             "results": [
-                <item:minecraft:lapis_block> as IData
+                CreateUtils.convertItemResult(<item:minecraft:lapis_block>)
             ]
         },
         {
@@ -33,7 +33,7 @@ import crafttweaker.api.data.IData;
                 (<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(100)) as IData
             ],
             "results": [
-                <item:minecraft:lapis_block> as IData
+                CreateUtils.convertItemResult(<item:minecraft:lapis_block>)
             ]
         }
     ],
@@ -42,14 +42,14 @@ import crafttweaker.api.data.IData;
         "chance": 10.0,
             "id": "tetra:pristine_lapis"
         },
-        (<item:minecraft:lapis_lazuli> * 8) as IData,
-        (<item:minecraft:lapis_lazuli> * 7) as IData,
-        (<item:minecraft:lapis_lazuli> * 6) as IData,
-        (<item:minecraft:lapis_lazuli> * 5) as IData,
-        (<item:minecraft:lapis_lazuli> * 4) as IData,
-        (<item:minecraft:lapis_lazuli> * 3) as IData,
-        (<item:minecraft:lapis_lazuli> * 2) as IData,
-        <item:minecraft:lapis_lazuli> as IData,
+        CreateUtils.convertItemResult((<item:minecraft:lapis_lazuli> * 8)),
+        CreateUtils.convertItemResult((<item:minecraft:lapis_lazuli> * 7)),
+        CreateUtils.convertItemResult((<item:minecraft:lapis_lazuli> * 6)),
+        CreateUtils.convertItemResult((<item:minecraft:lapis_lazuli> * 5)),
+        CreateUtils.convertItemResult((<item:minecraft:lapis_lazuli> * 4)),
+        CreateUtils.convertItemResult((<item:minecraft:lapis_lazuli> * 3)),
+        CreateUtils.convertItemResult((<item:minecraft:lapis_lazuli> * 2)),
+        CreateUtils.convertItemResult(<item:minecraft:lapis_lazuli>),
         {
         "chance": 2.0,
             "id": "minecraft:air"
@@ -70,7 +70,7 @@ import crafttweaker.api.data.IData;
                 (<fluid:minecraft:lava> * 10) as IData
             ],
             "results": [
-                <item:minecraft:emerald_block> as IData
+                CreateUtils.convertItemResult(<item:minecraft:emerald_block>)
             ]
         },
         {
@@ -79,7 +79,7 @@ import crafttweaker.api.data.IData;
                 <item:minecraft:emerald_block> as IData
             ],
             "results": [
-                <item:minecraft:emerald_block> as IData
+                CreateUtils.convertItemResult(<item:minecraft:emerald_block>)
             ]
         },
         {
@@ -89,7 +89,7 @@ import crafttweaker.api.data.IData;
                 (<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(100)) as IData
             ],
             "results": [
-                <item:minecraft:emerald_block> as IData
+                CreateUtils.convertItemResult(<item:minecraft:emerald_block>)
             ]
         }
     ],
@@ -98,14 +98,14 @@ import crafttweaker.api.data.IData;
         "chance": 10.0,
             "id": "tetra:pristine_emerald"
         },
-        (<item:minecraft:emerald> * 8) as IData,
-        (<item:minecraft:emerald> * 7) as IData,
-        (<item:minecraft:emerald> * 6) as IData,
-        (<item:minecraft:emerald> * 5) as IData,
-        (<item:minecraft:emerald> * 4) as IData,
-        (<item:minecraft:emerald> * 3) as IData,
-        (<item:minecraft:emerald> * 2) as IData,
-        <item:minecraft:emerald> as IData,
+        CreateUtils.convertItemResult((<item:minecraft:emerald> * 8)),
+        CreateUtils.convertItemResult((<item:minecraft:emerald> * 7)),
+        CreateUtils.convertItemResult((<item:minecraft:emerald> * 6)),
+        CreateUtils.convertItemResult((<item:minecraft:emerald> * 5)),
+        CreateUtils.convertItemResult((<item:minecraft:emerald> * 4)),
+        CreateUtils.convertItemResult((<item:minecraft:emerald> * 3)),
+        CreateUtils.convertItemResult((<item:minecraft:emerald> * 2)),
+        CreateUtils.convertItemResult(<item:minecraft:emerald>),
         {
         "chance": 2.0,
             "id": "minecraft:air"
@@ -126,7 +126,7 @@ import crafttweaker.api.data.IData;
                 (<fluid:minecraft:lava> * 10) as IData
             ],
             "results": [
-                <item:minecraft:diamond_block> as IData
+                CreateUtils.convertItemResult(<item:minecraft:diamond_block>)
             ]
         },
         {
@@ -135,7 +135,7 @@ import crafttweaker.api.data.IData;
                 <item:minecraft:diamond_block> as IData
             ],
             "results": [
-                <item:minecraft:diamond_block> as IData
+                CreateUtils.convertItemResult(<item:minecraft:diamond_block>)
             ]
         },
         {
@@ -145,7 +145,7 @@ import crafttweaker.api.data.IData;
                 (<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(100)) as IData
             ],
             "results": [
-                <item:minecraft:diamond_block> as IData
+                CreateUtils.convertItemResult(<item:minecraft:diamond_block>)
             ]
         }
     ],
@@ -154,14 +154,14 @@ import crafttweaker.api.data.IData;
         "chance": 10.0,
             "id": "tetra:pristine_diamond"
         },
-        (<item:minecraft:diamond> * 8) as IData,
-        (<item:minecraft:diamond> * 7) as IData,
-        (<item:minecraft:diamond> * 6) as IData,
-        (<item:minecraft:diamond> * 5) as IData,
-        (<item:minecraft:diamond> * 4) as IData,
-        (<item:minecraft:diamond> * 3) as IData,
-        (<item:minecraft:diamond> * 2) as IData,
-        <item:minecraft:diamond> as IData,
+        CreateUtils.convertItemResult((<item:minecraft:diamond> * 8)),
+        CreateUtils.convertItemResult((<item:minecraft:diamond> * 7)),
+        CreateUtils.convertItemResult((<item:minecraft:diamond> * 6)),
+        CreateUtils.convertItemResult((<item:minecraft:diamond> * 5)),
+        CreateUtils.convertItemResult((<item:minecraft:diamond> * 4)),
+        CreateUtils.convertItemResult((<item:minecraft:diamond> * 3)),
+        CreateUtils.convertItemResult((<item:minecraft:diamond> * 2)),
+        CreateUtils.convertItemResult(<item:minecraft:diamond>),
         {
         "chance": 2.0,
             "id": "minecraft:air"
@@ -182,7 +182,7 @@ import crafttweaker.api.data.IData;
                 (<fluid:minecraft:lava> * 10) as IData
             ],
             "results": [
-                <item:minecraft:amethyst_block> as IData
+                CreateUtils.convertItemResult(<item:minecraft:amethyst_block>)
             ]
         },
         {
@@ -191,7 +191,7 @@ import crafttweaker.api.data.IData;
                 <item:minecraft:amethyst_block> as IData
             ],
             "results": [
-                <item:minecraft:amethyst_block> as IData
+                CreateUtils.convertItemResult(<item:minecraft:amethyst_block>)
             ]
         },
         {
@@ -201,7 +201,7 @@ import crafttweaker.api.data.IData;
                 (<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(100)) as IData
             ],
             "results": [
-                <item:minecraft:amethyst_block> as IData
+                CreateUtils.convertItemResult(<item:minecraft:amethyst_block>)
             ]
         }
     ],

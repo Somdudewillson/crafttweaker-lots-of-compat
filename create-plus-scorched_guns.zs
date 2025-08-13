@@ -48,12 +48,12 @@ for scgunBlueprint, copyingItem in SCGUNS_BLUEPRINT_TYPES {
         "ingredient": scgunBlueprint as IData,
         "transitional_item": scgunBlueprint as IData,
         "sequence": [
-            { "type": "create:deploying", "ingredients": [ <item:minecraft:air> as IData, <tag:item:forge:paper> as IData ], "results": [ <item:minecraft:air> as IData ] },
-            { "type": "create:deploying", "ingredients": [ <item:minecraft:air> as IData, copyingItem as IData ], "results": [ <item:minecraft:air> as IData ] },
-            { "type": "create:pressing", "ingredients": [ <item:minecraft:air> as IData ], "results": [ <item:minecraft:air> as IData ] }
+            { "type": "create:deploying", "ingredients": [ scgunBlueprint as IData, <tag:item:forge:paper> as IData ], "results": [ CreateUtils.convertItemResult(scgunBlueprint) ] },
+            { "type": "create:deploying", "ingredients": [ scgunBlueprint as IData, copyingItem as IData ], "results": [ CreateUtils.convertItemResult(scgunBlueprint) ] },
+            { "type": "create:pressing", "ingredients": [ scgunBlueprint as IData ], "results": [ CreateUtils.convertItemResult(scgunBlueprint) ] }
         ],
         "results": [
-            (scgunBlueprint * 2) as IData
+            CreateUtils.convertItemResult((scgunBlueprint * 2))
         ],
         "loops": 2
     });
@@ -68,13 +68,13 @@ for scgunBlueprint in SCGUNS_BLUEPRINTS {
         "ingredient": <tag:item:forge:paper> as IData,
         "transitional_item": <item:minecraft:paper> as IData,
         "sequence": [
-            { "type": "create:deploying", "ingredients": [ <item:minecraft:air> as IData, componentMaterial as IData ], "results": [ <item:minecraft:air> as IData ] },
-            { "type": "create:deploying", "ingredients": [ <item:minecraft:air> as IData, <tag:item:forge:paper> as IData ], "results": [ <item:minecraft:air> as IData ] },
-            { "type": "create:filling", "ingredients": [ <item:minecraft:air> as IData ], "fluid": { "fluid": REPLICATION_FLUID.registryName.toString(), "amount": BASE_REPLICATION_FLUID_AMT*tier*tier }, "results": [ <item:minecraft:air> as IData ] },
-            { "type": "create:pressing", "ingredients": [ <item:minecraft:air> as IData ], "results": [ <item:minecraft:air> as IData ] }
+            { "type": "create:deploying", "ingredients": [ <tag:item:forge:paper> as IData, componentMaterial as IData ], "results": [ CreateUtils.convertItemResult(<tag:item:forge:paper>) ] },
+            { "type": "create:deploying", "ingredients": [ <tag:item:forge:paper> as IData, <tag:item:forge:paper> as IData ], "results": [ CreateUtils.convertItemResult(<tag:item:forge:paper>) ] },
+            { "type": "create:filling", "ingredients": [ <tag:item:forge:paper> as IData ], "fluid": { "fluid": REPLICATION_FLUID.registryName.toString(), "amount": BASE_REPLICATION_FLUID_AMT*tier*tier }, "results": [ CreateUtils.convertItemResult(<tag:item:forge:paper>) ] },
+            { "type": "create:pressing", "ingredients": [ <tag:item:forge:paper> as IData ], "results": [ CreateUtils.convertItemResult(<tag:item:forge:paper>) ] }
         ],
         "results": [
-            scgunBlueprint as IData
+            CreateUtils.convertItemResult(scgunBlueprint)
         ],
         "loops": 4
     });
