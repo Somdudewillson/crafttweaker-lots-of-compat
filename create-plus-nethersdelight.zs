@@ -16,13 +16,25 @@ import crafttweaker.api.capability.Capabilities;
 import crafttweaker.api.capability.ICapabilityProvider;
 import crafttweaker.api.item.ItemStack;
 
-<recipetype:create:milling>.addRecipe(
-    "milled_strider_meat", 
-    Utils.expandItemStackYieldToPercentagedResult(<item:nethersdelight:ground_strider>*2, 1.5*100, true), 
-    <item:nethersdelight:strider_slice>, 
-    80);
-<recipetype:create:crushing>.addRecipe(
-    "crushed_strider_meat", 
-    Utils.expandItemStackYieldToPercentagedResult(<item:nethersdelight:ground_strider>*2, 1.75*100, true), 
-    <item:nethersdelight:strider_slice>, 
-    20);
+<recipetype:create:milling>.addJsonRecipe("milled_strider_meat", {
+  "type": "create:milling",
+  "ingredients": [
+    <item:nethersdelight:strider_slice> as IData
+  ],
+  "results": [
+    (<item:nethersdelight:ground_strider> * 2) as IData,
+    (<item:nethersdelight:ground_strider> % 50) as IData
+  ],
+  "processingTime": 80
+});
+<recipetype:create:crushing>.addJsonRecipe("crushed_strider_meat", {
+  "type": "create:crushing",
+  "ingredients": [
+    <item:nethersdelight:strider_slice> as IData
+  ],
+  "results": [
+    (<item:nethersdelight:ground_strider> * 2) as IData,
+    (<item:nethersdelight:ground_strider> % 75) as IData
+  ],
+  "processingTime": 20
+});

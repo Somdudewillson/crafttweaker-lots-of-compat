@@ -27,29 +27,38 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
   ]
 });
 
-<recipetype:create:deploying>.addRecipe(
-    "deploy_white_dye_onto_terracotta_plate", 
-    <item:handcrafted:terracotta_plate>, 
-    <item:minecraft:white_dye>, 
-    [<item:handcrafted:white_plate> % 100], 
-    false
-);
+<recipetype:create:deploying>.addJsonRecipe("deploy_white_dye_onto_terracotta_plate", {
+  "type": "create:deploying",
+  "ingredients": [
+    <item:handcrafted:terracotta_plate> as IData,
+    <item:minecraft:white_dye> as IData
+  ],
+  "results": [
+    <item:handcrafted:white_plate> as IData
+  ]
+});
 
-<recipetype:create:deploying>.addRecipe(
-    "deploy_yellow_dye_onto_terracotta_plate", 
-    <item:handcrafted:terracotta_plate>, 
-    <item:minecraft:yellow_dye>, 
-    [<item:handcrafted:yellow_plate> % 100], 
-    false
-);
+<recipetype:create:deploying>.addJsonRecipe("deploy_yellow_dye_onto_terracotta_plate", {
+  "type": "create:deploying",
+  "ingredients": [
+    <item:handcrafted:terracotta_plate> as IData,
+    <item:minecraft:yellow_dye> as IData
+  ],
+  "results": [
+    <item:handcrafted:yellow_plate> as IData
+  ]
+});
 
-<recipetype:create:deploying>.addRecipe(
-    "deploy_blue_dye_onto_terracotta_plate", 
-    <item:handcrafted:terracotta_plate>, 
-    <item:minecraft:blue_dye>, 
-    [<item:handcrafted:blue_plate> % 100], 
-    false
-);
+<recipetype:create:deploying>.addJsonRecipe("deploy_blue_dye_onto_terracotta_plate", {
+  "type": "create:deploying",
+  "ingredients": [
+    <item:handcrafted:terracotta_plate> as IData,
+    <item:minecraft:blue_dye> as IData
+  ],
+  "results": [
+    <item:handcrafted:blue_plate> as IData
+  ]
+});
 
 <recipetype:create:mixing>.addJsonRecipe("create_mix_undye_terracotta_plate", {
   "type": "create:mixing",
@@ -66,29 +75,38 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
 });
 
 // Cups =====
-<recipetype:create:deploying>.addRecipe(
-    "deploy_white_dye_onto_terracotta_cup", 
-    <item:handcrafted:terracotta_cup>, 
-    <item:minecraft:white_dye>, 
-    [<item:handcrafted:white_cup> % 100], 
-    false
-);
+<recipetype:create:deploying>.addJsonRecipe("deploy_white_dye_onto_terracotta_cup", {
+  "type": "create:deploying",
+  "ingredients": [
+    <item:handcrafted:terracotta_cup> as IData,
+    <item:minecraft:white_dye> as IData
+  ],
+  "results": [
+    <item:handcrafted:white_cup> as IData
+  ]
+});
 
-<recipetype:create:deploying>.addRecipe(
-    "deploy_yellow_dye_onto_terracotta_cup", 
-    <item:handcrafted:terracotta_cup>, 
-    <item:minecraft:yellow_dye>, 
-    [<item:handcrafted:yellow_cup> % 100], 
-    false
-);
+<recipetype:create:deploying>.addJsonRecipe("deploy_yellow_dye_onto_terracotta_cup", {
+  "type": "create:deploying",
+  "ingredients": [
+    <item:handcrafted:terracotta_cup> as IData,
+    <item:minecraft:yellow_dye> as IData
+  ],
+  "results": [
+    <item:handcrafted:yellow_cup> as IData
+  ]
+});
 
-<recipetype:create:deploying>.addRecipe(
-    "deploy_blue_dye_onto_terracotta_cup", 
-    <item:handcrafted:terracotta_cup>, 
-    <item:minecraft:blue_dye>, 
-    [<item:handcrafted:blue_cup> % 100], 
-    false
-);
+<recipetype:create:deploying>.addJsonRecipe("deploy_blue_dye_onto_terracotta_cup", {
+  "type": "create:deploying",
+  "ingredients": [
+    <item:handcrafted:terracotta_cup> as IData,
+    <item:minecraft:blue_dye> as IData
+  ],
+  "results": [
+    <item:handcrafted:blue_cup> as IData
+  ]
+});
 
 <recipetype:create:mixing>.addJsonRecipe("create_mix_undye_terracotta_cup", {
   "type": "create:mixing",
@@ -105,29 +123,38 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
 });
 
 // Bowls =====
-<recipetype:create:deploying>.addRecipe(
-    "deploy_white_dye_onto_terracotta_bowl", 
-    <item:handcrafted:terracotta_bowl>, 
-    <item:minecraft:white_dye>, 
-    [<item:handcrafted:white_bowl> % 100], 
-    false
-);
+<recipetype:create:deploying>.addJsonRecipe("deploy_white_dye_onto_terracotta_bowl", {
+  "type": "create:deploying",
+  "ingredients": [
+    <item:handcrafted:terracotta_bowl> as IData,
+    <item:minecraft:white_dye> as IData
+  ],
+  "results": [
+    <item:handcrafted:white_bowl> as IData
+  ]
+});
 
-<recipetype:create:deploying>.addRecipe(
-    "deploy_yellow_dye_onto_terracotta_bowl", 
-    <item:handcrafted:terracotta_bowl>, 
-    <item:minecraft:yellow_dye>, 
-    [<item:handcrafted:yellow_bowl> % 100], 
-    false
-);
+<recipetype:create:deploying>.addJsonRecipe("deploy_yellow_dye_onto_terracotta_bowl", {
+  "type": "create:deploying",
+  "ingredients": [
+    <item:handcrafted:terracotta_bowl> as IData,
+    <item:minecraft:yellow_dye> as IData
+  ],
+  "results": [
+    <item:handcrafted:yellow_bowl> as IData
+  ]
+});
 
-<recipetype:create:deploying>.addRecipe(
-    "deploy_blue_dye_onto_terracotta_bowl", 
-    <item:handcrafted:terracotta_bowl>, 
-    <item:minecraft:blue_dye>, 
-    [<item:handcrafted:blue_bowl> % 100], 
-    false
-);
+<recipetype:create:deploying>.addJsonRecipe("deploy_blue_dye_onto_terracotta_bowl", {
+  "type": "create:deploying",
+  "ingredients": [
+    <item:handcrafted:terracotta_bowl> as IData,
+    <item:minecraft:blue_dye> as IData
+  ],
+  "results": [
+    <item:handcrafted:blue_bowl> as IData
+  ]
+});
 
 <recipetype:create:mixing>.addJsonRecipe("create_mix_undye_terracotta_bowl", {
   "type": "create:mixing",
@@ -144,41 +171,56 @@ import crafttweaker.api.recipe.replacement.type.NameFilteringRule;
 });
 
 // Combos =====
-<recipetype:create:deploying>.addRecipe(
-    "deploy_wood_cup_onto_wood_plate", 
-    <item:handcrafted:wood_plate>, 
-    <item:handcrafted:wood_cup>, 
-    [<item:handcrafted:wood_crockery_combo> % 100], 
-    false
-);
-<recipetype:create:deploying>.addRecipe(
-    "deploy_terracotta_cup_onto_terracotta_plate", 
-    <item:handcrafted:terracotta_plate>, 
-    <item:handcrafted:terracotta_cup>, 
-    [<item:handcrafted:terracotta_crockery_combo> % 100], 
-    false
-);
-<recipetype:create:deploying>.addRecipe(
-    "deploy_white_cup_onto_white_plate", 
-    <item:handcrafted:white_plate>, 
-    <item:handcrafted:white_cup>, 
-    [<item:handcrafted:white_crockery_combo> % 100], 
-    false
-);
-<recipetype:create:deploying>.addRecipe(
-    "deploy_yellow_cup_onto_yellow_plate", 
-    <item:handcrafted:yellow_plate>, 
-    <item:handcrafted:yellow_cup>, 
-    [<item:handcrafted:yellow_crockery_combo> % 100], 
-    false
-);
-<recipetype:create:deploying>.addRecipe(
-    "deploy_blue_cup_onto_blue_plate", 
-    <item:handcrafted:blue_plate>, 
-    <item:handcrafted:blue_cup>, 
-    [<item:handcrafted:blue_crockery_combo> % 100], 
-    false
-);
+<recipetype:create:deploying>.addJsonRecipe("deploy_wood_cup_onto_wood_plate", {
+  "type": "create:deploying",
+  "ingredients": [
+    <item:handcrafted:wood_plate> as IData,
+    <item:handcrafted:wood_cup> as IData
+  ],
+  "results": [
+    <item:handcrafted:wood_crockery_combo> as IData
+  ]
+});
+<recipetype:create:deploying>.addJsonRecipe("deploy_terracotta_cup_onto_terracotta_plate", {
+  "type": "create:deploying",
+  "ingredients": [
+    <item:handcrafted:terracotta_plate> as IData,
+    <item:handcrafted:terracotta_cup> as IData
+  ],
+  "results": [
+    <item:handcrafted:terracotta_crockery_combo> as IData
+  ]
+});
+<recipetype:create:deploying>.addJsonRecipe("deploy_white_cup_onto_white_plate", {
+  "type": "create:deploying",
+  "ingredients": [
+    <item:handcrafted:white_plate> as IData,
+    <item:handcrafted:white_cup> as IData
+  ],
+  "results": [
+    <item:handcrafted:white_crockery_combo> as IData
+  ]
+});
+<recipetype:create:deploying>.addJsonRecipe("deploy_yellow_cup_onto_yellow_plate", {
+  "type": "create:deploying",
+  "ingredients": [
+    <item:handcrafted:yellow_plate> as IData,
+    <item:handcrafted:yellow_cup> as IData
+  ],
+  "results": [
+    <item:handcrafted:yellow_crockery_combo> as IData
+  ]
+});
+<recipetype:create:deploying>.addJsonRecipe("deploy_blue_cup_onto_blue_plate", {
+  "type": "create:deploying",
+  "ingredients": [
+    <item:handcrafted:blue_plate> as IData,
+    <item:handcrafted:blue_cup> as IData
+  ],
+  "results": [
+    <item:handcrafted:blue_crockery_combo> as IData
+  ]
+});
 
 craftingTable.addShapeless("combine_to_white_crockery_combo", <item:handcrafted:white_crockery_combo>, [
     <item:handcrafted:white_plate>,

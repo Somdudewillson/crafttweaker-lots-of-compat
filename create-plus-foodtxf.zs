@@ -46,12 +46,27 @@ import crafttweaker.api.ingredient.IIngredient;
   ]
 });
 
-<recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_thermos_of_chocomilk_from_milk")
- .transitionTo(<item:foodtxf:milk_thermos>)
- .require(<item:foodtxf:milk_thermos>)
- .loops(2)
- .addOutput(<item:foodtxf:chocomilk_thermos> * 1, 1)
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:cocoa_beans>)) );
+<recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_thermos_of_chocomilk_from_milk", {
+    "type": "create:sequenced_assembly",
+    "ingredient": { "item": "foodtxf:milk_thermos" },
+    "transitionalItem": { "item": "foodtxf:milk_thermos" },
+    "sequence": [
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                { "item": "foodtxf:milk_thermos" },
+                { "item": "minecraft:cocoa_beans" }
+            ],
+            "results": [
+                { "item": "foodtxf:milk_thermos" }
+            ]
+        }
+    ],
+    "results": [
+        { "item": "foodtxf:chocomilk_thermos" }
+    ],
+    "loops": 2
+});
 
 <recipetype:create:emptying>.addJsonRecipe("create_empty_foodtxf_water_thermos", {
   "type": "create:emptying",
@@ -127,62 +142,140 @@ import crafttweaker.api.ingredient.IIngredient;
 });
 
 
-<recipetype:create:deploying>.addRecipe(
-    "create_deploy_bread_with_glass_of_water", 
-    <item:foodtxf:glass_of_water>, 
-    <item:minecraft:bread>, 
-    [<item:foodtxf:glass_of_water_and_bread> % 100], 
-    false
-);
-<recipetype:create:deploying>.addRecipe(
-    "create_deploy_toasted_bread_with_glass_of_milk", 
-    <item:foodtxf:glass_of_milk>, 
-    <item:foodtxf:toasted_bread>, 
-    [<item:foodtxf:glass_of_milk_and_toasted_bread> % 100], 
-    false
-);
-<recipetype:create:deploying>.addRecipe(
-    "create_deploy_toasted_bread_with_glass_of_chocomilk", 
-    <item:foodtxf:glass_of_chocomilk>, 
-    <item:foodtxf:toasted_bread>, 
-    [<item:foodtxf:glass_of_chocomilk_and_toasted_bread> % 100], 
-    false
-);
-<recipetype:create:deploying>.addRecipe(
-    "create_deploy_cocoa_beans_into_glass_of_milk_and_toasted_bread", 
-    <item:foodtxf:glass_of_milk_and_toasted_bread>, 
-    <item:minecraft:cocoa_beans>, 
-    [<item:foodtxf:glass_of_chocomilk_and_toasted_bread> % 100], 
-    false
-);
-<recipetype:create:deploying>.addRecipe(
-    "create_deploy_cocoa_beans_into_glass_of_milk_and_cookies", 
-    <item:foodtxf:glass_of_milk_and_cookies>, 
-    <item:minecraft:cocoa_beans>, 
-    [<item:foodtxf:glass_of_chocomilk_and_cookies> % 100], 
-    false
-);
+<recipetype:create:deploying>.addJsonRecipe("create_deploy_bread_with_glass_of_water", {
+  "type": "create:deploying",
+  "ingredients": [
+    <item:foodtxf:glass_of_water> as IData,
+    <item:minecraft:bread> as IData
+  ],
+  "results": [
+    <item:foodtxf:glass_of_water_and_bread> as IData
+  ]
+});
+<recipetype:create:deploying>.addJsonRecipe("create_deploy_toasted_bread_with_glass_of_milk", {
+  "type": "create:deploying",
+  "ingredients": [
+    <item:foodtxf:glass_of_milk> as IData,
+    <item:foodtxf:toasted_bread> as IData
+  ],
+  "results": [
+    <item:foodtxf:glass_of_milk_and_toasted_bread> as IData
+  ]
+});
+<recipetype:create:deploying>.addJsonRecipe("create_deploy_toasted_bread_with_glass_of_chocomilk", {
+  "type": "create:deploying",
+  "ingredients": [
+    <item:foodtxf:glass_of_chocomilk> as IData,
+    <item:foodtxf:toasted_bread> as IData
+  ],
+  "results": [
+    <item:foodtxf:glass_of_chocomilk_and_toasted_bread> as IData
+  ]
+});
+<recipetype:create:deploying>.addJsonRecipe("create_deploy_cocoa_beans_into_glass_of_milk_and_toasted_bread", {
+  "type": "create:deploying",
+  "ingredients": [
+    <item:foodtxf:glass_of_milk_and_toasted_bread> as IData,
+    <item:minecraft:cocoa_beans> as IData
+  ],
+  "results": [
+    <item:foodtxf:glass_of_chocomilk_and_toasted_bread> as IData
+  ]
+});
+<recipetype:create:deploying>.addJsonRecipe("create_deploy_cocoa_beans_into_glass_of_milk_and_cookies", {
+  "type": "create:deploying",
+  "ingredients": [
+    <item:foodtxf:glass_of_milk_and_cookies> as IData,
+    <item:minecraft:cocoa_beans> as IData
+  ],
+  "results": [
+    <item:foodtxf:glass_of_chocomilk_and_cookies> as IData
+  ]
+});
 
-<recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_glass_of_milk_and_cookies")
- .transitionTo(<item:foodtxf:glass_of_milk>)
- .require(<item:foodtxf:glass_of_milk>)
- .loops(2)
- .addOutput(<item:foodtxf:glass_of_milk_and_cookies> * 1, 1)
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:item:lots_of_compat:cookies>)) );
-<recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_glass_of_chocomilk_and_cookies_from_chocomilk")
- .transitionTo(<item:foodtxf:glass_of_chocomilk>)
- .require(<item:foodtxf:glass_of_chocomilk>)
- .loops(2)
- .addOutput(<item:foodtxf:glass_of_chocomilk_and_cookies> * 1, 1)
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:item:lots_of_compat:cookies>)) );
-<recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_glass_of_chocomilk_and_cookies_from_milk")
- .transitionTo(<item:foodtxf:glass_of_milk>)
- .require(<item:foodtxf:glass_of_milk>)
- .loops(1)
- .addOutput(<item:foodtxf:glass_of_chocomilk_and_cookies> * 1, 1)
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:cocoa_beans>))
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:item:lots_of_compat:cookies>))
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:item:lots_of_compat:cookies>)) );
+<recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_glass_of_milk_and_cookies", {
+    "type": "create:sequenced_assembly",
+    "ingredient": { "item": "foodtxf:glass_of_milk" },
+    "transitionalItem": { "item": "foodtxf:glass_of_milk" },
+    "sequence": [
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                { "item": "foodtxf:glass_of_milk" },
+                { "tag": "lots_of_compat:cookies" }
+            ],
+            "results": [
+                { "item": "foodtxf:glass_of_milk" }
+            ]
+        }
+    ],
+    "results": [
+        { "item": "foodtxf:glass_of_milk_and_cookies" }
+    ],
+    "loops": 2
+});
+<recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_glass_of_chocomilk_and_cookies_from_chocomilk", {
+    "type": "create:sequenced_assembly",
+    "ingredient": { "item": "foodtxf:glass_of_chocomilk" },
+    "transitionalItem": { "item": "foodtxf:glass_of_chocomilk" },
+    "sequence": [
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                { "item": "foodtxf:glass_of_chocomilk" },
+                { "tag": "lots_of_compat:cookies" }
+            ],
+            "results": [
+                { "item": "foodtxf:glass_of_chocomilk" }
+            ]
+        }
+    ],
+    "results": [
+        { "item": "foodtxf:glass_of_chocomilk_and_cookies" }
+    ],
+    "loops": 2
+});
+<recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_glass_of_chocomilk_and_cookies_from_milk", {
+    "type": "create:sequenced_assembly",
+    "ingredient": { "item": "foodtxf:glass_of_milk" },
+    "transitionalItem": { "item": "foodtxf:glass_of_milk" },
+    "sequence": [
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                { "item": "foodtxf:glass_of_milk" },
+                { "item": "minecraft:cocoa_beans" }
+            ],
+            "results": [
+                { "item": "foodtxf:glass_of_milk" }
+            ]
+        },
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                { "item": "foodtxf:glass_of_milk" },
+                { "tag": "lots_of_compat:cookies" }
+            ],
+            "results": [
+                { "item": "foodtxf:glass_of_milk" }
+            ]
+        },
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                { "item": "foodtxf:glass_of_milk" },
+                { "tag": "lots_of_compat:cookies" }
+            ],
+            "results": [
+                { "item": "foodtxf:glass_of_milk" }
+            ]
+        }
+    ],
+    "results": [
+        { "item": "foodtxf:glass_of_chocomilk_and_cookies" }
+    ],
+    "loops": 1
+});
 
 <recipetype:create:mixing>.addJsonRecipe("create_mix_foodtxf_glass_of_fruit_juice", {
   "type": "create:mixing",
@@ -250,13 +343,37 @@ import crafttweaker.api.ingredient.IIngredient;
 });
 
  // Cheese Sandwich =====
-<recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_cheese_sandwich")
- .transitionTo(<item:foodtxf:toasted_bread_slice>)
- .require(<item:foodtxf:toasted_bread_slice>)
- .loops(1)
- .addOutput(<item:foodtxf:cheese_sandwich> * 1, 1)
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:foodtxf:cheese_slice>))
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:foodtxf:toasted_bread_slice>)) );
+<recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_cheese_sandwich", {
+    "type": "create:sequenced_assembly",
+    "ingredient": { "item": "foodtxf:toasted_bread_slice" },
+    "transitionalItem": { "item": "foodtxf:toasted_bread_slice" },
+    "sequence": [
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                { "item": "foodtxf:toasted_bread_slice" },
+                { "item": "foodtxf:cheese_slice" }
+            ],
+            "results": [
+                { "item": "foodtxf:toasted_bread_slice" }
+            ]
+        },
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                { "item": "foodtxf:toasted_bread_slice" },
+                { "item": "foodtxf:toasted_bread_slice" }
+            ],
+            "results": [
+                { "item": "foodtxf:toasted_bread_slice" }
+            ]
+        }
+    ],
+    "results": [
+        { "item": "foodtxf:cheese_sandwich" }
+    ],
+    "loops": 1
+});
 
 // Empanada =====
 <recipetype:create:compacting>.addJsonRecipe("create_compact_raw_cheese_empanada", {
@@ -293,34 +410,106 @@ import crafttweaker.api.ingredient.IIngredient;
     (<item:foodtxf:box> * 3) as IData
   ]
 });
-<recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_foodtxf_box")
- .transitionTo(<item:minecraft:paper>)
- .require(<item:minecraft:paper>)
- .loops(2)
- .addOutput(<item:foodtxf:box> * 3, 1)
- .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(<fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(500)))
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:paper>)) );
+<recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_foodtxf_box", {
+    "type": "create:sequenced_assembly",
+    "ingredient": { "item": "minecraft:paper" },
+    "transitionalItem": { "item": "minecraft:paper" },
+    "sequence": [
+        {
+            "type": "create:filling",
+            "ingredients": [
+                { "item": "minecraft:paper" },
+                {
+                    "fluid": "minecraft:water",
+                    "amount": 500
+                }
+            ],
+            "results": [
+                { "item": "minecraft:paper" }
+            ]
+        },
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                { "item": "minecraft:paper" },
+                { "item": "minecraft:paper" }
+            ],
+            "results": [
+                { "item": "minecraft:paper" }
+            ]
+        }
+    ],
+    "results": [
+        { "item": "foodtxf:box", "count": 3 }
+    ],
+    "loops": 2
+});
 
 // Cereal =====
-<recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_box_of_cereal")
- .transitionTo(<item:foodtxf:box>)
- .require(<item:foodtxf:box>)
- .loops(8)
- .addOutput(<item:foodtxf:box_of_cereal> * 1, 1)
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(ContextualConstants.SEEDS)) );
+<recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_box_of_cereal", {
+    "type": "create:sequenced_assembly",
+    "ingredient": { "item": "foodtxf:box" },
+    "transitionalItem": { "item": "foodtxf:box" },
+    "sequence": [
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                { "item": "foodtxf:box" },
+                { "tag": ContextualConstants.SEEDS.items[0].tag }
+            ],
+            "results": [
+                { "item": "foodtxf:box" }
+            ]
+        }
+    ],
+    "results": [
+        { "item": "foodtxf:box_of_cereal" }
+    ],
+    "loops": 8
+});
 
 // Box of Cookies =====
-<recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_box_of_cookies")
- .transitionTo(<item:foodtxf:box>)
- .require(<item:foodtxf:box>)
- .loops(8)
- .addOutput(<item:foodtxf:box_of_cookies> * 1, 1)
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:item:lots_of_compat:cookies>)) );
+<recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_box_of_cookies", {
+    "type": "create:sequenced_assembly",
+    "ingredient": { "item": "foodtxf:box" },
+    "transitionalItem": { "item": "foodtxf:box" },
+    "sequence": [
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                { "item": "foodtxf:box" },
+                { "tag": "lots_of_compat:cookies" }
+            ],
+            "results": [
+                { "item": "foodtxf:box" }
+            ]
+        }
+    ],
+    "results": [
+        { "item": "foodtxf:box_of_cookies" }
+    ],
+    "loops": 8
+});
 
  // Bowl of Rice =====
-<recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("assemble_foodtxf_rice_bowl")
- .transitionTo(<item:minecraft:bowl>)
- .require(<item:minecraft:bowl>)
- .loops(3)
- .addOutput(<item:foodtxf:rice_bowl> * 1, 1)
- .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(ContextualConstants.RICE)) );
+<recipetype:create:sequenced_assembly>.addJsonRecipe("assemble_foodtxf_rice_bowl", {
+    "type": "create:sequenced_assembly",
+    "ingredient": { "item": "minecraft:bowl" },
+    "transitionalItem": { "item": "minecraft:bowl" },
+    "sequence": [
+        {
+            "type": "create:deploying",
+            "ingredients": [
+                { "item": "minecraft:bowl" },
+                { "tag": ContextualConstants.RICE.items[0].tag }
+            ],
+            "results": [
+                { "item": "minecraft:bowl" }
+            ]
+        }
+    ],
+    "results": [
+        { "item": "foodtxf:rice_bowl" }
+    ],
+    "loops": 3
+});
