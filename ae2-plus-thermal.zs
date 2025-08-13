@@ -66,7 +66,7 @@ import crafttweaker.api.ingredient.IIngredient;
     {
       "item": "ae2:charged_certus_quartz_crystal"
     },
-    ((<tag:items:forge:gems/quartz> as IIngredient) | <tag:items:forge:dusts/quartz>) as IData
+    ((<tag:item:forge:gems/quartz> as IIngredient) | <tag:item:forge:dusts/quartz>) as IData
   ],
   "result": [
     (<item:ae2:fluix_crystal> * 2) as IData
@@ -103,7 +103,7 @@ recipes.addJsonRecipe("thermal_lapidary_fuel_fluix_crystal", {
     {
       "item": "ae2:charged_certus_quartz_crystal"
     },
-    ((<tag:items:forge:gems/quartz> as IIngredient) | <tag:items:forge:dusts/quartz>) as IData,
+    ((<tag:item:forge:gems/quartz> as IIngredient) | <tag:item:forge:dusts/quartz>) as IData,
     {
       "amount": 100,
       "fluid": "thermal:redstone"

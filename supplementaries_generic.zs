@@ -14,12 +14,12 @@ import crafttweaker.api.item.ItemStack;
 
 craftingTable.addShapeless("lumisene_bottle_and_sand_to_glowstone_dust_manual_only", <item:minecraft:glowstone_dust> * 4, [
     <item:supplementaries:lumisene_bottle>,
-    <tag:items:minecraft:sand>,
+    <tag:item:minecraft:sand>,
 ]);
 craftingTable.addShaped("lumisene_bucket_and_sand_to_glowstone_dust", <item:minecraft:glowstone_dust> * 16, [
-    [<item:minecraft:air>, <tag:items:minecraft:sand>, <item:minecraft:air>],
-    [<tag:items:minecraft:sand>, <item:supplementaries:lumisene_bucket>, <tag:items:minecraft:sand>],
-    [<item:minecraft:air>, <tag:items:minecraft:sand>, <item:minecraft:air>],
+    [<item:minecraft:air>, <tag:item:minecraft:sand>, <item:minecraft:air>],
+    [<tag:item:minecraft:sand>, <item:supplementaries:lumisene_bucket>, <tag:item:minecraft:sand>],
+    [<item:minecraft:air>, <tag:item:minecraft:sand>, <item:minecraft:air>],
 ]);
 
 craftingTable.addShapeless("lumisene_bottle_and_gravel_to_gunpowder_manual_only", <item:minecraft:gunpowder> * 2, [

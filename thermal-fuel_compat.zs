@@ -1,7 +1,7 @@
 #modloaded thermal thermal_expansion
 
 // Compression Fuel
-if (<tag:fluids:forge:plantoil>.elements.length > 0) {
+if (<tag:fluid:forge:plantoil>.elements.length > 0) {
     <recipetype:thermal:compression_fuel>.addJsonRecipe("compression_plant_oil", {
         "type": "thermal:compression_fuel",
         "ingredient": {
@@ -11,7 +11,7 @@ if (<tag:fluids:forge:plantoil>.elements.length > 0) {
         "energy": 80000
     });
 }
-if (<tag:fluids:forge:ethanol>.elements.length > 0) {
+if (<tag:fluid:forge:ethanol>.elements.length > 0) {
     <recipetype:thermal:compression_fuel>.addJsonRecipe("compression_ethanol", {
         "type": "thermal:compression_fuel",
         "ingredient": {
@@ -21,7 +21,7 @@ if (<tag:fluids:forge:ethanol>.elements.length > 0) {
         "energy": 65000
     });
 }
-if (<tag:fluids:forge:kerosene>.elements.length > 0) {
+if (<tag:fluid:forge:kerosene>.elements.length > 0) {
     <recipetype:thermal:compression_fuel>.addJsonRecipe("compression_kerosene", {
         "type": "thermal:compression_fuel",
         "ingredient": {
@@ -31,7 +31,7 @@ if (<tag:fluids:forge:kerosene>.elements.length > 0) {
         "energy": 65000
     });
 }
-if (<tag:fluids:forge:naphtha>.elements.length > 0) {
+if (<tag:fluid:forge:naphtha>.elements.length > 0) {
     <recipetype:thermal:compression_fuel>.addJsonRecipe("compression_naphtha", {
         "type": "thermal:compression_fuel",
         "ingredient": {
@@ -41,7 +41,7 @@ if (<tag:fluids:forge:naphtha>.elements.length > 0) {
         "energy": 65000
     });
 }
-if (<tag:fluids:forge:lpg>.elements.length > 0) {
+if (<tag:fluid:forge:lpg>.elements.length > 0) {
     <recipetype:thermal:compression_fuel>.addJsonRecipe("compression_lpg", {
         "type": "thermal:compression_fuel",
         "ingredient": {
@@ -51,7 +51,7 @@ if (<tag:fluids:forge:lpg>.elements.length > 0) {
         "energy": 65000
     });
 }
-if (<tag:fluids:forge:gasoline>.elements.length > 0) {
+if (<tag:fluid:forge:gasoline>.elements.length > 0) {
     <recipetype:thermal:compression_fuel>.addJsonRecipe("compression_gasoline", {
         "type": "thermal:compression_fuel",
         "ingredient": {
@@ -61,7 +61,7 @@ if (<tag:fluids:forge:gasoline>.elements.length > 0) {
         "energy": 130000
     });
 }
-if (<tag:fluids:forge:biodiesel>.elements.length > 0) {
+if (<tag:fluid:forge:biodiesel>.elements.length > 0) {
     <recipetype:thermal:compression_fuel>.addJsonRecipe("compression_biodiesel", {
         "type": "thermal:compression_fuel",
         "ingredient": {
@@ -71,7 +71,7 @@ if (<tag:fluids:forge:biodiesel>.elements.length > 0) {
         "energy": 130000
     });
 }
-if (<tag:fluids:forge:diesel>.elements.length > 0) {
+if (<tag:fluid:forge:diesel>.elements.length > 0) {
     <recipetype:thermal:compression_fuel>.addJsonRecipe("compression_diesel", {
         "type": "thermal:compression_fuel",
         "ingredient": {
@@ -83,7 +83,7 @@ if (<tag:fluids:forge:diesel>.elements.length > 0) {
 }
 
 // Lapidary Fuel
-if (<tag:items:forge:gems/rose_quartz>.elements.length > 0) {
+if (<tag:item:forge:gems/rose_quartz>.elements.length > 0) {
     recipes.addJsonRecipe("thermal_lapidary_fuel_rose_quartz", {
         "type": "thermal:lapidary_fuel",
         "ingredient": {
@@ -92,7 +92,7 @@ if (<tag:items:forge:gems/rose_quartz>.elements.length > 0) {
         "energy": 30000 + (8*1000) as int
     });
 }
-if (<tag:items:forge:gems/carminite>.elements.length > 0) {
+if (<tag:item:forge:gems/carminite>.elements.length > 0) {
     recipes.addJsonRecipe("thermal_lapidary_fuel_carminite", {
         "type": "thermal:lapidary_fuel",
         "ingredient": {

@@ -150,7 +150,7 @@ import crafttweaker.api.data.IData;
     ],
     "energy": 500
 });
-if (<tag:fluids:forge:slime>.exists() && <tag:fluids:forge:slime>.elements.length>0) {
+if (<tag:fluid:forge:slime>.exists() && <tag:fluid:forge:slime>.elements.length>0) {
   <recipetype:thermal:press>.addJsonRecipe("pack_unrefined_waste_with_slime_byproduct", {
       "type": "thermal:press",
       "ingredients": [
@@ -168,7 +168,7 @@ if (<tag:fluids:forge:slime>.exists() && <tag:fluids:forge:slime>.elements.lengt
           "count": 1
       },
       {
-        "fluid": <tag:fluids:forge:slime>.elements[0].registryName.toString(),
+        "fluid": <tag:fluid:forge:slime>.elements[0].registryName.toString(),
         "amount": 250
       }
       ],
@@ -269,7 +269,7 @@ if (<tag:fluids:forge:slime>.exists() && <tag:fluids:forge:slime>.elements.lengt
     }
   ]
 });
-if (<tag:fluids:forge:chocolate>.exists() && <tag:fluids:forge:chocolate>.elements.length > 0) {
+if (<tag:fluid:forge:chocolate>.exists() && <tag:fluid:forge:chocolate>.elements.length > 0) {
   <recipetype:thermal:bottler>.addJsonRecipe("bottle_hot_chocolate_bottle", {
     "type": "thermal:bottler",
     "ingredients": [

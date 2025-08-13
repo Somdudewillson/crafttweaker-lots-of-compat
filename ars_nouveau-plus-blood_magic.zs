@@ -1,9 +1,9 @@
 #modloaded ars_nouveau bloodmagic
 
-var MIN_MASTER_BLOOD_ORB = <tag:items:lots_of_compat:at_least_master_blood_orb>;
-var MIN_MAGICIAN_BLOOD_ORB = <tag:items:lots_of_compat:at_least_magician_blood_orb>;
-var MIN_APPRENTICE_BLOOD_ORB = <tag:items:lots_of_compat:at_least_apprentice_blood_orb>;
-var ANY_BLOOD_ORB = <tag:items:lots_of_compat:any_blood_orb>;
+var MIN_MASTER_BLOOD_ORB = <tag:item:lots_of_compat:at_least_master_blood_orb>;
+var MIN_MAGICIAN_BLOOD_ORB = <tag:item:lots_of_compat:at_least_magician_blood_orb>;
+var MIN_APPRENTICE_BLOOD_ORB = <tag:item:lots_of_compat:at_least_apprentice_blood_orb>;
+var ANY_BLOOD_ORB = <tag:item:lots_of_compat:any_blood_orb>;
 
 // Blood Magic Sigils from Ars Nouveau Elemental Essences
 <recipetype:bloodmagic:array>.addJsonRecipe("water_sigil_from_water_essence", {

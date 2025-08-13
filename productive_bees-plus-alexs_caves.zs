@@ -2,7 +2,7 @@
 
 
 // Bottling
-if (<tag:fluids:forge:chocolate>.exists() && <tag:fluids:forge:chocolate>.elements.length>0) {
+if (<tag:fluid:forge:chocolate>.exists() && <tag:fluid:forge:chocolate>.elements.length>0) {
     <recipetype:productivebees:bottler>.addJsonRecipe("productivebees_bottle_chocolate_bottle", {
         "type": "productivebees:bottler",
         "fluid": {

@@ -7,15 +7,15 @@ import crafttweaker.api.ingredient.IIngredient;
   "type": "create:mixing",
   "heatRequirement": "heated",
   "ingredients": [
-    <tag:items:forge:dusts/blaze> as IData,
-    <tag:items:forge:dusts/blaze> as IData,
-    <tag:items:forge:dusts/blaze> as IData,
-    <tag:items:forge:dusts/blaze> as IData,
-    <tag:items:forge:dusts/blaze> as IData,
-    <tag:items:forge:dusts/blaze> as IData,
-    <tag:items:forge:dusts/blaze> as IData,
-    <tag:items:forge:dusts/blaze> as IData,
-    <tag:items:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
     (<fluid:tconstruct:liquid_soul> * ContextualConstants.fluidAmtFromMb(1000)) as IData
   ],
   "results": [
@@ -26,7 +26,7 @@ import crafttweaker.api.ingredient.IIngredient;
   "type": "create:mixing",
   "heatRequirement": "superheated",
   "ingredients": [
-    <tag:items:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
     (<fluid:tconstruct:liquid_soul> * ContextualConstants.fluidAmtFromMb(500)) as IData
   ],
   "results": [
@@ -38,15 +38,15 @@ import crafttweaker.api.ingredient.IIngredient;
   "type": "create:mixing",
   "heatRequirement": "heated",
   "ingredients": [
-    <tag:items:forge:dusts/blaze> as IData,
-    <tag:items:forge:dusts/blaze> as IData,
-    <tag:items:forge:dusts/blaze> as IData,
-    <tag:items:forge:dusts/blaze> as IData,
-    <tag:items:forge:dusts/blaze> as IData,
-    <tag:items:forge:dusts/blaze> as IData,
-    <tag:items:forge:dusts/blaze> as IData,
-    <tag:items:forge:dusts/blaze> as IData,
-    <tag:items:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
     {
       "amount": 1000,
       "fluidTag": "lots_of_compat:blood_like"
@@ -60,8 +60,8 @@ import crafttweaker.api.ingredient.IIngredient;
   "type": "create:mixing",
   "heatRequirement": "superheated",
   "ingredients": [
-    <tag:items:forge:dusts/blaze> as IData,
-    <tag:items:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
+    <tag:item:forge:dusts/blaze> as IData,
     {
       "amount": 1000,
       "fluidTag": "lots_of_compat:blood_like"

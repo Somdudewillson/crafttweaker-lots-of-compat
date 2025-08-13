@@ -1,5 +1,5 @@
 #onlyif modloaded tconstruct
-if (<tag:fluids:forge:experience>.exists() && <tag:fluids:forge:experience>.elements.length>0) {
+if (<tag:fluid:forge:experience>.exists() && <tag:fluid:forge:experience>.elements.length>0) {
     <recipetype:tconstruct:casting_table>.addJsonRecipe("tconstruct_fill_experience_bottle", {
     "type": "tconstruct:casting_table",
     "cast": {

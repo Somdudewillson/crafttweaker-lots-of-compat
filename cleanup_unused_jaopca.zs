@@ -37,7 +37,7 @@
 
 // var itemsToRemove = new stdlib.List<IItemStack>();
 // for itemToCheck in itemsToCheck {
-//     if (itemToCheck in <tag:items:forge:storage_blocks> || itemToCheck in <tag:items:forge:storage_blocks/raw>) {
+//     if (itemToCheck in <tag:item:forge:storage_blocks> || itemToCheck in <tag:item:forge:storage_blocks/raw>) {
 //         continue;
 //     }
 

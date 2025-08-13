@@ -13,7 +13,7 @@ Replacer.create()
     .filter(ModsFilteringRule.of(["foodtxf"]))
     .replace<IIngredient>(<recipecomponent:crafttweaker:input/ingredients>, <targetingstrategy:crafttweaker:shallow>, <item:foodtxf:rice> as IIngredient, ContextualConstants.RICE as IIngredient)
     .replace<IIngredient>(<recipecomponent:crafttweaker:input/ingredients>, <targetingstrategy:crafttweaker:shallow>, <item:foodtxf:dough_ball> as IIngredient, ContextualConstants.DOUGH as IIngredient)
-    .replace<IIngredient>(<recipecomponent:crafttweaker:input/ingredients>, <targetingstrategy:crafttweaker:shallow>, <item:minecraft:cookie> as IIngredient, <tag:items:lots_of_compat:cookies> as IIngredient)
+    .replace<IIngredient>(<recipecomponent:crafttweaker:input/ingredients>, <targetingstrategy:crafttweaker:shallow>, <item:minecraft:cookie> as IIngredient, <tag:item:lots_of_compat:cookies> as IIngredient)
     .execute();
 
 if (ContextualConstants.DOUGH.elements.length>1) {

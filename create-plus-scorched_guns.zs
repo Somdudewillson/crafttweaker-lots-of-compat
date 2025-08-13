@@ -14,11 +14,11 @@ var SCGUNS_BLUEPRINTS as IItemStack[] = [
     (<item:scguns:end_blueprint> as IItemStack)
 ];
 var SCGUNS_BLUEPRINT_TYPES as IIngredient[IItemStack] = {
-    (<item:scguns:copper_blueprint> as IItemStack): (<tag:items:forge:ingots/copper> as IIngredient),
+    (<item:scguns:copper_blueprint> as IItemStack): (<tag:item:forge:ingots/copper> as IIngredient),
     (<item:scguns:iron_blueprint> as IItemStack): (ContextualConstants.IRON_INGOT as IIngredient),
     (<item:scguns:treated_brass_blueprint> as IItemStack): (<item:scguns:treated_brass_ingot> as IIngredient),
     (<item:scguns:diamond_steel_blueprint> as IItemStack): (<item:scguns:diamond_steel_ingot> as IIngredient),
-    (<item:scguns:ocean_blueprint> as IItemStack): (<tag:items:forge:gems/prismarine> as IIngredient),
+    (<item:scguns:ocean_blueprint> as IItemStack): (<tag:item:forge:gems/prismarine> as IIngredient),
     (<item:scguns:piglin_blueprint> as IItemStack): (ContextualConstants.GOLD_INGOT as IIngredient),
     (<item:scguns:deep_dark_blueprint> as IItemStack): (<item:minecraft:echo_shard> as IIngredient),
     (<item:scguns:end_blueprint> as IItemStack): (<item:minecraft:chorus_fruit> as IIngredient)
@@ -36,9 +36,9 @@ var SCGUNS_BLUEPRINT_TIERS as int[IItemStack] = {
 
 var BASE_REPLICATION_FLUID_AMT = 200;
 var REPLICATION_FLUID = <fluid:minecraft:lava>;
-if (<tag:items:forge:circuits/advanced>.exists() && <tag:items:forge:circuits/advanced>.elements.length>0) {
+if (<tag:item:forge:circuits/advanced>.exists() && <tag:item:forge:circuits/advanced>.elements.length>0) {
     BASE_REPLICATION_FLUID_AMT = 100;
-    REPLICATION_FLUID = <tag:fluids:forge:experience>;
+    REPLICATION_FLUID = <tag:fluid:forge:experience>;
 }
 
 for scgunBlueprint, copyingItem in SCGUNS_BLUEPRINT_TYPES {
@@ -47,7 +47,7 @@ for scgunBlueprint, copyingItem in SCGUNS_BLUEPRINT_TYPES {
         .transitionTo(scgunBlueprint)
         .loops(2)
         .addOutput(scgunBlueprint * 2, 1)
-        .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:forge:paper>))
+        .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:item:forge:paper>))
         .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(copyingItem))
         .addStep<mods.createtweaker.PressingRecipe>((rb) => rb) );
 }
@@ -57,12 +57,12 @@ for scgunBlueprint in SCGUNS_BLUEPRINTS {
     var tier = SCGUNS_BLUEPRINT_TIERS[scgunBlueprint];
     
     <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("fabricate_scguns_"+scgunBlueprint.registryName.path)
-        .require(<tag:items:forge:paper>)
+        .require(<tag:item:forge:paper>)
         .transitionTo(<item:minecraft:paper>)
         .loops(4)
         .addOutput(scgunBlueprint, 1)
         .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(componentMaterial))
-        .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:forge:paper>))
+        .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:item:forge:paper>))
         .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(REPLICATION_FLUID * ContextualConstants.fluidAmtFromMb(BASE_REPLICATION_FLUID_AMT*tier*tier)))
         .addStep<mods.createtweaker.PressingRecipe>((rb) => rb) );
 }

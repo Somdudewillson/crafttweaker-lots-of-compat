@@ -2,12 +2,12 @@
 
 craftingTable.addShaped("craft_guardian_beam_capacitor_vanilla", <item:creategbd:guardian_beam_capacitor>, [
     [<item:minecraft:prismarine_crystals>, ContextualConstants.GLOWSTONE_DUST, <item:minecraft:prismarine_crystals>],
-    [<item:minecraft:prismarine_crystals>, <tag:items:forge:storage_blocks/redstone>, <item:minecraft:prismarine_crystals>],
-    [<item:minecraft:prismarine_shard>, <tag:items:forge:ingots/copper>, <item:minecraft:prismarine_shard>],
+    [<item:minecraft:prismarine_crystals>, <tag:item:forge:storage_blocks/redstone>, <item:minecraft:prismarine_crystals>],
+    [<item:minecraft:prismarine_shard>, <tag:item:forge:ingots/copper>, <item:minecraft:prismarine_shard>],
 ]);
 craftingTable.addShaped("craft_elder_guardian_beam_capacitor_vanilla", <item:creategbd:elder_guardian_beam_capacitor>, [
     [<item:minecraft:sea_lantern>, ContextualConstants.GLOWSTONE_STORAGE_BLOCK, <item:minecraft:sea_lantern>],
-    [<item:minecraft:sea_lantern>, <tag:items:forge:storage_blocks/redstone>, <item:minecraft:sea_lantern>],
+    [<item:minecraft:sea_lantern>, <tag:item:forge:storage_blocks/redstone>, <item:minecraft:sea_lantern>],
     [<item:minecraft:prismarine_shard>, ContextualConstants.GOLD_INGOT, <item:minecraft:prismarine_shard>],
 ]);
 #onlyif modloaded thermal

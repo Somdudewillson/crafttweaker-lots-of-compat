@@ -105,7 +105,7 @@ import crafttweaker.api.ingredient.IIngredient;
       "fluid": "tconstruct:liquid_soul",
       "amount": 1000
     },
-    (<tag:items:forge:dusts/blaze> * 9) as IData
+    (<tag:item:forge:dusts/blaze> * 9) as IData
   ],
   "result": [
     (<fluid:tconstruct:blazing_blood> * ContextualConstants.fluidAmtFromMb(200)) as IData
@@ -119,7 +119,7 @@ import crafttweaker.api.ingredient.IIngredient;
       "fluid_tag": "lots_of_compat:blood_like",
       "amount": 1000
     },
-    (<tag:items:forge:dusts/blaze> * 9) as IData
+    (<tag:item:forge:dusts/blaze> * 9) as IData
   ],
   "result": [
     (<fluid:tconstruct:blazing_blood> * ContextualConstants.fluidAmtFromMb(100)) as IData

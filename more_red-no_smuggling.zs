@@ -2,8 +2,8 @@
 
 import crafttweaker.api.recipe.IRecipeManager;
 
-<tag:blocks:jumbofurnace:jumbofurnaceable>.clear();
-<tag:items:jumbofurnace:multiprocessing_upgrade>.clear();
+<tag:block:jumbofurnace:jumbofurnaceable>.clear();
+<tag:item:jumbofurnace:multiprocessing_upgrade>.clear();
 <recipetype:jumbofurnace:jumbo_smelting>.removeAll();
 
 #onlyif modloaded jei

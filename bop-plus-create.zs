@@ -1,6 +1,6 @@
 #modloaded biomesoplenty create
 
-var ROSE_QUARTZ = <tag:items:forge:gems/rose_quartz>;
+var ROSE_QUARTZ = <tag:item:forge:gems/rose_quartz>;
 ROSE_QUARTZ.add(<item:create:rose_quartz>);
 ROSE_QUARTZ.add(<item:biomesoplenty:rose_quartz_chunk>);
 

@@ -60,7 +60,7 @@ var rotten_flesh = <item:minecraft:rotten_flesh>.withTag({
 <recipetype:create:compacting>.addRecipe("create_compact_unpleasantwool", 
     <constant:create:heat_condition:none>, 
     [<item:unpleasant_gradient:unpleasantwool>, <item:minecraft:dirt> % 1], 
-    [<tag:items:minecraft:wool>, <item:unpleasant_gradient:unpleasant_chunk> * 2], 
+    [<tag:item:minecraft:wool>, <item:unpleasant_gradient:unpleasant_chunk> * 2], 
     [], 
     99);
 

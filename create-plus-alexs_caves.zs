@@ -8,8 +8,8 @@ import crafttweaker.api.ingredient.IIngredient;
   "type": "create:mixing",
   "heatRequirement": "none",
   "ingredients": [
-    <tag:items:forge:slimeballs> as IData,
-    (<tag:items:create:crushed_raw_materials/iron> as IIngredient | <tag:items:forge:dusts/iron>) as IData
+    <tag:item:forge:slimeballs> as IData,
+    (<tag:item:create:crushed_raw_materials/iron> as IIngredient | <tag:item:forge:dusts/iron>) as IData
   ],
   "results": [
     {
@@ -22,7 +22,7 @@ import crafttweaker.api.ingredient.IIngredient;
   "type": "create:mixing",
   "heatRequirement": "heated",
   "ingredients": [
-    <tag:items:forge:slimeballs> as IData,
+    <tag:item:forge:slimeballs> as IData,
     ContextualConstants.IRON_INGOT as IData
   ],
   "results": [
@@ -32,7 +32,7 @@ import crafttweaker.api.ingredient.IIngredient;
     }
   ]
 });
-if (<tag:fluids:lots_of_compat:liquid_slime>.elements.length > 0) {
+if (<tag:fluid:lots_of_compat:liquid_slime>.elements.length > 0) {
     <recipetype:create:mixing>.addJsonRecipe("create_mix_ferrouslime_ball_from_liquid_slime_and_dust", {
         "type": "create:mixing",
         "heatRequirement": "none",
@@ -41,7 +41,7 @@ if (<tag:fluids:lots_of_compat:liquid_slime>.elements.length > 0) {
                 "fluidTag": "lots_of_compat:liquid_slime",
                 "amount": 250
             },
-            (<tag:items:create:crushed_raw_materials/iron> as IIngredient | <tag:items:forge:dusts/iron>) as IData
+            (<tag:item:create:crushed_raw_materials/iron> as IIngredient | <tag:item:forge:dusts/iron>) as IData
         ],
         "results": [
             {
@@ -129,7 +129,7 @@ if (<tag:fluids:lots_of_compat:liquid_slime>.elements.length > 0) {
   "type": "create:mixing",
   "heatRequirement": "none",
   "ingredients": [
-    <tag:items:forge:fruits/apple> as IData,
+    <tag:item:forge:fruits/apple> as IData,
     <item:alexscaves:pure_darkness> as IData,
     <item:alexscaves:pure_darkness> as IData,
     <item:alexscaves:pure_darkness> as IData,
@@ -146,9 +146,9 @@ if (<tag:fluids:lots_of_compat:liquid_slime>.elements.length > 0) {
   "type": "create:mixing",
   "heatRequirement": "heated",
   "ingredients": [
-    (ContextualConstants.IRON_INGOT as IIngredient | <tag:items:forge:dusts/iron>) as IData,
-    <tag:items:forge:dusts/sulfur> as IData,
-    (<tag:items:forge:ingots/uranium> as IIngredient | <tag:items:forge:dusts/uranium> | <item:alexscaves:uranium>) as IData
+    (ContextualConstants.IRON_INGOT as IIngredient | <tag:item:forge:dusts/iron>) as IData,
+    <tag:item:forge:dusts/sulfur> as IData,
+    (<tag:item:forge:ingots/uranium> as IIngredient | <tag:item:forge:dusts/uranium> | <item:alexscaves:uranium>) as IData
   ],
   "results": [
     {

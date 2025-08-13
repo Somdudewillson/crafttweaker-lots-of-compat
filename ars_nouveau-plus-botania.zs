@@ -932,7 +932,7 @@ for i, flowerColor in FLOWER_COLORS {
 // Uncategorized Assorted Recipes
 craftingTable.addShaped("livingrock_to_sourcestone", <item:ars_nouveau:sourcestone> * 8, [
     [<item:minecraft:air>, <item:botania:livingrock>, <item:minecraft:air>],
-    [<item:botania:livingrock>, <tag:items:forge:gems/source>, <item:botania:livingrock>],
+    [<item:botania:livingrock>, <tag:item:forge:gems/source>, <item:botania:livingrock>],
     [<item:minecraft:air>, <item:botania:livingrock>, <item:minecraft:air>],
 ]);
 <recipetype:botania:mana_infusion>.addJsonRecipe("magebloom_fiber_to_mana_infused_string", {
@@ -976,7 +976,7 @@ craftingTable.addShaped("livingrock_to_sourcestone", <item:ars_nouveau:sourcesto
 });
 craftingTable.addShaped("wilden_wing_flugel_tiara", <item:botania:flight_tiara>, [
     [<item:botania:life_essence>, <item:botania:life_essence>, <item:botania:life_essence>],
-    [<tag:items:forge:ingots/elementium>, <item:botania:life_essence>, <tag:items:forge:ingots/elementium>],
+    [<tag:item:forge:ingots/elementium>, <item:botania:life_essence>, <tag:item:forge:ingots/elementium>],
     [<item:ars_nouveau:wilden_wing>, <item:minecraft:air>, <item:ars_nouveau:wilden_wing>],
 ]);
 <recipetype:ars_nouveau:enchanting_apparatus>.addJsonRecipe("assembly_halo_ars_nouveau", {

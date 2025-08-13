@@ -2,7 +2,7 @@
 
 import crafttweaker.api.ingredient.IIngredient;
 
-var DOOM_VALID_FUEL = <tag:items:lots_of_compat:mc_doom_fuels>;
+var DOOM_VALID_FUEL = <tag:item:lots_of_compat:mc_doom_fuels>;
 #onlyif modloaded thermal thermal_expansion
 DOOM_VALID_FUEL.add(<item:thermal:refined_fuel_bucket>);
 #endif
@@ -16,6 +16,6 @@ if (DOOM_VALID_FUEL.elements.length > 0) {
         <item:doom:gas_barrel> * 16, 
         [
             (DOOM_VALID_FUEL as IIngredient).transformReplace(<item:minecraft:bucket>),
-            (ContextualConstants.IRON_INGOT as IIngredient) | <tag:items:forge:ingots/plastic>
+            (ContextualConstants.IRON_INGOT as IIngredient) | <tag:item:forge:ingots/plastic>
         ]);
 }

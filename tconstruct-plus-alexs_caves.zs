@@ -14,7 +14,7 @@
   },
   "result": "alexscaves:ferrouslime_ball"
 });
-if (<tag:items:forge:dusts/iron>.elements.length>0) {
+if (<tag:item:forge:dusts/iron>.elements.length>0) {
     <recipetype:tconstruct:casting_table>.addJsonRecipe("tconstruct_cast_ferrouslime_ball_from_iron_dust_and_liquid_slime", {
         "type": "tconstruct:casting_table",
         "cast": {
@@ -31,7 +31,7 @@ if (<tag:items:forge:dusts/iron>.elements.length>0) {
 }
 
 // Filling
-if (<tag:fluids:forge:chocolate>.exists() && <tag:fluids:forge:chocolate>.elements.length > 0) {
+if (<tag:fluid:forge:chocolate>.exists() && <tag:fluid:forge:chocolate>.elements.length > 0) {
   <recipetype:tconstruct:casting_table>.addJsonRecipe("tconstruct_fill_hot_chocolate_bottle", {
     "type": "tconstruct:casting_table",
     "cast": {

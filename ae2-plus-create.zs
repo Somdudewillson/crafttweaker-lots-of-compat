@@ -8,7 +8,7 @@ import crafttweaker.api.data.IData;
     {
       "item": "ae2:charged_certus_quartz_crystal"
     },
-    <tag:items:forge:dusts/certus_quartz> as IData,
+    <tag:item:forge:dusts/certus_quartz> as IData,
     {
       "amount": 100,
       "fluid": "minecraft:water"

@@ -1,6 +1,6 @@
 #modloaded create mekanism
 
-var dirtyDusts = <tag:items:mekanism:dirty_dusts>.elements;
+var dirtyDusts = <tag:item:mekanism:dirty_dusts>.elements;
 for dirtyDust in dirtyDusts {
 
     var cleanDustName = "mekanism:"+(dirtyDust.registryName as string)[ start .. end ];

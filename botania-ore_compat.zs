@@ -10,8 +10,8 @@ val addedRecipes as bool[string] = {};
 
 var allBlocks = game.getBlocks();
 for block in allBlocks {
-  if (block.registryName.namespace != 'minecraft' && block in <tag:blocks:forge:ores>) {
-    var isNether = block in <tag:blocks:forge:ores_in_ground/netherrack>;
+  if (block.registryName.namespace != 'minecraft' && block in <tag:block:forge:ores>) {
+    var isNether = block in <tag:block:forge:ores_in_ground/netherrack>;
     var orechidVariant = "orechid";
     if (isNether) {
       orechidVariant += "_ignem";
@@ -24,24 +24,24 @@ for block in allBlocks {
     addedRecipes[newRecipeName] = true;
 
     var containingBlock as Block = null;
-    if (block in <tag:blocks:forge:ores_in_ground/stone>) {
+    if (block in <tag:block:forge:ores_in_ground/stone>) {
       containingBlock = <block:minecraft:stone>;
-    } else if (block in <tag:blocks:forge:ores_in_ground/deepslate>) {
+    } else if (block in <tag:block:forge:ores_in_ground/deepslate>) {
       containingBlock = <block:minecraft:deepslate>;
-    } else if (block in <tag:blocks:forge:ores_in_ground/netherrack>) {
+    } else if (block in <tag:block:forge:ores_in_ground/netherrack>) {
       containingBlock = <block:minecraft:netherrack>;
-    } else if (block in <tag:blocks:forge:ores_in_ground/end_stone>) {
+    } else if (block in <tag:block:forge:ores_in_ground/end_stone>) {
       containingBlock = <block:minecraft:end_stone>;
     } else {
       continue;
     }
 
     var oreWeight = 100;
-    if (block in <tag:blocks:minecraft:needs_stone_tool>) {
+    if (block in <tag:block:minecraft:needs_stone_tool>) {
       oreWeight = 29371;
-    } else if (block in <tag:blocks:minecraft:needs_iron_tool>) {
+    } else if (block in <tag:block:minecraft:needs_iron_tool>) {
       oreWeight = 7654;
-    } else if (block in <tag:blocks:minecraft:needs_diamond_tool>) {
+    } else if (block in <tag:block:minecraft:needs_diamond_tool>) {
       oreWeight = 148;
     }
 
