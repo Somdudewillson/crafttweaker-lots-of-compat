@@ -3,11 +3,7 @@
 
 // This script automatically creates sequenced assembly recipes for standard crafting recipes that amount to "put thing(s) in a bowl"
 
-import mods.create.MixingManager;
 import crafttweaker.api.recipe.type.Recipe;
-import mods.createtweaker.ProcessingRecipe;
-import mods.createtweaker.BasinRecipe;
-import mods.createtweaker.MixingRecipe;
 import crafttweaker.api.recipe.input.RecipeInput;
 import crafttweaker.api.ingredient.IIngredientWithAmount;
 import crafttweaker.api.ingredient.IIngredient;

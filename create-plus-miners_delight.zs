@@ -1,11 +1,7 @@
 #priority 9
 #modloaded create miners_delight
 
-import mods.create.MixingManager;
 import crafttweaker.api.recipe.type.Recipe;
-import mods.createtweaker.ProcessingRecipe;
-import mods.createtweaker.BasinRecipe;
-import mods.createtweaker.MixingRecipe;
 import crafttweaker.api.world.Container;
 import crafttweaker.api.ingredient.IIngredientWithAmount;
 import crafttweaker.api.ingredient.IIngredient;
