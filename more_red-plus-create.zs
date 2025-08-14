@@ -2,7 +2,7 @@
 
 <recipetype:create:mixing>.addJsonRecipe("create_mix_red_alloy_ingot", {
   "type": "create:mixing",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     {
       "tag": "morered:red_alloyable_ingots"

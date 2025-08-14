@@ -5,7 +5,7 @@ import crafttweaker.api.data.IData;
 // Alloy Mixing
 <recipetype:create:mixing>.addJsonRecipe("create_mix_bronze_from_ingots", {
   "type": "create:mixing",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     {
       "tag": "forge:ingots/copper"
@@ -29,7 +29,7 @@ import crafttweaker.api.data.IData;
 });
 <recipetype:create:mixing>.addJsonRecipe("create_mix_electrum_from_ingots", {
   "type": "create:mixing",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     {
       "tag": "forge:ingots/gold"
@@ -47,7 +47,7 @@ import crafttweaker.api.data.IData;
 });
 <recipetype:create:mixing>.addJsonRecipe("create_mix_invar_from_ingots", {
   "type": "create:mixing",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     {
       "tag": "forge:ingots/iron"
@@ -68,7 +68,7 @@ import crafttweaker.api.data.IData;
 });
 <recipetype:create:mixing>.addJsonRecipe("create_mix_constantan_from_ingots", {
   "type": "create:mixing",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     {
       "tag": "forge:ingots/copper"
@@ -86,7 +86,7 @@ import crafttweaker.api.data.IData;
 });
 <recipetype:create:mixing>.addJsonRecipe("create_mix_signalum_from_ingots", {
   "type": "create:mixing",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     {
       "tag": "forge:ingots/copper"
@@ -149,7 +149,7 @@ import crafttweaker.api.data.IData;
 });
 <recipetype:create:mixing>.addJsonRecipe("create_mix_lumium_from_ingots", {
   "type": "create:mixing",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     {
       "tag": "forge:ingots/tin"
@@ -206,7 +206,7 @@ import crafttweaker.api.data.IData;
 });
 <recipetype:create:mixing>.addJsonRecipe("create_mix_enderium_from_ingots", {
   "type": "create:mixing",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     {
       "tag": "forge:ingots/lead"
@@ -328,7 +328,7 @@ import crafttweaker.api.data.IData;
 // Melting
 <recipetype:create:mixing>.addJsonRecipe("create_mix_melt_redstone", {
   "type": "create:mixing",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     {
       "tag": "forge:dusts/redstone"
@@ -343,7 +343,7 @@ import crafttweaker.api.data.IData;
 });
 <recipetype:create:mixing>.addJsonRecipe("create_mix_melt_glowstone", {
   "type": "create:mixing",
-  "heatRequirement": "superheated",
+  "heat_requirement": "superheated",
   "ingredients": [
     {
       "tag": "forge:dusts/glowstone"

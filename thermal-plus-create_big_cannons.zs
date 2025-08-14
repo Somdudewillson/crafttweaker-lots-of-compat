@@ -3,7 +3,7 @@
 // Material Melting
 <recipetype:createbigcannons:melting>.addJsonRecipe("create_melt_redstone_dust", {
   "type": "createbigcannons:melting",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     {
       "tag": "forge:dusts/redstone"
@@ -19,7 +19,7 @@
 });
 <recipetype:createbigcannons:melting>.addJsonRecipe("create_melt_ender_pearl", {
   "type": "createbigcannons:melting",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     {
       "tag": "forge:ender_pearls"
@@ -36,7 +36,7 @@
 
 <recipetype:createbigcannons:melting>.addJsonRecipe("create_melt_glowstone_dust", {
   "type": "createbigcannons:melting",
-  "heatRequirement": "superheated",
+  "heat_requirement": "superheated",
   "ingredients": [
     {
       "tag": "forge:dusts/glowstone"
@@ -52,7 +52,7 @@
 });
 <recipetype:createbigcannons:melting>.addJsonRecipe("create_melt_redstone_block", {
   "type": "createbigcannons:melting",
-  "heatRequirement": "superheated",
+  "heat_requirement": "superheated",
   "ingredients": [
     {
       "tag": "forge:storage_blocks/redstone"
@@ -68,7 +68,7 @@
 });
 <recipetype:createbigcannons:melting>.addJsonRecipe("create_melt_glowstone_block", {
   "type": "createbigcannons:melting",
-  "heatRequirement": "superheated",
+  "heat_requirement": "superheated",
   "ingredients": [
     {
       "tag": "forge:storage_blocks/glowstone"

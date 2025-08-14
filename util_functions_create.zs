@@ -47,7 +47,7 @@ public class CreateUtils {
 
     //     <recipetype:create:compacting>.addJsonRecipe(name, {
     //         "type": "create:compacting",
-    //         "heatRequirement": heat,
+    //         "heat_requirement": heat,
     //         "ingredients": convertedIngredients,
     //         "results": convertedResults,
     //         "processingTime": duration

@@ -5,7 +5,7 @@ import crafttweaker.api.ingredient.IIngredient;
 
 <recipetype:create:mixing>.addJsonRecipe("create_mix_blazing_blood_from_liquid_soul_heated", {
   "type": "create:mixing",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     <tag:item:forge:dusts/blaze> as IData,
     <tag:item:forge:dusts/blaze> as IData,
@@ -24,7 +24,7 @@ import crafttweaker.api.ingredient.IIngredient;
 });
 <recipetype:create:mixing>.addJsonRecipe("create_mix_blazing_blood_from_liquid_soul_superheated", {
   "type": "create:mixing",
-  "heatRequirement": "superheated",
+  "heat_requirement": "superheated",
   "ingredients": [
     <tag:item:forge:dusts/blaze> as IData,
     (<fluid:tconstruct:liquid_soul> * ContextualConstants.fluidAmtFromMb(500)) as IData
@@ -36,7 +36,7 @@ import crafttweaker.api.ingredient.IIngredient;
 
 <recipetype:create:mixing>.addJsonRecipe("create_mix_blazing_blood_from_blood_heated", {
   "type": "create:mixing",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     <tag:item:forge:dusts/blaze> as IData,
     <tag:item:forge:dusts/blaze> as IData,
@@ -58,7 +58,7 @@ import crafttweaker.api.ingredient.IIngredient;
 });
 <recipetype:create:mixing>.addJsonRecipe("create_mix_blazing_blood_from_blood_superheated", {
   "type": "create:mixing",
-  "heatRequirement": "superheated",
+  "heat_requirement": "superheated",
   "ingredients": [
     <tag:item:forge:dusts/blaze> as IData,
     <tag:item:forge:dusts/blaze> as IData,
@@ -75,7 +75,7 @@ import crafttweaker.api.ingredient.IIngredient;
 #onlyif modloaded create_enchantment_industry
 <recipetype:create:mixing>.addJsonRecipe("create_mix_liquid_soul", {
   "type": "create:mixing",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     (<fluid:tconstruct:liquid_soul> * 10) as IData,
     (<fluid:create_enchantment_industry:experience> * 10) as IData

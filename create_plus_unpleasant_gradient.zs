@@ -58,7 +58,7 @@ var rotten_flesh = <item:minecraft:rotten_flesh>.withJsonComponents({
 });
 <recipetype:create:mixing>.addJsonRecipe("create_mix_more_unpleasant_chunks", {
   "type": "create:mixing",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     <item:unpleasant_gradient:unpleasant_chunk> as IData,
     (<item:minecraft:brown_dye>|<item:minecraft:lime_dye>|<item:minecraft:magenta_dye>) as IData,
@@ -123,7 +123,7 @@ var lapis_reward = <item:minecraft:lapis_lazuli>.withJsonComponents({
 });
 <recipetype:create:mixing>.addJsonRecipe("create_mix_melt_unpleasant_chunks", {
   "type": "create:mixing",
-  "heatRequirement": "none",
+  "heat_requirement": "none",
   "ingredients": [
     <item:unpleasant_gradient:unpleasant_chunk> as IData,
     (<fluid:minecraft:lava> * ContextualConstants.fluidAmtFromMb(99)) as IData
@@ -137,7 +137,7 @@ var lapis_reward = <item:minecraft:lapis_lazuli>.withJsonComponents({
 });
 <recipetype:create:mixing>.addJsonRecipe("create_mix_melt_unpleasantwool", {
   "type": "create:mixing",
-  "heatRequirement": "none",
+  "heat_requirement": "none",
   "ingredients": [
     <item:unpleasant_gradient:unpleasantwool> as IData,
     (<fluid:minecraft:lava> * ContextualConstants.fluidAmtFromMb(99)) as IData
@@ -157,7 +157,7 @@ var fake_enchanted_apple = <item:minecraft:golden_apple>.withJsonComponents({
 });
 <recipetype:create:mixing>.addJsonRecipe("create_mix_unpleasant_chunks_into_enchanted_golden_apple", {
   "type": "create:mixing",
-  "heatRequirement": "superheated",
+  "heat_requirement": "superheated",
   "ingredients": [
     <item:minecraft:golden_apple> as IData,
     <item:unpleasant_gradient:unpleasant_chunk> as IData,

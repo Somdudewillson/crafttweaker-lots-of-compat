@@ -29,7 +29,7 @@
 
 <recipetype:create:mixing>.addJsonRecipe("create_mix_enriched_iron", {
   "type": "create:mixing",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     {
       "tag": "forge:ingots/iron"
@@ -47,7 +47,7 @@
 });
 <recipetype:create:mixing>.addJsonRecipe("create_mix_steel", {
   "type": "create:mixing",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     {
       "item": "mekanism:enriched_iron"

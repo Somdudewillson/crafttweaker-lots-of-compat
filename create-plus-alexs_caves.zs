@@ -6,7 +6,7 @@ import crafttweaker.api.ingredient.IIngredient;
 // Ferrouslime Ball Creation
 <recipetype:create:mixing>.addJsonRecipe("create_mix_ferrouslime_ball_from_slime_ball_and_dust", {
   "type": "create:mixing",
-  "heatRequirement": "none",
+  "heat_requirement": "none",
   "ingredients": [
     <tag:item:forge:slimeballs> as IData,
     (<tag:item:create:crushed_raw_materials/iron> as IIngredient | <tag:item:forge:dusts/iron>) as IData
@@ -20,7 +20,7 @@ import crafttweaker.api.ingredient.IIngredient;
 });
 <recipetype:create:mixing>.addJsonRecipe("create_mix_ferrouslime_ball_from_slime_ball_and_ingot", {
   "type": "create:mixing",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     <tag:item:forge:slimeballs> as IData,
     ContextualConstants.IRON_INGOT as IData
@@ -35,7 +35,7 @@ import crafttweaker.api.ingredient.IIngredient;
 if (<tag:fluid:lots_of_compat:liquid_slime>.elements.length > 0) {
     <recipetype:create:mixing>.addJsonRecipe("create_mix_ferrouslime_ball_from_liquid_slime_and_dust", {
         "type": "create:mixing",
-        "heatRequirement": "none",
+        "heat_requirement": "none",
         "ingredients": [
             {
                 "fluidTag": "lots_of_compat:liquid_slime",
@@ -52,7 +52,7 @@ if (<tag:fluid:lots_of_compat:liquid_slime>.elements.length > 0) {
     });
     <recipetype:create:mixing>.addJsonRecipe("create_mix_ferrouslime_ball_from_liquid_slime_and_ingot", {
         "type": "create:mixing",
-        "heatRequirement": "heated",
+        "heat_requirement": "heated",
         "ingredients": [
             {
                 "fluidTag": "lots_of_compat:liquid_slime",
@@ -127,7 +127,7 @@ if (<tag:fluid:lots_of_compat:liquid_slime>.elements.length > 0) {
 // Mixing
 <recipetype:create:mixing>.addJsonRecipe("create_mix_darkened_apple", {
   "type": "create:mixing",
-  "heatRequirement": "none",
+  "heat_requirement": "none",
   "ingredients": [
     <tag:item:forge:fruits/apple> as IData,
     <item:alexscaves:pure_darkness> as IData,
@@ -144,7 +144,7 @@ if (<tag:fluid:lots_of_compat:liquid_slime>.elements.length > 0) {
 });
 <recipetype:create:mixing>.addJsonRecipe("create_mix_polymer_plate", {
   "type": "create:mixing",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     (ContextualConstants.IRON_INGOT as IIngredient | <tag:item:forge:dusts/iron>) as IData,
     <tag:item:forge:dusts/sulfur> as IData,

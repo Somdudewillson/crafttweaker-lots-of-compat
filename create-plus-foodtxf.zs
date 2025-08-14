@@ -455,7 +455,7 @@ import crafttweaker.api.ingredient.IIngredient;
             "type": "create:deploying",
             "ingredients": [
                 { "item": "foodtxf:box" },
-                { "tag": ContextualConstants.SEEDS.items[0].tag }
+                ContextualConstants.SEEDS
             ],
             "results": [
                 { "item": "foodtxf:box" }
@@ -501,7 +501,7 @@ import crafttweaker.api.ingredient.IIngredient;
             "type": "create:deploying",
             "ingredients": [
                 { "item": "minecraft:bowl" },
-                { "tag": ContextualConstants.RICE.items[0].tag }
+                ContextualConstants.RICE
             ],
             "results": [
                 { "item": "minecraft:bowl" }

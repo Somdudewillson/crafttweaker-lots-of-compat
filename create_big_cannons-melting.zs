@@ -2,7 +2,7 @@
 
 <recipetype:createbigcannons:melting>.addJsonRecipe("create_melt_ice", {
   "type": "createbigcannons:melting",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     {
       "item": "minecraft:ice"
@@ -18,7 +18,7 @@
 });
 <recipetype:createbigcannons:melting>.addJsonRecipe("create_melt_snow", {
   "type": "createbigcannons:melting",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     {
       "item": "minecraft:snow_block"
@@ -34,7 +34,7 @@
 });
 <recipetype:createbigcannons:melting>.addJsonRecipe("create_melt_snowball", {
   "type": "createbigcannons:melting",
-  "heatRequirement": "heated",
+  "heat_requirement": "heated",
   "ingredients": [
     {
       "item": "minecraft:snowball"
