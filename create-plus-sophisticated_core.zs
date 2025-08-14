@@ -18,13 +18,3 @@ import crafttweaker.api.item.ItemStack;
         CreateUtils.convertItemResult(<item:minecraft:experience_bottle>)
     ]
 });
-<recipetype:create:mixing>.addJsonRecipe("create_mix_crystallize_experience_nugget_from_sophisticatedcore_xp", {
-  "type": "create:mixing",
-  "ingredients": [
-    CreateUtils.convertFluidIngredient(<fluid:sophisticatedcore:xp_still> * ContextualConstants.fluidAmtFromMb(60)),
-    (<item:create:experience_nugget>) as IData,
-  ],
-  "results": [
-    CreateUtils.convertItemResult((<item:create:experience_nugget> * 2))
-  ]
-});
