@@ -24,9 +24,8 @@ public class CreateUtils {
         return convertedIngredient;
     }
     public static convertItemResult(itemStack as Percentaged<IItemStack>) as IData {
-        var convertedResult = Utils.toRecipeJsonAlt(itemStack.data);
+        var convertedResult = Utils.toRecipeJsonAlt(itemStack.data)["item"];
         convertedResult = convertedResult.merge({"chance": itemStack.percentage});
-        convertedResult = convertedResult.merge({"id": convertedResult["item"]});
         return convertedResult;
     }
 
