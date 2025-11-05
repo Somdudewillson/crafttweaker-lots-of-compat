@@ -107,7 +107,7 @@ BOOK_COVERS.add(<item:create:cardboard>);
 
 // Non-lots_of_compat-specific (GENERIC)
 #onlyif modloaded create
-<tag:item:c:foods/dough>.add(<item:create:dough>);
+<tag:items:c:foods/dough>.add(<item:create:dough>);
 #endif
 
 // Non-lots_of_compat-specific (FORGE)
