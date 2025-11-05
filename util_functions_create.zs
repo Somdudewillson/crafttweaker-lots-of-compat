@@ -1,4 +1,5 @@
 #priority 100
+#modloaded create
 
 import crafttweaker.api.bracket.BracketHandlers;
 import crafttweaker.api.ingredient.IIngredient;
