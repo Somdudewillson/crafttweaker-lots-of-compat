@@ -1,4 +1,4 @@
-#modloaded thermal thermal_expansion
+#modloaded thermal thermal_expansion thermal_innovation
 #modloader forge
 
 import crafttweaker.forge.api.event.interact.EntityInteractEvent;
