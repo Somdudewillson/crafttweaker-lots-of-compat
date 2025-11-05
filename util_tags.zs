@@ -1,5 +1,7 @@
 #priority 200
 
+import crafttweaker.api.item.ItemDefinition;
+
 #onlyif modloaded bloodmagic
 var MIN_MASTER_BLOOD_ORB = <tag:items:lots_of_compat:at_least_master_blood_orb>;
 MIN_MASTER_BLOOD_ORB.add(<item:bloodmagic:archmagebloodorb>);
