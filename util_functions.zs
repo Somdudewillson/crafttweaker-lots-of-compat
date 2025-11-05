@@ -10,6 +10,7 @@ import crafttweaker.api.fluid.IFluidStack;
 import crafttweaker.api.fluid.FluidIngredient;
 import crafttweaker.api.fluid.Fluid;
 import crafttweaker.api.mod.Mods;
+import crafttweaker.api.data.IData;
 
 public class Utils {
 
@@ -177,6 +178,27 @@ public class Utils {
             }
         }
         return resultIngredient;
+    }
+
+    public static toRecipeJson(item as IItemStack) as IData {
+        return {
+            "item": item.definition.registryName,
+            "count": item.amount
+        } as IData;
+    }
+
+    public static toRecipeJsonAlt(item as IItemStack) as IData {
+        var itemData = (item as IData);
+        if ("item" in itemData) {
+            return {
+                "item": itemData["item"],
+                "count": item.amount
+            } as IData;
+        }
+        return {
+            "item": itemData["base"]["item"],
+            "count": item.amount
+        } as IData;
     }
 
 }
