@@ -33,6 +33,6 @@
     "tag": "forge:plates/gold"
   },
   "result": {
-    "item": "create_new_age:overcharged_gold_sheet"
+    "item": "create_new_age:overcharged_golden_sheet"
   }
 });
