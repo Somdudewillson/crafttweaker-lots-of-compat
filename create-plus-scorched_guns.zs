@@ -2,6 +2,9 @@
 
 import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.ingredient.IIngredient;
+import crafttweaker.api.fluid.IFluidStack;
+import crafttweaker.api.fluid.FluidIngredient;
+import crafttweaker.api.fluid.Fluid;
 
 var SCGUNS_BLUEPRINTS as IItemStack[] = [
     (<item:scguns:copper_blueprint> as IItemStack),
@@ -35,10 +38,13 @@ var SCGUNS_BLUEPRINT_TIERS as int[IItemStack] = {
 };
 
 var BASE_REPLICATION_FLUID_AMT = 200;
-var REPLICATION_FLUID = <fluid:minecraft:lava>;
-if (<tag:items:forge:circuits/advanced>.exists() && <tag:items:forge:circuits/advanced>.elements.length>0) {
+var REPLICATION_FLUIDS as stdlib.List<IFluidStack> = [<fluid:minecraft:lava> as IFluidStack] as IFluidStack[] as stdlib.List<IFluidStack>;
+if (<tag:fluids:forge:experience>.exists() && <tag:fluids:forge:experience>.elements.length>0) {
     BASE_REPLICATION_FLUID_AMT = 100;
-    REPLICATION_FLUID = <tag:fluids:forge:experience>;
+    REPLICATION_FLUIDS = new stdlib.List<IFluidStack>();
+    for xpFluid in <tag:fluids:forge:experience>.elements {
+        REPLICATION_FLUIDS.add(xpFluid * 1);
+    }
 }
 
 for scgunBlueprint, copyingItem in SCGUNS_BLUEPRINT_TYPES {
@@ -56,6 +62,11 @@ for scgunBlueprint in SCGUNS_BLUEPRINTS {
     var componentMaterial = SCGUNS_BLUEPRINT_TYPES[scgunBlueprint];
     var tier = SCGUNS_BLUEPRINT_TIERS[scgunBlueprint];
     
+    var replicationFluidAmount = ContextualConstants.fluidAmtFromMb(BASE_REPLICATION_FLUID_AMT*tier*tier);
+    var replicationFluidIngredient = (REPLICATION_FLUIDS[0] * replicationFluidAmount) as FluidIngredient;
+    for replicationFluid in REPLICATION_FLUIDS {
+        replicationFluidIngredient |= (replicationFluid * replicationFluidAmount) as FluidIngredient;
+    }
     <recipetype:create:sequenced_assembly>.addRecipe( <recipetype:create:sequenced_assembly>.builder("fabricate_scguns_"+scgunBlueprint.registryName.path)
         .require(<tag:items:forge:paper>)
         .transitionTo(<item:minecraft:paper>)
@@ -63,6 +74,6 @@ for scgunBlueprint in SCGUNS_BLUEPRINTS {
         .addOutput(scgunBlueprint, 1)
         .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(componentMaterial))
         .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<tag:items:forge:paper>))
-        .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(REPLICATION_FLUID * ContextualConstants.fluidAmtFromMb(BASE_REPLICATION_FLUID_AMT*tier*tier)))
+        .addStep<mods.createtweaker.FillingRecipe>((rb) => rb.require(replicationFluidIngredient))
         .addStep<mods.createtweaker.PressingRecipe>((rb) => rb) );
 }
