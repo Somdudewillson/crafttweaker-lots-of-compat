@@ -96,13 +96,18 @@ RAW_HUMANOID_FLESH.add(<item:minecraft:rotten_flesh>);
 RAW_HUMANOID_FLESH.add(<item:foodtxf:player_flesh>);
 #endif
 
-var BOOK_COVERS = <tag:item:lots_of_compat:book_covers>;
+var BOOK_COVERS = <tag:items:lots_of_compat:book_covers>;
 BOOK_COVERS.add(<item:minecraft:leather>);
 #onlyif modloaded farmersdelight
 BOOK_COVERS.add(<item:farmersdelight:canvas>);
 #endif
 #onlyif modloaded create
 BOOK_COVERS.add(<item:create:cardboard>);
+#endif
+
+// Non-lots_of_compat-specific (GENERIC)
+#onlyif modloaded create
+<tag:item:c:foods/dough>.add(<item:create:dough>);
 #endif
 
 // Non-lots_of_compat-specific (FORGE)
