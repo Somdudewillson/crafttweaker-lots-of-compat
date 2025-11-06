@@ -4,90 +4,53 @@ import crafttweaker.api.ingredient.IIngredient;
 import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.data.IData;
 
+var jaopcaLoaded = false;
+#onlyif modloaded jaopca
+jaopcaLoaded = true;
+#endif
+
 // Ore Processing
-<recipetype:thermal:pulverizer>.addJsonRecipe("thermal_pulverize_anthralite_ore", {
-    "type": "thermal:pulverizer",
-    "ingredient": {
-        "tag": "forge:ores/anthralite"
-    },
-    "result": [
-    {
-        "item": "scguns:crushed_raw_anthralite",
-        "chance": 2.25
-    }
-    ],
-    "experience": 0.2
-});
-<recipetype:thermal:pulverizer>.addJsonRecipe("thermal_pulverize_raw_anthralite", {
-    "type": "thermal:pulverizer",
-    "ingredient": {
-        "tag": "forge:raw_materials/anthralite"
-    },
-    "result": [
-    {
-        "item": "scguns:crushed_raw_anthralite",
-        "chance": 1.25
-    }
-    ],
-    "experience": 0.2
-});
-<recipetype:thermal:pulverizer>.addJsonRecipe("thermal_pulverize_anthralite_ingot", {
-    "type": "thermal:pulverizer",
-    "ingredient": {
-        "tag": "forge:ingots/anthralite"
-    },
-    "result": [
-    {
-        "item": "scguns:crushed_raw_anthralite",
-        "count": 1
-    }
-    ],
-    "energy_mod": 0.5
-});
-
-// Alloys/Blends
-craftingTable.addShapeless("treated_iron_blend_from_dusts", 
-    <item:scguns:treated_iron_blend> * 3, 
-    [
-        <tag:items:forge:dusts/iron>,
-        <tag:items:forge:dusts/niter>,
-        <tag:items:minecraft:coals>,
-        ContextualConstants.REDSTONE_DUST
-    ]);
-craftingTable.addShapeless("treated_iron_blend_from_dusts_incl_steel_dust", 
-    <item:scguns:treated_iron_blend> * 3, 
-    [
-        <tag:items:forge:dusts/steel>,
-        <tag:items:forge:dusts/niter>,
-        ContextualConstants.REDSTONE_DUST
-    ]);
-craftingTable.addShapeless("diamond_steel_blend_from_dusts", 
-    <item:scguns:diamond_steel_blend> * 4, 
-    [
-        <tag:items:forge:dusts/anthralite>,
-        <tag:items:forge:dusts/diamond>,
-        <tag:items:forge:dusts/lapis>,
-        <item:scguns:treated_iron_blend>
-    ]);
-
-// Machines
-craftingTable.removeByName("scguns:powered_macerator");
-craftingTable.addShaped("scguns_powered_macerator_with_thermal", 
-    <item:scguns:powered_macerator>, 
-    [
-        [<tag:items:forge:slabs/smooth_stone>,<item:minecraft:air>,<tag:items:forge:slabs/smooth_stone>],
-        [<tag:items:forge:slabs/smooth_stone>,<item:minecraft:blast_furnace>,<tag:items:forge:slabs/smooth_stone>],
-        [<tag:items:forge:smooth_stone>,<item:scguns:lightning_battery> as IIngredient | <item:thermal:rf_coil>,<tag:items:forge:smooth_stone>]
-    ]);
-var pressIngotIngredient = ContextualConstants.IRON_INGOT as IIngredient | <item:scguns:treated_iron_ingot>;
-craftingTable.removeByName("scguns:powered_mechanical_press");
-craftingTable.addShaped("scguns_powered_mechanical_press_with_thermal", 
-    <item:scguns:powered_mechanical_press>, 
-    [
-        [pressIngotIngredient,<tag:items:forge:storage_blocks/iron>,pressIngotIngredient],
-        [pressIngotIngredient,<item:minecraft:blast_furnace>,pressIngotIngredient],
-        [<tag:items:forge:smooth_stone>,<item:scguns:lightning_battery> as IIngredient | <item:thermal:rf_coil>,<tag:items:forge:smooth_stone>]
-    ]);
+if (!jaopcaLoaded) {
+    <recipetype:thermal:pulverizer>.addJsonRecipe("thermal_pulverize_anthralite_ore", {
+        "type": "thermal:pulverizer",
+        "ingredient": {
+            "tag": "forge:ores/anthralite"
+        },
+        "result": [
+        {
+            "item": "scguns:crushed_raw_anthralite",
+            "chance": 2.25
+        }
+        ],
+        "experience": 0.2
+    });
+    <recipetype:thermal:pulverizer>.addJsonRecipe("thermal_pulverize_raw_anthralite", {
+        "type": "thermal:pulverizer",
+        "ingredient": {
+            "tag": "forge:raw_materials/anthralite"
+        },
+        "result": [
+        {
+            "item": "scguns:crushed_raw_anthralite",
+            "chance": 1.25
+        }
+        ],
+        "experience": 0.2
+    });
+    <recipetype:thermal:pulverizer>.addJsonRecipe("thermal_pulverize_anthralite_ingot", {
+        "type": "thermal:pulverizer",
+        "ingredient": {
+            "tag": "forge:ingots/anthralite"
+        },
+        "result": [
+        {
+            "item": "scguns:crushed_raw_anthralite",
+            "count": 1
+        }
+        ],
+        "energy_mod": 0.5
+    });
+}
 
 // Ammo
 <recipetype:thermal:bottler>.addJsonRecipe("thermal_fill_energy_core", {

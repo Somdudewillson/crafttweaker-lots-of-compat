@@ -11,6 +11,7 @@ import crafttweaker.api.fluid.FluidIngredient;
 import crafttweaker.api.fluid.Fluid;
 import crafttweaker.api.mod.Mods;
 import crafttweaker.api.data.IData;
+import crafttweaker.api.tag.type.KnownTag;
 
 public class Utils {
 
@@ -98,6 +99,10 @@ public class Utils {
             if (!(ingItem.registryName in tag)) { return false; }
         }
         return true;
+    }
+
+    public static tagHasElements(tag as IIngredient) as bool {
+        return !tag.empty && tag.items.length>0;
     }
 
 

@@ -107,6 +107,14 @@ BOOK_COVERS.add(<item:farmersdelight:canvas>);
 BOOK_COVERS.add(<item:create:cardboard>);
 #endif
 
+var POWER_CONTROL_COMPONENT = <tag:items:lots_of_compat:power_control_component>;
+#onlyif modloaded thermal
+POWER_CONTROL_COMPONENT.add(<item:thermal:rf_coil>);
+#endif
+#onlyif modloaded mekanism
+POWER_CONTROL_COMPONENT.add(<item:mekanism:basic_control_circuit>);
+#endif
+
 // Non-lots_of_compat-specific (GENERIC)
 #onlyif modloaded create
 <tag:items:c:foods/dough>.add(<item:create:dough>);
