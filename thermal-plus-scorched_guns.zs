@@ -204,30 +204,32 @@ craftingTable.addShapeless("convert_scguns_plasma_to_systeams_plasma_ball",
 <tag:items:thermal:crafting/dies>.add(<item:scguns:gun_parts_mold>);
 <tag:items:thermal:crafting/dies>.add(<item:scguns:disc_mold>);
 var SCGUNS_MOLD_PROCESS_TIME as int[IItemStack] = {
-    (<item:scguns:small_casing_mold> as IItemStack): 15,
-    (<item:scguns:medium_casing_mold> as IItemStack): 15,
-    (<item:scguns:large_casing_mold> as IItemStack): 15,
-    (<item:scguns:bullet_mold> as IItemStack): 15,
-    (<item:scguns:gun_parts_mold> as IItemStack): 100,
-    (<item:scguns:disc_mold> as IItemStack): 200
+    (<item:scguns:small_casing_mold> as IItemStack): 1,
+    (<item:scguns:medium_casing_mold> as IItemStack): 1,
+    (<item:scguns:large_casing_mold> as IItemStack): 1,
+    (<item:scguns:bullet_mold> as IItemStack): 1,
+    (<item:scguns:gun_parts_mold> as IItemStack): 5,
+    (<item:scguns:disc_mold> as IItemStack): 10
 };
+var SCGUNS_BRASS = <tag:items:forge:ingots/brass> as IIngredient | <item:scguns:ancient_brass>;
 var SCGUNS_MOLD_RECIPES = [
-    [<item:scguns:small_casing_mold> as IIngredient, ContextualConstants.IRON_INGOT as IIngredient, (<item:scguns:small_iron_casing> as IIngredient) * 12],
-    [<item:scguns:small_casing_mold> as IIngredient, <tag:items:forge:ingots/copper> as IIngredient, (<item:scguns:small_copper_casing> as IIngredient) * 12],
-    [<item:scguns:small_casing_mold> as IIngredient, <tag:items:forge:ingots/brass> as IIngredient, (<item:scguns:small_brass_casing> as IIngredient) * 12],
-    [<item:scguns:small_casing_mold> as IIngredient, <tag:items:forge:ingots/diamond_steel> as IIngredient, (<item:scguns:small_diamond_steel_casing> as IIngredient) * 12],
+    [<item:scguns:small_casing_mold> as IIngredient, ContextualConstants.IRON_INGOT as IIngredient, (<item:scguns:small_iron_casing> as IIngredient) * 14],
+    [<item:scguns:small_casing_mold> as IIngredient, <tag:items:forge:ingots/copper> as IIngredient, (<item:scguns:small_copper_casing> as IIngredient) * 14],
+    [<item:scguns:small_casing_mold> as IIngredient, SCGUNS_BRASS as IIngredient, (<item:scguns:small_brass_casing> as IIngredient) * 14],
+    [<item:scguns:small_casing_mold> as IIngredient, <tag:items:forge:ingots/diamond_steel> as IIngredient, (<item:scguns:small_diamond_steel_casing> as IIngredient) * 14],
 
     [<item:scguns:medium_casing_mold> as IIngredient, ContextualConstants.IRON_INGOT as IIngredient, (<item:scguns:empty_cell> as IIngredient) * 8],
-    [<item:scguns:medium_casing_mold> as IIngredient, <tag:items:forge:ingots/copper> as IIngredient, (<item:scguns:medium_copper_casing> as IIngredient) * 8],
-    [<item:scguns:medium_casing_mold> as IIngredient, <tag:items:forge:ingots/brass> as IIngredient, (<item:scguns:medium_brass_casing> as IIngredient) * 8],
-    [<item:scguns:medium_casing_mold> as IIngredient, <tag:items:forge:ingots/diamond_steel> as IIngredient, (<item:scguns:medium_diamond_steel_casing> as IIngredient) * 8],
-    [<item:scguns:medium_casing_mold> as IIngredient, <item:minecraft:shulker_shell> as IIngredient, (<item:scguns:shulker_casing> as IIngredient) * 12],
+    [<item:scguns:medium_casing_mold> as IIngredient, <tag:items:forge:ingots/copper> as IIngredient, (<item:scguns:medium_copper_casing> as IIngredient) * 10],
+    [<item:scguns:medium_casing_mold> as IIngredient, SCGUNS_BRASS as IIngredient, (<item:scguns:medium_brass_casing> as IIngredient) * 10],
+    [<item:scguns:medium_casing_mold> as IIngredient, <tag:items:forge:ingots/diamond_steel> as IIngredient, (<item:scguns:medium_diamond_steel_casing> as IIngredient) * 10],
+    [<item:scguns:medium_casing_mold> as IIngredient, <item:minecraft:shulker_shell> as IIngredient, (<item:scguns:shulker_casing> as IIngredient) * 16],
 
-    [<item:scguns:large_casing_mold> as IIngredient, ContextualConstants.IRON_INGOT as IIngredient, (<item:scguns:large_iron_casing> as IIngredient) * 5],
-    [<item:scguns:large_casing_mold> as IIngredient, <tag:items:forge:ingots/brass> as IIngredient, (<item:scguns:large_brass_casing> as IIngredient) * 5],
+    [<item:scguns:large_casing_mold> as IIngredient, ContextualConstants.IRON_INGOT as IIngredient, (<item:scguns:large_iron_casing> as IIngredient) * 6],
+    [<item:scguns:large_casing_mold> as IIngredient, SCGUNS_BRASS as IIngredient, (<item:scguns:large_brass_casing> as IIngredient) * 6],
 
     [<item:scguns:bullet_mold> as IIngredient, <tag:items:scguns:standard_bullet_material> as IIngredient, (<item:scguns:standard_bullet> as IIngredient) * 12],
     [<item:scguns:bullet_mold> as IIngredient, <tag:items:scguns:advanced_bullet_material> as IIngredient, (<item:scguns:hardened_bullet> as IIngredient) * 12],
+    [<item:scguns:bullet_mold> as IIngredient, <item:scguns:depleted_diamond_steel_ingot> as IIngredient, (<item:scguns:hardened_bullet> as IIngredient) * 18],
 
     [<item:scguns:gun_parts_mold> as IIngredient, <tag:items:forge:storage_blocks/iron> as IIngredient, (<item:scguns:gun_parts> as IIngredient) * 2],
     [<item:scguns:gun_parts_mold> as IIngredient, <tag:items:forge:storage_blocks/anthralite> as IIngredient, (<item:scguns:heavy_gun_parts> as IIngredient) * 2],
