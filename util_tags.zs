@@ -115,8 +115,23 @@ BOOK_COVERS.add(<item:create:cardboard>);
 // Non-lots_of_compat-specific (FORGE)
 #onlyif modloader forge
 
+<tag:items:forge:dusts/blaze>.add(<item:minecraft:blaze_powder>);
+<tag:items:forge:slabs/smooth_stone>.add(<item:minecraft:smooth_stone_slab>);
+<tag:items:forge:smooth_stone>.add(<item:minecraft:smooth_stone>);
+<tag:items:forge:torches>.add(<item:minecraft:torch>);
+<tag:items:forge:torches>.add(<item:minecraft:soul_torch>);
+<tag:items:forge:torches>.add(<item:minecraft:redstone_torch>);
+
 #onlyif modloaded burnt
 <tag:fluids:forge:magma>.add(<fluid:burnt:liquid_magma>);
+#endif
+#onlyif modloaded tconstruct
+if (<tag:fluids:forge:honey>.exists() && <tag:fluids:forge:honey>.elements.length>0) {
+    <tag:fluids:tconstruct:honey>.add(<tag:fluids:forge:honey>);
+}
+#endif
+#onlyif modloaded createdeco
+<tag:items:forge:plates/zinc>.add(<item:createdeco:zinc_sheet>);
 #endif
 #onlyif modloaded scguns
 <tag:items:forge:tools/knifes>.add(<item:scguns:anthralite_knife>);
@@ -276,6 +291,8 @@ BOOK_COVERS.add(<item:create:cardboard>);
 <tag:items:forge:gems/mana_quartz>.add(<item:botania:quartz_mana>);
 #endif
 #onlyif modloaded alexscaves
+<tag:items:forge:torches>.add(<item:alexscaves:bioluminescent_torch>);
+
 <tag:items:forge:ingots>.add(<item:alexscaves:scarlet_neodymium_ingot>);
 <tag:items:forge:ingots/neodymium>.add(<item:alexscaves:scarlet_neodymium_ingot>);
 <tag:items:forge:ingots/scarlet_neodymium>.add(<item:alexscaves:scarlet_neodymium_ingot>);
@@ -332,6 +349,13 @@ BOOK_COVERS.add(<item:create:cardboard>);
 <tag:items:forge:foods/meat/raw>.add(<item:alexsmobs:kangaroo_meat>);
 <tag:items:forge:foods/meat>.add(<item:alexsmobs:moose_ribs>);
 <tag:items:forge:foods/meat/raw>.add(<item:alexsmobs:moose_ribs>);
+#endif
+#onlyif modloaded chipped
+<tag:items:forge:torches>.add(<tag:items:chipped:torch>);
+<tag:items:forge:torches>.add(<tag:items:chipped:redstone_torch>);
+#endif
+#onlyif modloaded aether
+<tag:items:forge:torches>.add(<item:aether:ambrosium_torch>);
 #endif
 
 #endif
@@ -595,7 +619,7 @@ BOOK_COVERS.add(<item:create:cardboard>);
 if (<tag:blocks:forge:storage_blocks/uranium>.exists() && <tag:blocks:forge:storage_blocks/uranium>.elements.length>0) {
     <tag:blocks:farmersdelight:heat_sources>.add(<tag:blocks:forge:storage_blocks/uranium>);
 }
-<tag:blocks:farmersdelight:compost_activators>.add(<tag:blocks:forge:mushrooms>);
+<tag:blocks:farmersdelight:compost_activators>.add(<tag:items:forge:mushrooms>);
 <tag:blocks:farmersdelight:heat_conductors>.add(<tag:blocks:forge:storage_blocks/copper>);
 <tag:blocks:farmersdelight:heat_conductors>.add(<tag:blocks:forge:storage_blocks/gold>);
 #endif
