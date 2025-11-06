@@ -830,3 +830,12 @@ if (<tag:blocks:c:uranium_blocks>.exists() && <tag:blocks:c:uranium_blocks>.elem
 #endif
 
 #endif
+
+// Twilight Forest Tags
+#onlyif modloaded twilightforest
+
+#onlyif modloaded tinkers_advanced
+<tag:items:twilightforest:banned_uncrafting_ingredients>.add(<item:tinkers_advanced:neutronite_ingot>);
+#endif
+
+#endif
