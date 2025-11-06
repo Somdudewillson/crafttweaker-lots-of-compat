@@ -72,6 +72,9 @@ BLOOD_LIKE.add(<fluid:biomesoplenty:blood>);
 #onlyif modloaded vampirism
 BLOOD_LIKE.add(<fluid:vampirism:blood>);
 #endif
+#onlyif modloaded blocksyouneed_luna
+BLOOD_LIKE.add(<fluid:blocksyouneed_luna:blood>);
+#endif
 
 var ACIDS = <tag:fluids:lots_of_compat:acid>;
 #onlyif modloaded alexscaves
