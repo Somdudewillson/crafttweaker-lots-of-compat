@@ -69,6 +69,9 @@ BLOOD_LIKE.add(<fluid:tconstruct:meat_soup>);
 #onlyif modloaded biomesoplenty
 BLOOD_LIKE.add(<fluid:biomesoplenty:blood>);
 #endif
+#onlyif modloaded vampirism
+BLOOD_LIKE.add(<fluid:vampirism:blood>);
+#endif
 
 var ACIDS = <tag:fluids:lots_of_compat:acid>;
 #onlyif modloaded alexscaves
