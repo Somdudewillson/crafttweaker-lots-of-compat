@@ -1,5 +1,5 @@
 #priority -10
-#modloaded tconstruct
+#modloaded tconstruct disabled
 // TODO: Figure out how to implement this in a way that more reliably avoids edge-case dupes from non-vanilla recipe types?
 
 import crafttweaker.api.recipe.CraftingTableRecipeManager;
@@ -397,6 +397,7 @@ var BURNABLE_INGREDIENTS as IIngredient[] = [
     <tag:items:forge:normal_stone> as IIngredient,
     <tag:items:forge:feathers> as IIngredient,
     <tag:items:forge:torches> as IIngredient,
+    <tag:items:c:string> as IIngredient,
     ContextualConstants.REDSTONE_DUST as IIngredient
 ];
 var mergedBurnableIngredient = BURNABLE_INGREDIENTS[0];
@@ -457,7 +458,7 @@ for recipe in recipeList {
     if (valid) {// Exclude items that take their output as an input
         var resultItem = recipe.resultItem.withoutTag();
         for ingredient in recipe.ingredients {
-            if (resultItem in ingredient) {
+            if (ingredient.contains(resultItem)) {
                 valid = false;
             }
         }
