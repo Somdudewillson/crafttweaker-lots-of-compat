@@ -399,6 +399,11 @@ if (<tag:fluids:forge:honey>.exists() && <tag:fluids:forge:honey>.elements.lengt
 <tag:fluids:forge:molten_steel>.add(<fluid:createbigcannons:molten_steel>);
 <tag:fluids:forge:molten_nethersteel>.add(<fluid:createbigcannons:molten_nethersteel>);
 #endif
+#onlyif modloaded blocksyouneed_luna
+<tag:items:forge:wires>.add(<item:blocksyouneed_luna:copper_wire>);
+<tag:items:forge:wires/all_metal>.add(<item:blocksyouneed_luna:copper_wire>);
+<tag:items:forge:wires/copper>.add(<item:blocksyouneed_luna:copper_wire>);
+#endif
 
 #endif
 
