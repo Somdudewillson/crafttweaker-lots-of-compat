@@ -1020,6 +1020,13 @@ if (<tag:blocks:c:uranium_blocks>.exists() && <tag:blocks:c:uranium_blocks>.elem
 #onlyif modloaded tconstruct
 <tag:blocks:create:fan_transparent>.add(<block:tconstruct:gold_bars>);
 #endif
+#onlyif modloaded quark
+<tag:blocks:create:fan_transparent>.add(<block:quark:grate>);
+#endif
+#onlyif modloaded scguns
+<tag:blocks:create:fan_transparent>.add(<block:scguns:treated_brass_grate>);
+<tag:blocks:create:fan_transparent>.add(<block:scguns:treated_iron_grate>);
+#endif
 
 // Passive Boiler Heaters
 #onlyif modloaded chipped
