@@ -110,7 +110,7 @@ BOOK_COVERS.add(<item:minecraft:leather>);
 BOOK_COVERS.add(<item:farmersdelight:canvas>);
 #endif
 #onlyif modloaded create
-BOOK_COVERS.add(<item:create:cardboard>);
+// BOOK_COVERS.add(<item:create:cardboard>);
 #endif
 
 var POWER_CONTROL_COMPONENT = <tag:items:lots_of_compat:power_control_component>;
@@ -382,6 +382,22 @@ if (<tag:fluids:forge:honey>.exists() && <tag:fluids:forge:honey>.elements.lengt
 <tag:items:forge:foods/meat/raw>.add(<item:twilightforest:raw_venison>);
 <tag:items:forge:foods/meat>.add(<item:twilightforest:raw_meef>);
 <tag:items:forge:foods/meat/raw>.add(<item:twilightforest:raw_meef>);
+#endif
+#onlyif modloaded createbigcannons
+<tag:items:forge:storage_blocks>.add(<item:createbigcannons:cast_iron_block>);
+<tag:items:forge:storage_blocks/cast_iron>.add(<item:createbigcannons:cast_iron_block>);
+<tag:items:forge:storage_blocks>.add(<item:createbigcannons:nethersteel_block>);
+<tag:items:forge:storage_blocks/nethersteel>.add(<item:createbigcannons:nethersteel_block>);
+
+<tag:blocks:forge:storage_blocks>.add(<block:createbigcannons:cast_iron_block>);
+<tag:blocks:forge:storage_blocks/cast_iron>.add(<block:createbigcannons:cast_iron_block>);
+<tag:blocks:forge:storage_blocks>.add(<block:createbigcannons:nethersteel_block>);
+<tag:blocks:forge:storage_blocks/nethersteel>.add(<block:createbigcannons:nethersteel_block>);
+
+<tag:fluids:forge:molten_cast_iron>.add(<fluid:createbigcannons:molten_cast_iron>);
+<tag:fluids:forge:molten_bronze>.add(<fluid:createbigcannons:molten_bronze>);
+<tag:fluids:forge:molten_steel>.add(<fluid:createbigcannons:molten_steel>);
+<tag:fluids:forge:molten_nethersteel>.add(<fluid:createbigcannons:molten_nethersteel>);
 #endif
 
 #endif
