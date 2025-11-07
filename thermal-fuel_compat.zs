@@ -18,7 +18,7 @@ if (<tag:fluids:forge:ethanol>.elements.length > 0) {
             "fluid_tag": "forge:ethanol",
             "amount": 1000
         },
-        "energy": 65000
+        "energy": 85000
     });
 }
 if (<tag:fluids:forge:kerosene>.elements.length > 0) {
@@ -28,7 +28,7 @@ if (<tag:fluids:forge:kerosene>.elements.length > 0) {
             "fluid_tag": "forge:kerosene",
             "amount": 1000
         },
-        "energy": 65000
+        "energy": 100000
     });
 }
 if (<tag:fluids:forge:naphtha>.elements.length > 0) {
@@ -38,7 +38,7 @@ if (<tag:fluids:forge:naphtha>.elements.length > 0) {
             "fluid_tag": "forge:naphtha",
             "amount": 1000
         },
-        "energy": 65000
+        "energy": 110000
     });
 }
 if (<tag:fluids:forge:lpg>.elements.length > 0) {
@@ -48,7 +48,7 @@ if (<tag:fluids:forge:lpg>.elements.length > 0) {
             "fluid_tag": "forge:lpg",
             "amount": 1000
         },
-        "energy": 65000
+        "energy": 150000
     });
 }
 if (<tag:fluids:forge:gasoline>.elements.length > 0) {
@@ -58,7 +58,7 @@ if (<tag:fluids:forge:gasoline>.elements.length > 0) {
             "fluid_tag": "forge:gasoline",
             "amount": 1000
         },
-        "energy": 130000
+        "energy": 425000
     });
 }
 if (<tag:fluids:forge:biodiesel>.elements.length > 0) {
@@ -68,7 +68,7 @@ if (<tag:fluids:forge:biodiesel>.elements.length > 0) {
             "fluid_tag": "forge:biodiesel",
             "amount": 1000
         },
-        "energy": 130000
+        "energy": 475000
     });
 }
 if (<tag:fluids:forge:diesel>.elements.length > 0) {
@@ -78,7 +78,7 @@ if (<tag:fluids:forge:diesel>.elements.length > 0) {
             "fluid_tag": "forge:diesel",
             "amount": 1000
         },
-        "energy": 195000
+        "energy": 500000
     });
 }
 
