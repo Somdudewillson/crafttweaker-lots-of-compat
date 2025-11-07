@@ -22,6 +22,11 @@ public class Utils {
     };
 
     static {
+        #onlyif modloaded aether
+        FLUID_ITEM_TYPES[ (<item:aether:skyroot_water_bucket> as IIngredient) ] = <fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(1000);
+        FLUID_ITEM_TYPES[ (<item:aether:skyroot_milk_bucket> as IIngredient) ] = ContextualConstants.MILK_FLUID * ContextualConstants.fluidAmtFromMb(1000);
+        #endif
+
         #onlyif modloaded create
         FLUID_ITEM_TYPES[ (<item:minecraft:honey_bottle> as IIngredient) ] = <fluid:create:honey> * ContextualConstants.fluidAmtFromMb(250);
         #endif
@@ -69,6 +74,11 @@ public class Utils {
         #onlyif modloaded supplementaries
         FLUID_ITEM_TYPES[ (<item:supplementaries:lumisene_bottle> as IIngredient) ] = <fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(250);
         FLUID_ITEM_TYPES[ (<item:supplementaries:lumisene_bucket> as IIngredient) ] = <fluid:supplementaries:lumisene> * ContextualConstants.fluidAmtFromMb(1000);
+        #endif
+
+        #onlyif modloaded croptopia
+        FLUID_ITEM_TYPES[ (<item:croptopia:water_bottle> as IIngredient) ] = <fluid:minecraft:water> * ContextualConstants.fluidAmtFromMb(62);
+        FLUID_ITEM_TYPES[ (<item:croptopia:milk_bottle> as IIngredient) ] = ContextualConstants.MILK_FLUID * ContextualConstants.fluidAmtFromMb(62);
         #endif
     }
 
