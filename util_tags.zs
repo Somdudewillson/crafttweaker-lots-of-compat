@@ -371,6 +371,18 @@ if (<tag:fluids:forge:honey>.exists() && <tag:fluids:forge:honey>.elements.lengt
 #onlyif modloaded aether
 <tag:items:forge:torches>.add(<item:aether:ambrosium_torch>);
 #endif
+#onlyif modloaded vampiresdelight
+<tag:items:forge:foods/meat>.add(<item:vampiresdelight:raw_bat>);
+<tag:items:forge:foods/meat/raw>.add(<item:vampiresdelight:raw_bat>);
+<tag:items:forge:foods/meat>.add(<item:vampiresdelight:raw_bat_chops>);
+<tag:items:forge:foods/meat/raw>.add(<item:vampiresdelight:raw_bat_chops>);
+#endif
+#onlyif modloaded twilightforest
+<tag:items:forge:foods/meat>.add(<item:twilightforest:raw_venison>);
+<tag:items:forge:foods/meat/raw>.add(<item:twilightforest:raw_venison>);
+<tag:items:forge:foods/meat>.add(<item:twilightforest:raw_meef>);
+<tag:items:forge:foods/meat/raw>.add(<item:twilightforest:raw_meef>);
+#endif
 
 #endif
 
@@ -608,6 +620,18 @@ if (<tag:fluids:forge:honey>.exists() && <tag:fluids:forge:honey>.elements.lengt
 #onlyif modloaded foodtxf
 <tag:items:c:milks>.add(<item:foodtxf:glass_of_milk>);
 #endif
+#onlyif modloaded vampiresdelight
+<tag:items:c:foods/meat>.add(<item:vampiresdelight:raw_bat>);
+<tag:items:c:foods/meat/raw>.add(<item:vampiresdelight:raw_bat>);
+<tag:items:c:foods/meat>.add(<item:vampiresdelight:raw_bat_chops>);
+<tag:items:c:foods/meat/raw>.add(<item:vampiresdelight:raw_bat_chops>);
+#endif
+#onlyif modloaded twilightforest
+<tag:items:c:foods/meat>.add(<item:twilightforest:raw_venison>);
+<tag:items:c:foods/meat/raw>.add(<item:twilightforest:raw_venison>);
+<tag:items:c:foods/meat>.add(<item:twilightforest:raw_meef>);
+<tag:items:c:foods/meat/raw>.add(<item:twilightforest:raw_meef>);
+#endif
 
 #endif
 
@@ -683,29 +707,191 @@ if (<tag:blocks:c:uranium_blocks>.exists() && <tag:blocks:c:uranium_blocks>.elem
 #onlyif modloaded create
 
 // Upright Items
+#onlyif modloaded aether
+<tag:items:create:upright_on_belt>.add(<item:aether:skyroot_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:aether:skyroot_water_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:aether:skyroot_pufferfish_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:aether:skyroot_salmon_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:aether:skyroot_cod_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:aether:skyroot_tropical_fish_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:aether:skyroot_axolotl_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:aether:skyroot_tadpole_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:aether:skyroot_powder_snow_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:aether:skyroot_milk_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:aether:skyroot_remedy_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:aether:skyroot_poison_bucket>);
+#endif
+#onlyif modloaded aetherdelight
+<tag:items:create:upright_on_belt>.add(<item:aetherdelight:aetherflower_tea>);
+<tag:items:create:upright_on_belt>.add(<item:aetherdelight:goldenleaf_salad>);
+<tag:items:create:upright_on_belt>.add(<item:aetherdelight:strange_root_salad>);
+<tag:items:create:upright_on_belt>.add(<item:aetherdelight:luxbuds_salad>);
+#endif
+#onlyif modloaded amendments
+<tag:items:create:upright_on_belt>.add(<item:amendments:dye_bottle>);
+#endif
+#onlyif modloaded armourers_workshop
+<tag:items:create:upright_on_belt>.add(<item:armourers_workshop:dye-bottle>);
+#endif
+#onlyif modloaded artifacts
+<tag:items:create:upright_on_belt>.add(<item:artifacts:cloud_in_a_bottle>);
+#endif
+#onlyif modloaded ars_nouveau
+<tag:items:create:upright_on_belt>.add(<item:ars_nouveau:jar_of_light>);
+<tag:items:create:upright_on_belt>.add(<item:ars_nouveau:void_jar>);
+#endif
+#onlyif modloaded arsdelight
+<tag:items:create:upright_on_belt>.add(<item:arsdelight:source_berry_cupcake>);
+<tag:items:create:upright_on_belt>.add(<item:aetherdelight:quail_stew>);
+<tag:items:create:upright_on_belt>.add(<item:arsdelight:wilden_stew>);
+<tag:items:create:upright_on_belt>.add(<item:arsdelight:wilden_salad>);
+#endif
 #onlyif modloaded alexscaves
 <tag:items:create:upright_on_belt>.add(<item:alexscaves:hot_chocolate_bottle>);
 <tag:items:create:upright_on_belt>.add(<item:alexscaves:purple_soda_bottle>);
 <tag:items:create:upright_on_belt>.add(<item:alexscaves:radon_bottle>);
+<tag:items:create:upright_on_belt>.add(<item:alexscaves:purple_soda_bottle_rocket>);
+<tag:items:create:upright_on_belt>.add(<item:alexscaves:seething_stew>);
+<tag:items:create:upright_on_belt>.add(<item:alexscaves:vesper_stew>);
+#endif
+#onlyif modloaded alexscavesdelight
+<tag:items:create:upright_on_belt>.add(<item:alexscavesdelight:acid_radgill_stew>);
+<tag:items:create:upright_on_belt>.add(<item:alexscavesdelight:heart_of_iron_humburger>);
+<tag:items:create:upright_on_belt>.add(<item:alexscavesdelight:toxic_hamburger>);
 #endif
 #onlyif modloaded alexsmobs
 <tag:items:create:upright_on_belt>.add(<item:alexsmobs:lava_bottle>);
 <tag:items:create:upright_on_belt>.add(<item:alexsmobs:komodo_spit_bottle>);
 <tag:items:create:upright_on_belt>.add(<item:alexsmobs:stink_bottle>);
+
+<tag:items:create:upright_on_belt>.add(<item:alexsmobs:mosquito_repellent_stew>);
+<tag:items:create:upright_on_belt>.add(<item:alexsmobs:kangaroo_burger>);
+
+<tag:items:create:upright_on_belt>.add(<item:alexsmobs:lobster_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:alexsmobs:blobfish_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:alexsmobs:stradpole_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:alexsmobs:platypus_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:alexsmobs:frilled_shark_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:alexsmobs:mimic_octopus_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:alexsmobs:terrapin_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:alexsmobs:comb_jelly_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:alexsmobs:cosmic_cod_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:alexsmobs:devils_hole_pupfish_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:alexsmobs:small_catfish_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:alexsmobs:medium_catfish_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:alexsmobs:large_catfish_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:alexsmobs:flying_fish_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:alexsmobs:mudskipper_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:alexsmobs:triops_bucket>);
+#endif
+#onlyif modloaded blocksyouneed_luna
+<tag:items:create:upright_on_belt>.add(<item:blocksyouneed_luna:creosote_bottle>);
+#endif
+#onlyif modloaded bloodmagic
+<tag:items:create:upright_on_belt>.add(<tag:items:bloodmagic:crystals/demon>);
 #endif
 #onlyif modloaded botania
 <tag:items:create:upright_on_belt>.add(<item:botania:ender_air_bottle>);
 <tag:items:create:upright_on_belt>.add(<item:botania:slime_bottle>);
 <tag:items:create:upright_on_belt>.add(<item:botania:mana_bottle>);
 #endif
+#onlyif modloaded brewery
+<tag:items:create:upright_on_belt>.add(<item:brewery:beer_mug>);
+<tag:items:create:upright_on_belt>.add(<item:brewery:beer_wheat>);
+<tag:items:create:upright_on_belt>.add(<item:brewery:beer_barley>);
+<tag:items:create:upright_on_belt>.add(<item:brewery:beer_hops>);
+<tag:items:create:upright_on_belt>.add(<item:brewery:beer_haley>);
+
+<tag:items:create:upright_on_belt>.add(<item:brewery:whiskey_jojannik>);
+<tag:items:create:upright_on_belt>.add(<item:brewery:whiskey_lilitusinglemalt>);
+<tag:items:create:upright_on_belt>.add(<item:brewery:whiskey_cristelwalker>);
+<tag:items:create:upright_on_belt>.add(<item:brewery:whiskey_maggoallan>);
+<tag:items:create:upright_on_belt>.add(<item:brewery:whiskey_carrasconlabel>);
+#endif
+#onlyif modloaded croptopia
+<tag:items:create:upright_on_belt>.add(<item:croptopia:water_bottle>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:milk_bottle>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:wine>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:cheese_cake>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:tres_leche_cake>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:beef_stew>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:nether_wart_stew>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:beetroot_salad>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:soy_sauce>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:molasses>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:cooking_pot>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:pepper>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:paprika>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:salt>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:olive_oil>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:flour>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:doughnut>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:yam_jam>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:cheeseburger>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:hamburger>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:tofuburger>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:horchata>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:whipping_cream>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:eton_mess>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:tea>);
+<tag:items:create:upright_on_belt>.add(<item:aetherdelight:swet_pudding>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:figgy_pudding>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:sticky_toffee_pudding>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:peanut_butter>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:mango_ice_cream>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:pecan_ice_cream>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:strawberry_ice_cream>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:vanilla_ice_cream>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:rum_raisin_ice_cream>);
+<tag:items:create:upright_on_belt>.add(<item:croptopia:chocolate_ice_cream>);
+#endif
+#onlyif modloaded croptopiaandcreate
+<tag:items:create:upright_on_belt>.add(<item:croptopiaandcreate:vanilla_milkshak_item>);
+<tag:items:create:upright_on_belt>.add(<item:croptopiaandcreate:strawberry_milkshake_item>);
+<tag:items:create:upright_on_belt>.add(<item:croptopiaandcreate:blueberry_ice_cream_item>);
+#endif
+#onlyif modloaded ends_delight
+<tag:items:create:upright_on_belt>.add(<item:ends_delight:enderman_gristle_stew>);
+<tag:items:create:upright_on_belt>.add(<item:ends_delight:dragon_meat_stew_block>);
+<tag:items:create:upright_on_belt>.add(<item:ends_delight:dragon_meat_stew>);
+<tag:items:create:upright_on_belt>.add(<item:ends_delight:assorted_salad>);
+#endif
+#onlyif modloaded outer_end
+<tag:items:create:upright_on_belt>.add(<item:outer_end:brine_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:outer_end:ominous_miasma_bucket>);
+#endif
 #onlyif modloaded quark
 <tag:items:create:upright_on_belt>.add(<item:quark:bottled_cloud>);
+<tag:items:create:upright_on_belt>.add(<item:quark:crab_bucket>);
+<tag:items:create:upright_on_belt>.add(<item:quark:slime_in_a_bucket>);
 #endif
-#onlyif modloaded relic
-<tag:items:create:upright_on_belt>.add(<item:relic:relic_experience_bottle>);
+#onlyif modloaded quarkdelight
+<tag:items:create:upright_on_belt>.add(<item:quarkdelight:cavern_explorer_stew>);
+<tag:items:create:upright_on_belt>.add(<item:quarkdelight:bucket_of_sweet_gelatine>);
+<tag:items:create:upright_on_belt>.add(<item:quarkdelight:lush_moss_salad>);
+#endif
+#onlyif modloaded relics
+<tag:items:create:upright_on_belt>.add(<item:relics:relic_experience_bottle>);
 #endif
 #onlyif modloaded thermal thermal_expansion
 <tag:items:create:upright_on_belt>.add(<item:thermal:syrup_bottle>);
+
+<tag:items:create:upright_on_belt>.add(<item:thermal:blizz_rod>);
+#endif
+#onlyif modloaded thermal thermal_cultivation
+<tag:items:create:upright_on_belt>.add(<item:thermal:jar>);
+<tag:items:create:upright_on_belt>.add(<item:thermal:peanut_butter>);
+<tag:items:create:upright_on_belt>.add(<item:thermal:jelly>);
+<tag:items:create:upright_on_belt>.add(<item:thermal:tomato_sauce>);
+<tag:items:create:upright_on_belt>.add(<item:thermal:carrot_cake>);
+<tag:items:create:upright_on_belt>.add(<item:thermal:chocolate_cake>);
+<tag:items:create:upright_on_belt>.add(<item:thermal:potion_cake>);
+<tag:items:create:upright_on_belt>.add(<item:thermal:spice_cake>);
+<tag:items:create:upright_on_belt>.add(<item:thermal:sushi_maki>);
+<tag:items:create:upright_on_belt>.add(<item:thermal:stuffed_pumpkin>);
+<tag:items:create:upright_on_belt>.add(<item:thermal:hearty_stew>);
+<tag:items:create:upright_on_belt>.add(<item:thermal:xp_stew>);
+<tag:items:create:upright_on_belt>.add(<item:thermal:spring_salad>);
 #endif
 #onlyif modloaded tconstruct
 <tag:items:create:upright_on_belt>.add(<item:tconstruct:splash_bottle>);
@@ -716,12 +902,27 @@ if (<tag:blocks:c:uranium_blocks>.exists() && <tag:blocks:c:uranium_blocks>.elem
 <tag:items:create:upright_on_belt>.add(<item:tconstruct:ender_slime_bottle>);
 <tag:items:create:upright_on_belt>.add(<item:tconstruct:magma_bottle>);
 <tag:items:create:upright_on_belt>.add(<item:tconstruct:venom_bottle>);
+
+<tag:items:create:upright_on_belt>.add(<item:tconstruct:earth_cake>);
+<tag:items:create:upright_on_belt>.add(<item:tconstruct:sky_cake>);
+<tag:items:create:upright_on_belt>.add(<item:tconstruct:ichor_cake>);
+<tag:items:create:upright_on_belt>.add(<item:tconstruct:ender_cake>);
+<tag:items:create:upright_on_belt>.add(<item:tconstruct:blood_cake>);
+<tag:items:create:upright_on_belt>.add(<item:tconstruct:magma_cake>);
 #endif
 #onlyif modloaded tfmg
 <tag:items:create:upright_on_belt>.add(<item:tfmg:bottle_of_concrete>);
 #endif
+#onlyif modloaded twilightforest
+<tag:items:create:upright_on_belt>.add(<item:twilightforest:fiery_tears>);
+#endif
 #onlyif modloaded supplementaries
 <tag:items:create:upright_on_belt>.add(<item:supplementaries:lumisene_bottle>);
+#endif
+#onlyif modloaded farmersdelight
+<tag:items:create:upright_on_belt>.add(<item:farmersdelight:sweet_berry_cheesecake_slice>);
+<tag:items:create:upright_on_belt>.add(<item:farmersdelight:cake_slice>);
+<tag:items:create:upright_on_belt>.add(<item:farmersdelight:hamburger>);
 #endif
 #onlyif modloaded foodtxf
 <tag:items:create:upright_on_belt>.add(<item:foodtxf:thermos>);
@@ -748,21 +949,21 @@ if (<tag:blocks:c:uranium_blocks>.exists() && <tag:blocks:c:uranium_blocks>.elem
 <tag:items:create:upright_on_belt>.add(<item:foodtxf:box_of_cereal>);
 <tag:items:create:upright_on_belt>.add(<item:foodtxf:box_of_cookies>);
 #endif
-#onlyif modloaded amendments
-<tag:items:create:upright_on_belt>.add(<item:amendments:dye_bottle>);
+#onlyif modloaded vampirism
+<tag:items:create:upright_on_belt>.add(<item:vampirism:blood_bottle>);
+<tag:items:create:upright_on_belt>.add(<item:vampirism:vampire_blood_bottle>);
+<tag:items:create:upright_on_belt>.add(<tag:items:vampirism:pure_blood>);
+<tag:items:create:upright_on_belt>.add(<tag:items:vampirism:holy_water_splash>);
 #endif
-#onlyif modloaded brewery
-<tag:items:create:upright_on_belt>.add(<item:brewery:beer_mug>);
-<tag:items:create:upright_on_belt>.add(<item:brewery:beer_wheat>);
-<tag:items:create:upright_on_belt>.add(<item:brewery:beer_barley>);
-<tag:items:create:upright_on_belt>.add(<item:brewery:beer_hops>);
-<tag:items:create:upright_on_belt>.add(<item:brewery:beer_haley>);
+#onlyif modloaded vampiresdelight
+<tag:items:create:upright_on_belt>.add(<tag:items:vampiresdelight:beer_bottles>);
+<tag:items:create:upright_on_belt>.add(<tag:items:vampiresdelight:wine_bottles>);
+<tag:items:create:upright_on_belt>.add(<tag:items:vampiresdelight:wine_shelf_bottles>);
 
-<tag:items:create:upright_on_belt>.add(<item:brewery:whiskey_jojannik>);
-<tag:items:create:upright_on_belt>.add(<item:brewery:whiskey_lilitusinglemalt>);
-<tag:items:create:upright_on_belt>.add(<item:brewery:whiskey_cristelwalker>);
-<tag:items:create:upright_on_belt>.add(<item:brewery:whiskey_maggoallan>);
-<tag:items:create:upright_on_belt>.add(<item:brewery:whiskey_carrasconlabel>);
+<tag:items:create:upright_on_belt>.add(<item:vampiresdelight:cursed_cupcake>);
+<tag:items:create:upright_on_belt>.add(<item:vampiresdelight:orchid_cake_slice>);
+<tag:items:create:upright_on_belt>.add(<item:vampiresdelight:fish_burger>);
+<tag:items:create:upright_on_belt>.add(<item:vampiresdelight:orchid_ice_cream>);
 #endif
 
 // NBT-safe blocks
@@ -795,6 +996,9 @@ if (<tag:blocks:c:uranium_blocks>.exists() && <tag:blocks:c:uranium_blocks>.elem
 #onlyif modloaded chipped
 <tag:blocks:create:fan_transparent>.add(<tag:blocks:chipped:iron_bars>);
 #endif
+#onlyif modloaded tconstruct
+<tag:blocks:create:fan_transparent>.add(<block:tconstruct:gold_bars>);
+#endif
 
 // Passive Boiler Heaters
 #onlyif modloaded chipped
@@ -817,6 +1021,15 @@ if (<tag:blocks:c:uranium_blocks>.exists() && <tag:blocks:c:uranium_blocks>.elem
 <tag:blocks:create:wrench_pickup>.add(<block:supplementaries:crank>);
 <tag:blocks:create:wrench_pickup>.add(<block:supplementaries:sconce_lever>);
 <tag:blocks:create:wrench_pickup>.add(<block:supplementaries:hourglass>);
+#endif
+#onlyif modloaded thermal
+<tag:blocks:create:wrench_pickup>.add(<tag:items:thermal:ducts>);
+#endif
+#onlyif modloaded quark
+<tag:blocks:create:wrench_pickup>.add(<block:quark:redstone_randomizer>);
+<tag:blocks:create:wrench_pickup>.add(<block:quark:chute>);
+<tag:blocks:create:wrench_pickup>.add(<block:quark:crafter>);
+<tag:blocks:create:wrench_pickup>.add(<block:quark:ender_watcher>);
 #endif
 
 #endif
