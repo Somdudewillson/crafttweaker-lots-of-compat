@@ -14,3 +14,11 @@ craftingTable.addShapeless("thermal_cultivation_jelly_to_croptopia_strawberry_ja
     <item:minecraft:sugar>,
     <item:minecraft:sugar>
 ]);
+
+#onlyif modloaded farmersdelight
+<recipetype:farmersdelight:cooking>.addRecipe("cook_thermal_cultivation_jelly_to_croptopia_strawberry_jam", 
+    <item:croptopia:strawberry_jam> * 6, 
+    [ <item:thermal:jelly>, <item:minecraft:sugar> * 6 ], 
+    <constant:farmersdelight:cooking_pot_recipe_book_tab:misc>, 
+    <item:minecraft:glass_bottle>, 0.8, 6 * 5 * 20);
+#endif
