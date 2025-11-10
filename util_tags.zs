@@ -720,6 +720,9 @@ if (<tag:blocks:c:uranium_blocks>.exists() && <tag:blocks:c:uranium_blocks>.elem
 #endif
 #onlyif modloaded tconstruct
 <tag:items:farmersdelight:straw_harvesters>.add(<item:tconstruct:scythe>);
+
+<tag:blocks:farmersdelight:heat_sources>.add(<block:tconstruct:blazing_blood_fluid>);
+<tag:blocks:farmersdelight:tray_heat_sources>.add(<block:tconstruct:blazing_blood_fluid>);
 #endif
 
 #endif
@@ -1028,6 +1031,16 @@ if (<tag:blocks:c:uranium_blocks>.exists() && <tag:blocks:c:uranium_blocks>.elem
 <tag:blocks:create:fan_transparent>.add(<block:scguns:treated_iron_grate>);
 #endif
 
+// Fan Catalysts
+#onlyif modloaded supplementaries
+<tag:blocks:create:fan_processing_catalysts/smoking>.add(<block:supplementaries:fire_pit>);
+#endif
+#onlyif modloaded tconstruct
+<tag:fluids:create:fan_processing_catalysts/haunting>.add(<fluid:tconstruct:liquid_soul>);
+<tag:fluids:create:fan_processing_catalysts/blasting>.add(<fluid:tconstruct:blazing_blood>);
+<tag:fluids:create:fan_processing_catalysts/smoking>.add(<fluid:tconstruct:magma>);
+#endif
+
 // Passive Boiler Heaters
 #onlyif modloaded chipped
 <tag:blocks:create:passive_boiler_heaters>.add(<tag:blocks:chipped:magma_block>);
@@ -1080,6 +1093,16 @@ if (<tag:blocks:c:uranium_blocks>.exists() && <tag:blocks:c:uranium_blocks>.elem
 
 #onlyif modloaded tinkers_advanced
 <tag:items:twilightforest:banned_uncrafting_ingredients>.add(<item:tinkers_advanced:neutronite_ingot>);
+#endif
+
+#endif
+
+// Slice and Dice Tags
+#onlyif modloaded sliceanddice
+
+#onlyif modloaded tconstruct
+<tag:fluids:sliceanddice:burning>.add(<fluid:tconstruct:blazing_blood>);
+<tag:fluids:sliceanddice:burning>.add(<fluid:tconstruct:magma>);
 #endif
 
 #endif
