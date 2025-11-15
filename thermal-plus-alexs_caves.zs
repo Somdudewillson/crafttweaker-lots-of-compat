@@ -150,51 +150,25 @@ import crafttweaker.api.data.IData;
     ],
     "energy": 500
 });
-if (<tag:fluids:forge:slime>.exists() && <tag:fluids:forge:slime>.elements.length>0) {
-  <recipetype:thermal:press>.addJsonRecipe("pack_unrefined_waste_with_slime_byproduct", {
-      "type": "thermal:press",
-      "ingredients": [
-      {
-          "item": "alexscaves:toxic_paste",
-          "count": 9
-      },
-      {
-          "item": "thermal:press_packing_3x3_die"
-      }
-      ],
-      "result": [
-      {
-          "item": "alexscaves:unrefined_waste",
-          "count": 1
-      },
-      {
-        "fluid": <tag:fluids:forge:slime>.elements[0].registryName.toString(),
-        "amount": 250
-      }
-      ],
-      "energy": 100
-  });
-} else {
-  <recipetype:thermal:press>.addJsonRecipe("pack_unrefined_waste", {
-      "type": "thermal:press",
-      "ingredients": [
-      {
-          "item": "alexscaves:toxic_paste",
-          "count": 9
-      },
-      {
-          "item": "thermal:press_packing_3x3_die"
-      }
-      ],
-      "result": [
-      {
-          "item": "alexscaves:unrefined_waste",
-          "count": 1
-      }
-      ],
-      "energy": 100
-  });
-}
+<recipetype:thermal:press>.addJsonRecipe("pack_unrefined_waste", {
+    "type": "thermal:press",
+    "ingredients": [
+    {
+        "item": "alexscaves:toxic_paste",
+        "count": 9
+    },
+    {
+        "item": "thermal:press_packing_3x3_die"
+    }
+    ],
+    "result": [
+    {
+        "item": "alexscaves:unrefined_waste",
+        "count": 1
+    }
+    ],
+    "energy": 100
+});
 <recipetype:thermal:press>.addJsonRecipe("thermal_press_pewen_sap", {
     "type": "thermal:press",
     "ingredients": [
