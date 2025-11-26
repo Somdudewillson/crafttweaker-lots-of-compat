@@ -404,6 +404,19 @@ if (<tag:fluids:forge:honey>.exists() && <tag:fluids:forge:honey>.elements.lengt
 <tag:items:forge:wires/all_metal>.add(<item:blocksyouneed_luna:copper_wire>);
 <tag:items:forge:wires/copper>.add(<item:blocksyouneed_luna:copper_wire>);
 #endif
+#onlyif modloaded woot_revived
+<tag:items:forge:ingots>.add(<item:woot_revived:stygian_ingot>);
+<tag:items:forge:ingots/stygian>.add(<item:woot_revived:stygian_ingot>);
+<tag:items:forge:dusts>.add(<item:woot_revived:stygian_dust>);
+<tag:items:forge:dusts/stygian>.add(<item:woot_revived:stygian_dust>);
+<tag:items:forge:storage_blocks>.add(<item:woot_revived:stygian_block>);
+<tag:items:forge:storage_blocks/stygian>.add(<item:woot_revived:stygian_block>);
+<tag:items:forge:plates>.add(<item:woot_revived:stygian_plate>);
+<tag:items:forge:plates/stygian>.add(<item:woot_revived:stygian_plate>);
+
+<tag:blocks:forge:storage_blocks>.add(<block:woot_revived:stygian_block>);
+<tag:blocks:forge:storage_blocks/stygian>.add(<block:woot_revived:stygian_block>);
+#endif
 
 #endif
 
