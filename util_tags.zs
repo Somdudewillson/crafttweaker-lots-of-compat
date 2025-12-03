@@ -146,6 +146,13 @@ if (<tag:fluids:forge:honey>.exists() && <tag:fluids:forge:honey>.elements.lengt
 #endif
 #onlyif modloaded createdeco
 <tag:items:forge:plates/zinc>.add(<item:createdeco:zinc_sheet>);
+<tag:items:forge:coins>.add(<item:createdeco:gold_coin>);
+<tag:items:forge:coins>.add(<item:createdeco:netherite_coin>);
+<tag:items:forge:coins>.add(<item:createdeco:brass_coin>);
+<tag:items:forge:coins>.add(<item:createdeco:iron_coin>);
+<tag:items:forge:coins>.add(<item:createdeco:copper_coin>);
+<tag:items:forge:coins>.add(<item:createdeco:industrial_iron_coin>);
+<tag:items:forge:coins>.add(<item:createdeco:zinc_coin>);
 #endif
 #onlyif modloaded scguns
 <tag:items:forge:tools/knifes>.add(<item:scguns:anthralite_knife>);
